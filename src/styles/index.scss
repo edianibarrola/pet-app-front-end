@@ -1,3 +1,41 @@
 /* 
     General Styles
 */
+body * {
+    color:rgb(75, 74, 74);
+}
+.pcDarkGreen {
+    background: #5f8989;
+};
+.pcLightGreen {
+    background: #b6dbdb;
+    };
+.pcGradientDarkGreen {
+    background: rgb(79,112,112);
+    background: -moz-linear-gradient(90deg, rgba(79,112,112,1) 0%, rgba(95,137,137,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(79,112,112,1) 0%, rgba(95,137,137,1) 100%);
+    background: linear-gradient(90deg, rgba(79,112,112,1) 0%, rgba(95,137,137,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4f7070",endColorstr="#5f8989",GradientType=1);
+};
+.pcGradientLightGreen {
+        background: rgb(182,219,219);
+        background: -moz-linear-gradient(90deg, rgba(182,219,219,1) 0%, rgba(140,182,182,1) 100%);
+        background: -webkit-linear-gradient(90deg, rgba(182,219,219,1) 0%, rgba(140,182,182,1) 100%);
+        background: linear-gradient(90deg, rgba(182,219,219,1) 0%, rgba(140,182,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b6dbdb",endColorstr="#8cb6b6",GradientType=1);
+    };
+
+.pcTextYellow {
+    color: #dabe96;
+
+}
+
+.pcButton {
+    background: #5f8989;
+    color: #dabe96;
+    text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
