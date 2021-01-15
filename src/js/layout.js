@@ -5,6 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
+import { SignUp } from "./views/signUp";
 import injectContext from "./store/appContext";
 import { LandingPage } from "./views/landingPage";
 
@@ -16,7 +17,7 @@ const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
-
+	console.log("SignUp", SignUp);
 	return (
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
@@ -24,7 +25,16 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
-							<Home />
+							<div
+								className="container d-flex align-items-center justify-content-center"
+								style={{ minHeight: "100vh" }}>
+								<div className="w-100" style={{ maxWidth: "400px" }}>
+									<Home />
+								</div>
+							</div>
+						</Route>
+						<Route exact path="/signup">
+							<SignUp />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
