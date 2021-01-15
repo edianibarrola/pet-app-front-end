@@ -25,20 +25,22 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
-							<Home />
+							<LandingPage />
 						</Route>
 						<Route exact path="/signup">
-                            <div className="container d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
+							<div
+								className="container d-flex align-items-center justify-content-center"
+								style={{ minHeight: "100vh" }}>
 								<div className="w-100" style={{ maxWidth: "400px" }}>
-                                    <SignUp />
-                                </div>
+									<SignUp />
+								</div>
 							</div>
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
-						<Route exact path="/landingPage">
-							<LandingPage />
+						<Route exact path="/home">
+							<Home />
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />

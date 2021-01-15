@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const LandingPage = () => (
 	<div className=" text-center pcGradientLightGreen h-100">
@@ -8,7 +9,9 @@ export const LandingPage = () => (
 		</div>
 
 		<div className="h-50 inline-block">
-			<button className="btn pcButton">Sign Up</button>
+			<Link to="/signup">
+				<button className="btn pcButton">Sign Up</button>
+			</Link>
 		</div>
 	</div>
 );
