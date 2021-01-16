@@ -26,7 +26,7 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
-							<Home />
+							<LandingPage />
 						</Route>
 						<Route exact path="/signup">
 							<div
@@ -40,8 +40,8 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
-						<Route exact path="/landingPage">
-							<LandingPage />
+						<Route exact path="/home">
+							<Home />
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
