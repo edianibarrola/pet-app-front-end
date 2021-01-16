@@ -9,7 +9,7 @@ import { SignUp } from "./views/signUp";
 import injectContext from "./store/appContext";
 import { LandingPage } from "./views/landingPage";
 
-import { Navbar } from "./component/navbar";
+import { PetNavbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 //import { AuthProvider } from "./context/AuthContext";
 
@@ -23,7 +23,7 @@ const Layout = () => {
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					<PetNavbar />
 					<Switch>
 						<Route exact path="/">
 							<LandingPage />
