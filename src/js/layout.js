@@ -11,6 +11,7 @@ import { LandingPage } from "./views/landingPage";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+//import { AuthProvider } from "./context/AuthContext";
 
 //create your first component
 const Layout = () => {
@@ -28,10 +29,12 @@ const Layout = () => {
 							<Home />
 						</Route>
 						<Route exact path="/signup">
-                            <div className="container d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
+							<div
+								className="container d-flex align-items-center justify-content-center"
+								style={{ minHeight: "100vh" }}>
 								<div className="w-100" style={{ maxWidth: "400px" }}>
-                                    <SignUp />
-                                </div>
+									<SignUp />
+								</div>
 							</div>
 						</Route>
 						<Route exact path="/demo">
