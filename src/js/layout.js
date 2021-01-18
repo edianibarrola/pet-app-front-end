@@ -149,6 +149,9 @@ const Layout = () => {
 										</div>
 									</div>
 								</Route>
+								<Route exact path="/calendar">
+									<Calendar />
+								</Route>
 								<Route exact path="/demo">
 									<Demo />
 								</Route>
