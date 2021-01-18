@@ -1,6 +1,6 @@
 import * as React from "react";
 import Paper from "@material-ui/core/Paper";
-import { ViewState } from "@devexpress/dx-react-scheduler";
+import { ViewState, EditingState } from "@devexpress/dx-react-scheduler";
 import { makeStyles } from "@material-ui/core/styles";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import {
@@ -9,6 +9,8 @@ import {
 	WeekView,
 	MonthView,
 	Appointments,
+	AppointmentTooltip,
+	AppointmentForm,
 	Toolbar,
 	ViewSwitcher,
 	DateNavigator,
@@ -109,6 +111,8 @@ export class Calendar extends React.PureComponent {
 					<TodayButton />
 					<ViewSwitcher />
 					<Appointments />
+					<AppointmentTooltip showCloseButton showOpenButton />
+					<AppointmentForm />
 				</Scheduler>
 			</Paper>
 		);
