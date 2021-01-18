@@ -3,7 +3,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Dashboard } from "./views/dashboard";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
-import { SignUp } from "./views/signUp";
+import SignUp from "./views/signUp";
 import injectContext from "./store/appContext";
 import { LandingPage } from "./views/landingPage";
 import { Calendar } from "./views/calendar";
@@ -22,8 +22,6 @@ const Layout = () => {
 	const [passwordError, setPasswordError] = useState("");
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
-	const [hasAccount, setHasAccount] = useState(false);
-	//const history = useHistory();
 
 	const clearInputs = () => {
 		setEmail("");
@@ -129,7 +127,7 @@ const Layout = () => {
 								<Route exact path="/">
 									<LandingPage />
 								</Route>
-								<Route exact path="/signup">
+								<Route exact path="/login">
 									<div
 										className="container d-flex align-items-center justify-content-center"
 										style={{ minHeight: "100vh" }}>
@@ -140,9 +138,25 @@ const Layout = () => {
 												password={password}
 												setPassword={setPassword}
 												handleLogin={handleLogin}
+												emailError={emailError}
+												passwordError={passwordError}
+												clearErrors={clearErrors}
+												clearInputs={clearInputs}
+											/>
+										</div>
+									</div>
+								</Route>
+								<Route exact path="/signup">
+									<div
+										className="container d-flex align-items-center justify-content-center"
+										style={{ minHeight: "100vh" }}>
+										<div className="w-100" style={{ maxWidth: "400px" }}>
+											<SignUp
+												email={email}
+												setEmail={setEmail}
+												password={password}
+												setPassword={setPassword}
 												handleSignUp={handleSignUp}
-												hasAccount={hasAccount}
-												setHasAccount={setHasAccount}
 												emailError={emailError}
 												passwordError={passwordError}
 												firstName={firstName}
