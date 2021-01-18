@@ -13,5 +13,5 @@ export const Dashboard = ({ handleLogOut }) => (
 );
 
 Dashboard.propTypes = {
-	handleLogOut: PropTypes.funct
+	handleLogOut: PropTypes.func
 };
