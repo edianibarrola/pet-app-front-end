@@ -9,12 +9,12 @@ export const PetNavbar = () => {
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse id="responsive-navbar-nav">
 				<Nav className="ml-auto ">
-					<NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+					<NavDropdown title="Menu" id="collasible-nav-dropdown">
 						<NavDropdown.Item href="/home">Home</NavDropdown.Item>
 						<NavDropdown.Item href="/">Landing Page</NavDropdown.Item>
 						<NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
 						<NavDropdown.Divider />
-						<NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+						<NavDropdown.Item href="/calendar">Calendar</NavDropdown.Item>
 					</NavDropdown>
 				</Nav>
 			</Navbar.Collapse>

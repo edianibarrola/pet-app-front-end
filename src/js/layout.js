@@ -7,9 +7,11 @@ import { Single } from "./views/single";
 import { SignUp } from "./views/signUp";
 import injectContext from "./store/appContext";
 import { LandingPage } from "./views/landingPage";
+import { Calendar } from "./views/calendar";
 
 import { PetNavbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+
 //import { AuthProvider } from "./context/AuthContext";
 
 import React, { useContext, useState, useEffect } from "react";
