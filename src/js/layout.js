@@ -8,9 +8,11 @@ import { Single } from "./views/single";
 import { SignUp } from "./views/signUp";
 import injectContext from "./store/appContext";
 import { LandingPage } from "./views/landingPage";
+import { Calendar } from "./views/calendar";
 
 import { PetNavbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+
 //import { AuthProvider } from "./context/AuthContext";
 
 //create your first component
@@ -36,6 +38,9 @@ const Layout = () => {
 									<SignUp />
 								</div>
 							</div>
+						</Route>
+						<Route exact path="/calendar">
+							<Calendar />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
