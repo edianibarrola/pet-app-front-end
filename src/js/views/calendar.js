@@ -3,7 +3,17 @@ import Paper from "@material-ui/core/Paper";
 import { ViewState } from "@devexpress/dx-react-scheduler";
 import { makeStyles } from "@material-ui/core/styles";
 import { fade } from "@material-ui/core/styles/colorManipulator";
-import { Scheduler, DayView, WeekView, MonthView, Appointments } from "@devexpress/dx-react-scheduler-material-ui";
+import {
+	Scheduler,
+	DayView,
+	WeekView,
+	MonthView,
+	Appointments,
+	Toolbar,
+	ViewSwitcher,
+	DateNavigator,
+	TodayButton
+} from "@devexpress/dx-react-scheduler-material-ui";
 import appointments from "../../calendar-data/today-appointments";
 
 const useStyles = makeStyles(theme => ({
@@ -66,18 +76,41 @@ const schedulerData = [
 	{ startDate: "2018-11-01T12:00", endDate: "2018-11-01T13:30", title: "Go to a gym" }
 ];
 
-export const Calendar = () => (
-	<Paper>
-		<Scheduler data={appointments}>
-			<ViewState currentDate={currentDate} />
-			<DayView startDayHour={9} endDayHour={14} />
-			<WeekView
-				startDayHour={9}
-				endDayHour={14}
-				timeTableCellComponent={TimeTableCell}
-				dayScaleCellComponent={DayScaleCell}
-			/>
-			<Appointments />
-		</Scheduler>
-	</Paper>
-);
+export class Calendar extends React.PureComponent {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			data: appointments,
+			currentDate: "2018-06-27"
+		};
+		this.currentDateChange = currentDate => {
+			this.setState({ currentDate });
+		};
+	}
+
+	render() {
+		const { data, currentDate } = this.state;
+
+		return (
+			<Paper>
+				<Scheduler data={appointments}>
+					<ViewState currentDate={currentDate} onCurrentDateChange={this.currentDateChange} />
+					<DayView startDayHour={9} endDayHour={14} />
+					<WeekView
+						startDayHour={9}
+						endDayHour={14}
+						timeTableCellComponent={TimeTableCell}
+						dayScaleCellComponent={DayScaleCell}
+					/>
+					<MonthView startDayHour={9} endDayHour={14} />
+					<Toolbar />
+					<DateNavigator />
+					<TodayButton />
+					<ViewSwitcher />
+					<Appointments />
+				</Scheduler>
+			</Paper>
+		);
+	}
+}
