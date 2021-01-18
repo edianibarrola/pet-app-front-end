@@ -109,6 +109,9 @@ const Layout = () => {
 							<Route exact path="/dashboard">
 								<Dashboard handleLogOut={handleLogOut} />
 							</Route>
+							<Route exact path="/calendar">
+								<Calendar />
+							</Route>
 							<Route>
 								<h1>Not found!</h1>
 							</Route>
@@ -149,14 +152,8 @@ const Layout = () => {
 										</div>
 									</div>
 								</Route>
-								<Route exact path="/calendar">
-									<Calendar />
-								</Route>
 								<Route exact path="/demo">
 									<Demo />
-								</Route>
-								<Route exact path="/dashboard">
-									<Dashboard />
 								</Route>
 								<Route exact path="/single/:theid">
 									<Single />
