@@ -12,15 +12,15 @@
 
 // export const auth = app.auth();
 // export default app;
-import firebase from 'firebase';
+import firebase from "firebase";
 
 var firebaseConfig = {
-    apiKey: "AIzaSyABFnRlibXGPrvqmyxxEXLplxQ-D4-kzNA",
-    authDomain: "petapp-development.firebaseapp.com",
-    projectId: "petapp-development",
-    storageBucket: "petapp-development.appspot.com",
-    messagingSenderId: "644174518604",
-    appId: "1:644174518604:web:ab674ccfa99f76cd5f97e9"
+	apiKey: "AIzaSyABFnRlibXGPrvqmyxxEXLplxQ-D4-kzNA",
+	authDomain: "petapp-development.firebaseapp.com",
+	projectId: "petapp-development",
+	storageBucket: "petapp-development.appspot.com",
+	messagingSenderId: "644174518604",
+	appId: "1:644174518604:web:ab674ccfa99f76cd5f97e9"
 };
 
 const fire = firebase.initializeApp(firebaseConfig);
