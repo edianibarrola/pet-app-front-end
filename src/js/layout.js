@@ -101,7 +101,20 @@ const Layout = () => {
 	return (
 		<div>
 			{user ? (
-				<Dashboard handleLogOut={handleLogOut} />
+				<BrowserRouter basename={basename}>
+					<ScrollToTop>
+						<PetNavbar />
+						<Switch>
+							<Route exact path="/dashboard">
+								<Dashboard handleLogOut={handleLogOut} />
+							</Route>
+							<Route>
+								<h1>Not found!</h1>
+							</Route>
+						</Switch>
+						<Footer />
+					</ScrollToTop>
+				</BrowserRouter>
 			) : (
 				<div className="d-flex flex-column">
 					<BrowserRouter basename={basename}>
