@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
 import { Dashboard } from "./views/dashboard";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
@@ -8,17 +7,13 @@ import { SignUp } from "./views/signUp";
 import injectContext from "./store/appContext";
 import { LandingPage } from "./views/landingPage";
 import { Calendar } from "./views/calendar";
-
 import { PetNavbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-
-//import { AuthProvider } from "./context/AuthContext";
-
 import React, { useContext, useState, useEffect } from "react";
 import fire from "../firebase";
 import Login from "./views/login";
+//import { useHistory } from "react-router-dom";
 
-//create your first component
 const Layout = () => {
 	const [user, setUser] = useState("");
 	const [email, setEmail] = useState("");
@@ -28,6 +23,7 @@ const Layout = () => {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [hasAccount, setHasAccount] = useState(false);
+	//const history = useHistory();
 
 	const clearInputs = () => {
 		setEmail("");
@@ -45,6 +41,9 @@ const Layout = () => {
 		clearErrors();
 		fire.auth()
 			.signInWithEmailAndPassword(email, password)
+			// .then(user => {
+			// 	history.push("/dashboard");
+			// })
 			.catch(err => {
 				switch (err.code) {
 					case "auth/invalid-email":
@@ -63,6 +62,9 @@ const Layout = () => {
 		clearErrors();
 		fire.auth()
 			.createUserWithEmailAndPassword(email, password)
+			// .then(user => {
+			// 	history.push("/dashboard");
+			// })
 			.catch(err => {
 				switch (err.code) {
 					case "auth/email-already-in-use":
@@ -104,7 +106,6 @@ const Layout = () => {
 				<BrowserRouter basename={basename}>
 					<ScrollToTop>
 						<PetNavbar />
-
 						<Switch>
 							<Route exact path="/dashboard">
 								<Dashboard handleLogOut={handleLogOut} />
@@ -148,6 +149,8 @@ const Layout = () => {
 												lastName={lastName}
 												setLastName={setLastName}
 												setFirstName={setFirstName}
+												clearErrors={clearErrors}
+												clearInputs={clearInputs}
 											/>
 										</div>
 									</div>

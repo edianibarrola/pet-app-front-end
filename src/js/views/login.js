@@ -1,7 +1,6 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 const Login = props => {
 	const {
@@ -18,8 +17,11 @@ const Login = props => {
 		setLastName,
 		lastName,
 		setFirstName,
-		firstName
+		firstName,
+		clearInputs,
+		clearErrors
 	} = props;
+
 	return (
 		<div>
 			{hasAccount ? (
@@ -50,11 +52,9 @@ const Login = props => {
 								<p>{passwordError}</p>
 							</Form>
 							<div>
-								<Link to="/dashboard">
-									<Button className="w-100 text-center mt-2" onClick={handleLogin}>
-										Sign in
-									</Button>
-								</Link>
+								<Button className="w-100 text-center mt-2" onClick={handleLogin}>
+									Sign in
+								</Button>
 							</div>
 						</div>
 					</div>
@@ -63,7 +63,14 @@ const Login = props => {
 							<p>
 								Don&apos;t have an account?{" "}
 								<a>
-									<span onClick={() => setHasAccount(!hasAccount)}>Sign up</span>
+									<span
+										onClick={() => {
+											setHasAccount(!hasAccount);
+											clearErrors();
+											clearInputs();
+										}}>
+										Sign up
+									</span>
 								</a>
 							</p>
 						</>
@@ -124,7 +131,15 @@ const Login = props => {
 					<div className="w-100 text-center mt-2">
 						<>
 							<p>
-								Have an account? <a onClick={() => setHasAccount(!hasAccount)}>Sign in</a>
+								Have an account?{" "}
+								<a
+									onClick={() => {
+										setHasAccount(!hasAccount);
+										clearErrors();
+										clearInputs();
+									}}>
+									Sign in
+								</a>
 							</p>
 						</>
 					</div>
@@ -147,6 +162,8 @@ Login.propTypes = {
 	setLastName: PropTypes.func,
 	lastName: PropTypes.string,
 	setFirstName: PropTypes.func,
-	firstName: PropTypes.string
+	firstName: PropTypes.string,
+	clearErrors: PropTypes.func,
+	clearInputs: PropTypes.func
 };
 export default Login;
