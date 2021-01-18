@@ -104,6 +104,7 @@ const Layout = () => {
 				<BrowserRouter basename={basename}>
 					<ScrollToTop>
 						<PetNavbar />
+
 						<Switch>
 							<Route exact path="/dashboard">
 								<Dashboard handleLogOut={handleLogOut} />
