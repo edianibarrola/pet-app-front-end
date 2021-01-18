@@ -1,24 +1,19 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
 import { Dashboard } from "./views/dashboard";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
-import { SignUp } from "./views/signUp";
+import SignUp from "./views/signUp";
 import injectContext from "./store/appContext";
 import { LandingPage } from "./views/landingPage";
 import { Calendar } from "./views/calendar";
-
 import { PetNavbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-
-//import { AuthProvider } from "./context/AuthContext";
-
 import React, { useContext, useState, useEffect } from "react";
 import fire from "../firebase";
 import Login from "./views/login";
+//import { useHistory } from "react-router-dom";
 
-//create your first component
 const Layout = () => {
 	const [user, setUser] = useState("");
 	const [email, setEmail] = useState("");
@@ -27,7 +22,6 @@ const Layout = () => {
 	const [passwordError, setPasswordError] = useState("");
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
-	const [hasAccount, setHasAccount] = useState(false);
 
 	const clearInputs = () => {
 		setEmail("");
@@ -45,6 +39,9 @@ const Layout = () => {
 		clearErrors();
 		fire.auth()
 			.signInWithEmailAndPassword(email, password)
+			// .then(user => {
+			// 	history.push("/dashboard");
+			// })
 			.catch(err => {
 				switch (err.code) {
 					case "auth/invalid-email":
@@ -63,6 +60,9 @@ const Layout = () => {
 		clearErrors();
 		fire.auth()
 			.createUserWithEmailAndPassword(email, password)
+			// .then(user => {
+			// 	history.push("/dashboard");
+			// })
 			.catch(err => {
 				switch (err.code) {
 					case "auth/email-already-in-use":
@@ -104,7 +104,6 @@ const Layout = () => {
 				<BrowserRouter basename={basename}>
 					<ScrollToTop>
 						<PetNavbar />
-
 						<Switch>
 							<Route exact path="/dashboard">
 								<Dashboard handleLogOut={handleLogOut} />
@@ -128,7 +127,7 @@ const Layout = () => {
 								<Route exact path="/">
 									<LandingPage />
 								</Route>
-								<Route exact path="/signup">
+								<Route exact path="/login">
 									<div
 										className="container d-flex align-items-center justify-content-center"
 										style={{ minHeight: "100vh" }}>
@@ -139,15 +138,33 @@ const Layout = () => {
 												password={password}
 												setPassword={setPassword}
 												handleLogin={handleLogin}
+												emailError={emailError}
+												passwordError={passwordError}
+												clearErrors={clearErrors}
+												clearInputs={clearInputs}
+											/>
+										</div>
+									</div>
+								</Route>
+								<Route exact path="/signup">
+									<div
+										className="container d-flex align-items-center justify-content-center"
+										style={{ minHeight: "100vh" }}>
+										<div className="w-100" style={{ maxWidth: "400px" }}>
+											<SignUp
+												email={email}
+												setEmail={setEmail}
+												password={password}
+												setPassword={setPassword}
 												handleSignUp={handleSignUp}
-												hasAccount={hasAccount}
-												setHasAccount={setHasAccount}
 												emailError={emailError}
 												passwordError={passwordError}
 												firstName={firstName}
 												lastName={lastName}
 												setLastName={setLastName}
 												setFirstName={setFirstName}
+												clearErrors={clearErrors}
+												clearInputs={clearInputs}
 											/>
 										</div>
 									</div>

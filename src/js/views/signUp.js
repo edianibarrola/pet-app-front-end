@@ -1,58 +1,107 @@
-import React, { useRef } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
-//import { useAuth } from "../context/AuthContext";
-
-export const SignUp = () => {
-	const emailRef = useRef();
-	const passwordRef = useRef();
-	const confirmPassRef = useRef();
-	// const { signup } = useAuth();
-	// const [error, setError] = useState("");
-	// const [loading, setLoading] = useState(false);
-
-	// async function handleSubmit(e) {
-	// 	e.preventDefault();
-	// 	if (passwordRef.current.value !== confirmPassRef.current.value) {
-	// 		return setError("Passwords do not match!");
-	// 	}
-	// 	try {
-	// 		setError("");
-	// 		setLoading(true);
-	// 		await signup(emailRef.current.value, passwordRef.current.value);
-	// 	} catch {
-	// 		setError("Failed to create an account!");
-	// 	}
-	// 	setLoading(false);
-	// }
+import React from "react";
+import { Form, Button } from "react-bootstrap";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+const SignUp = props => {
+	const {
+		email,
+		setEmail,
+		password,
+		setPassword,
+		handleSignUp,
+		emailError,
+		passwordError,
+		setLastName,
+		lastName,
+		setFirstName,
+		firstName,
+		clearInputs,
+		clearErrors
+	} = props;
 
 	return (
 		<div>
 			<div className="card">
 				<div className="card-body">
 					<h2 className="text-center mb-4">Sign Up</h2>
-					{/* {error && <Alert variant="danger">{error}</Alert>} */}
 					<Form>
+						<Form.Group id="firstName">
+							<Form.Label>First Name</Form.Label>
+							<Form.Control
+								type="text"
+								onChange={e => setFirstName(e.target.value)}
+								value={firstName}
+								required
+							/>
+						</Form.Group>
+						<Form.Group id="lastName">
+							<Form.Label>Last Name</Form.Label>
+							<Form.Control
+								type="text"
+								onChange={e => setLastName(e.target.value)}
+								value={lastName}
+								required
+							/>
+						</Form.Group>
 						<Form.Group id="email">
 							<Form.Label>Email</Form.Label>
-							<Form.Control type="email" ref={emailRef} required />
+							<Form.Control
+								type="email"
+								onChange={e => setEmail(e.target.value)}
+								value={email}
+								required
+							/>
 						</Form.Group>
+						<p>{emailError}</p>
 						<Form.Group id="password">
 							<Form.Label>Password</Form.Label>
-							<Form.Control type="password" ref={passwordRef} required />
+							<Form.Control
+								type="password"
+								onChange={e => setPassword(e.target.value)}
+								value={password}
+								required
+							/>
 						</Form.Group>
-						<Form.Group id="confirmpass">
-							<Form.Label>Confirm Password</Form.Label>
-							<Form.Control type="password" ref={confirmPassRef} required />
-						</Form.Group>
-						<Button className="w-100" type="submit">
-							Finish Sign Up
-						</Button>
+						<p>{passwordError}</p>
 					</Form>
+					<div>
+						<Button className="w-100 text-center mt-2" onClick={handleSignUp}>
+							Sign Up
+						</Button>
+					</div>
 				</div>
 			</div>
-			<div className="w-100 text-center mt-2">Already have an account? Login</div>
+			<div className="w-100 text-center mt-2">
+				<>
+					<p>
+						Have an account?{" "}
+						<Link
+							to="/login"
+							onClick={() => {
+								clearErrors();
+								clearInputs();
+							}}>
+							<a>Sign in</a>
+						</Link>
+					</p>
+				</>
+			</div>
 		</div>
 	);
 };
-//form onSubmit={handleSubmit}
-//button disabled={loading}
+SignUp.propTypes = {
+	email: PropTypes.string,
+	setEmail: PropTypes.func,
+	password: PropTypes.string,
+	setPassword: PropTypes.func,
+	handleSignUp: PropTypes.func,
+	emailError: PropTypes.string,
+	passwordError: PropTypes.string,
+	setLastName: PropTypes.func,
+	lastName: PropTypes.string,
+	setFirstName: PropTypes.func,
+	firstName: PropTypes.string,
+	clearErrors: PropTypes.func,
+	clearInputs: PropTypes.func
+};
+export default SignUp;
