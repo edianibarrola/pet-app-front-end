@@ -1,6 +1,8 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+
 const Login = props => {
 	const {
 		email,
@@ -48,9 +50,11 @@ const Login = props => {
 								<p>{passwordError}</p>
 							</Form>
 							<div>
-								<Button className="w-100 text-center mt-2" onClick={handleLogin}>
-									Sign in
-								</Button>
+								<Link to="/dashboard">
+									<Button className="w-100 text-center mt-2" onClick={handleLogin}>
+										Sign in
+									</Button>
+								</Link>
 							</div>
 						</div>
 					</div>
