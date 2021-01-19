@@ -13,7 +13,7 @@ import fire from "../firebase";
 import Login from "./views/login";
 import React, { useEffect, useContext } from "react";
 import { Context } from "../js/store/appContext";
-
+import ResetPassword from "./views/resetPassword";
 const Layout = () => {
 	const { store, actions } = useContext(Context);
 
@@ -68,6 +68,15 @@ const Layout = () => {
 										style={{ minHeight: "100vh" }}>
 										<div className="w-100" style={{ maxWidth: "400px" }}>
 											<SignUp />
+										</div>
+									</div>
+								</Route>
+								<Route exact path="/reset">
+									<div
+										className="container d-flex align-items-center justify-content-center"
+										style={{ minHeight: "100vh" }}>
+										<div className="w-100" style={{ maxWidth: "400px" }}>
+											<ResetPassword />
 										</div>
 									</div>
 								</Route>

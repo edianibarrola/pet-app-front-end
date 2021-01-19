@@ -8,7 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			firstName: "",
 			lastName: "",
 			emailError: "",
-			passwordError: ""
+			passwordError: "",
+			emailSent: ""
 		},
 		actions: {
 			loadSomeData: () => {
@@ -17,6 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				*/
 			},
 			clearInputs: () => {
+				//Clears the input fields when signing up or logging in
 				setStore({ email: "" });
 				setStore({ password: "" });
 				setStore({ firstName: "" });
@@ -24,17 +26,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			clearErrors: () => {
+				//Clears the error messages when signing up or logging in is successful
 				setStore({ emailError: "" });
 				setStore({ passwordError: "" });
 			},
 
 			handleLogin: (userEmail, userPassword) => {
+				//Logins the user if the user is in the database, if not it will provide an error message as to why you cannot login
 				getActions().clearErrors();
 				let store = getStore();
 				setStore({ email: userEmail });
 				setStore({ password: userPassword });
 				fire.auth()
 					.signInWithEmailAndPassword(store.email, store.password)
+					// .then(() => {
+					// 	history.push("/dashboard");
+					// })
 					.catch(err => {
 						switch (err.code) {
 							case "auth/invalid-email":
@@ -50,6 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			handleSignUp: (userEmail, userPassword) => {
+				//Signs up the user if the user is not in the database, if not it will provide an error message as to why you cannot signup
 				getActions().clearErrors();
 				let store = getStore();
 				setStore({ email: userEmail });
@@ -68,12 +76,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					});
 			},
+			handleResetPassword: userEmail => {
+				let store = getStore();
+				if (userEmail != "") {
+					setStore({ email: userEmail });
+					fire.auth()
+						.sendPasswordResetEmail(store.email)
+						.then(() =>
+							setStore({
+								emailSent: "An email has been sent to the provided email with further instructions."
+							})
+						)
+						.catch(err => {
+							switch (err.code) {
+								case "auth/invalid-email":
+									setStore({ emailError: err.message });
+									break;
+								case "auth/user-not-found":
+									setStore({ emailError: err.message });
+									break;
+							}
+						});
+				}
+			},
 
 			handleLogOut: () => {
+				//Logs the user out
 				fire.auth().signOut();
 			},
 
 			authListener: () => {
+				//Authenticates the user
 				fire.auth().onAuthStateChanged(user => {
 					if (user) {
 						getActions().clearInputs();
