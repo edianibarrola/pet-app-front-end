@@ -1,42 +1,87 @@
+import fire from "../../firebase";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			user: "",
+			email: "",
+			password: "",
+			firstName: "",
+			lastName: "",
+			emailError: "",
+			passwordError: ""
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
 			loadSomeData: () => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+			clearInputs: () => {
+				setStore({ email: "" });
+				setStore({ password: "" });
+				setStore({ firstName: "" });
+				setStore({ lastName: "" });
+			},
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
+			clearErrors: () => {
+				setStore({ emailError: "" });
+				setStore({ passwordError: "" });
+			},
+
+			handleLogin: (userEmail, userPassword) => {
+				getActions().clearErrors();
+				let store = getStore();
+				setStore({ email: userEmail });
+				setStore({ password: userPassword });
+				fire.auth()
+					.signInWithEmailAndPassword(store.email, store.password)
+					.catch(err => {
+						switch (err.code) {
+							case "auth/invalid-email":
+							case "auth/user-disabled":
+							case "auth/user-not-found":
+								setStore({ emailError: err.message });
+								break;
+							case "auth/wrong-password":
+								setStore({ passwordError: err.message });
+								break;
+						}
+					});
+			},
+
+			handleSignUp: (userEmail, userPassword) => {
+				getActions().clearErrors();
+				let store = getStore();
+				setStore({ email: userEmail });
+				setStore({ password: userPassword });
+				fire.auth()
+					.createUserWithEmailAndPassword(store.email, store.password)
+					.catch(err => {
+						switch (err.code) {
+							case "auth/email-already-in-use":
+							case "auth/invalid-email":
+								setStore({ emailError: err.message });
+								break;
+							case "auth/weak-password":
+								setStore({ passwordError: err.message });
+								break;
+						}
+					});
+			},
+
+			handleLogOut: () => {
+				fire.auth().signOut();
+			},
+
+			authListener: () => {
+				fire.auth().onAuthStateChanged(user => {
+					if (user) {
+						getActions().clearInputs();
+						setStore({ user: user });
+					} else {
+						setStore({ user: "" });
+					}
 				});
-
-				//reset the global store
-				setStore({ demo: demo });
 			}
 		}
 	};

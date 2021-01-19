@@ -1,21 +1,12 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Form, Button } from "react-bootstrap";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Login = props => {
-	const {
-		email,
-		setEmail,
-		password,
-		setPassword,
-		handleLogin,
-		emailError,
-		passwordError,
-		clearInputs,
-		clearErrors
-	} = props;
-
+const Login = () => {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const { store, actions } = useContext(Context);
 	return (
 		<div>
 			<div className="card">
@@ -31,7 +22,7 @@ const Login = props => {
 								required
 							/>
 						</Form.Group>
-						<p>{emailError}</p>
+						<p>{store.emailError}</p>
 						<Form.Group id="password">
 							<Form.Label>Password</Form.Label>
 							<Form.Control
@@ -41,10 +32,10 @@ const Login = props => {
 								required
 							/>
 						</Form.Group>
-						<p>{passwordError}</p>
+						<p>{store.passwordError}</p>
 					</Form>
 					<div>
-						<Button className="w-100 text-center mt-2" onClick={handleLogin}>
+						<Button className="w-100 text-center mt-2" onClick={() => actions.handleLogin(email, password)}>
 							Sign in
 						</Button>
 					</div>
@@ -57,8 +48,8 @@ const Login = props => {
 						<Link
 							to="/signup"
 							onClick={() => {
-								clearErrors();
-								clearInputs();
+								actions.clearErrors();
+								actions.clearInputs();
 							}}>
 							<a>Sign up</a>
 						</Link>
@@ -68,15 +59,5 @@ const Login = props => {
 		</div>
 	);
 };
-Login.propTypes = {
-	email: PropTypes.string,
-	setEmail: PropTypes.func,
-	password: PropTypes.string,
-	setPassword: PropTypes.func,
-	handleLogin: PropTypes.func,
-	emailError: PropTypes.string,
-	passwordError: PropTypes.string,
-	clearErrors: PropTypes.func,
-	clearInputs: PropTypes.func
-};
+
 export default Login;
