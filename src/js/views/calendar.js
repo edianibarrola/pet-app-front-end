@@ -73,11 +73,16 @@ const DayScaleCell = props => {
 	return <WeekView.DayScaleCell {...props} />;
 };
 
-const currentDate = "2018-11-01";
-const schedulerData = [
-	{ startDate: "2018-11-01T09:45", endDate: "2018-11-01T11:00", title: "Meeting" },
-	{ startDate: "2018-11-01T12:00", endDate: "2018-11-01T13:30", title: "Go to a gym" }
-];
+//const currentDate = "2018-11-01";
+//const schedulerData = [
+//	{ startDate: "2018-11-01T09:45", endDate: "2018-11-01T11:00", title: "Meeting" },
+//	{ startDate: "2018-11-01T12:00", endDate: "2018-11-01T13:30", title: "Go to a gym" }
+//];
+var currentTime = new Date();
+var curMonth = currentTime.getMonth() + 1;
+var curDay = currentTime.getDate();
+var curYear = currentTime.getFullYear();
+var curTimeFormat = curYear + "-" + curMonth + "-" + curDay;
 
 export class Calendar extends React.PureComponent {
 	constructor(props) {
@@ -85,7 +90,7 @@ export class Calendar extends React.PureComponent {
 
 		this.state = {
 			data: appointments,
-			currentDate: "2018-06-27"
+			currentDate: curTimeFormat
 		};
 		this.currentDateChange = currentDate => {
 			this.setState({ currentDate });
