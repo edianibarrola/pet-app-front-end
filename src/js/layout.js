@@ -9,104 +9,30 @@ import { LandingPage } from "./views/landingPage";
 import { Calendar } from "./views/calendar";
 import { PetNavbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import React, { useContext, useState, useEffect } from "react";
 import fire from "../firebase";
 import Login from "./views/login";
-//import { useHistory } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
+import { Context } from "../js/store/appContext";
 
 const Layout = () => {
-	const [user, setUser] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [emailError, setEmailError] = useState("");
-	const [passwordError, setPasswordError] = useState("");
-	const [firstName, setFirstName] = useState("");
-	const [lastName, setLastName] = useState("");
-
-	const clearInputs = () => {
-		setEmail("");
-		setPassword("");
-		setFirstName("");
-		setLastName("");
-	};
-
-	const clearErrors = () => {
-		setEmailError("");
-		setPasswordError("");
-	};
-
-	const handleLogin = () => {
-		clearErrors();
-		fire.auth()
-			.signInWithEmailAndPassword(email, password)
-			// .then(user => {
-			// 	history.push("/dashboard");
-			// })
-			.catch(err => {
-				switch (err.code) {
-					case "auth/invalid-email":
-					case "auth/user-disabled":
-					case "auth/user-not-found":
-						setEmailError(err.message);
-						break;
-					case "auth/wrong-password":
-						setPasswordError(err.message);
-						break;
-				}
-			});
-	};
-
-	const handleSignUp = () => {
-		clearErrors();
-		fire.auth()
-			.createUserWithEmailAndPassword(email, password)
-			// .then(user => {
-			// 	history.push("/dashboard");
-			// })
-			.catch(err => {
-				switch (err.code) {
-					case "auth/email-already-in-use":
-					case "auth/invalid-email":
-						setEmailError(err.message);
-						break;
-					case "auth/weak-password":
-						setPasswordError(err.message);
-						break;
-				}
-			});
-	};
-
-	const handleLogOut = () => {
-		fire.auth().signOut();
-	};
+	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
-		authListener();
+		actions.authListener();
 	}, []);
-
-	const authListener = () => {
-		fire.auth().onAuthStateChanged(user => {
-			if (user) {
-				clearInputs();
-				setUser(user);
-			} else {
-				setUser("");
-			}
-		});
-	};
 
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
 	return (
 		<div>
-			{user ? (
+			{store.user ? (
 				<BrowserRouter basename={basename}>
 					<ScrollToTop>
 						<PetNavbar />
 						<Switch>
 							<Route exact path="/dashboard">
-								<Dashboard handleLogOut={handleLogOut} />
+								<Dashboard />
 							</Route>
 							<Route exact path="/calendar">
 								<Calendar />
@@ -132,17 +58,7 @@ const Layout = () => {
 										className="container d-flex align-items-center justify-content-center"
 										style={{ minHeight: "100vh" }}>
 										<div className="w-100" style={{ maxWidth: "400px" }}>
-											<Login
-												email={email}
-												setEmail={setEmail}
-												password={password}
-												setPassword={setPassword}
-												handleLogin={handleLogin}
-												emailError={emailError}
-												passwordError={passwordError}
-												clearErrors={clearErrors}
-												clearInputs={clearInputs}
-											/>
+											<Login />
 										</div>
 									</div>
 								</Route>
@@ -151,21 +67,7 @@ const Layout = () => {
 										className="container d-flex align-items-center justify-content-center"
 										style={{ minHeight: "100vh" }}>
 										<div className="w-100" style={{ maxWidth: "400px" }}>
-											<SignUp
-												email={email}
-												setEmail={setEmail}
-												password={password}
-												setPassword={setPassword}
-												handleSignUp={handleSignUp}
-												emailError={emailError}
-												passwordError={passwordError}
-												firstName={firstName}
-												lastName={lastName}
-												setLastName={setLastName}
-												setFirstName={setFirstName}
-												clearErrors={clearErrors}
-												clearInputs={clearInputs}
-											/>
+											<SignUp />
 										</div>
 									</div>
 								</Route>

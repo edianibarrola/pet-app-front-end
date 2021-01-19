@@ -1,24 +1,14 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Form, Button } from "react-bootstrap";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-const SignUp = props => {
-	const {
-		email,
-		setEmail,
-		password,
-		setPassword,
-		handleSignUp,
-		emailError,
-		passwordError,
-		setLastName,
-		lastName,
-		setFirstName,
-		firstName,
-		clearInputs,
-		clearErrors
-	} = props;
 
+const SignUp = () => {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const { store, actions } = useContext(Context);
 	return (
 		<div>
 			<div className="card">
@@ -52,7 +42,7 @@ const SignUp = props => {
 								required
 							/>
 						</Form.Group>
-						<p>{emailError}</p>
+						<p>{store.emailError}</p>
 						<Form.Group id="password">
 							<Form.Label>Password</Form.Label>
 							<Form.Control
@@ -62,10 +52,12 @@ const SignUp = props => {
 								required
 							/>
 						</Form.Group>
-						<p>{passwordError}</p>
+						<p>{store.passwordError}</p>
 					</Form>
 					<div>
-						<Button className="w-100 text-center mt-2" onClick={handleSignUp}>
+						<Button
+							className="w-100 text-center mt-2"
+							onClick={() => actions.handleSignUp(email, password)}>
 							Sign Up
 						</Button>
 					</div>
@@ -78,8 +70,8 @@ const SignUp = props => {
 						<Link
 							to="/login"
 							onClick={() => {
-								clearErrors();
-								clearInputs();
+								actions.clearErrors();
+								actions.clearInputs();
 							}}>
 							<a>Sign in</a>
 						</Link>
@@ -89,19 +81,5 @@ const SignUp = props => {
 		</div>
 	);
 };
-SignUp.propTypes = {
-	email: PropTypes.string,
-	setEmail: PropTypes.func,
-	password: PropTypes.string,
-	setPassword: PropTypes.func,
-	handleSignUp: PropTypes.func,
-	emailError: PropTypes.string,
-	passwordError: PropTypes.string,
-	setLastName: PropTypes.func,
-	lastName: PropTypes.string,
-	setFirstName: PropTypes.func,
-	firstName: PropTypes.string,
-	clearErrors: PropTypes.func,
-	clearInputs: PropTypes.func
-};
+
 export default SignUp;
