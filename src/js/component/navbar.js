@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const PetNavbar = () => {
 	return (
-		<Navbar collapseOnSelect className="pcDarkGreen px-5 w-100">
+		<Navbar collapseOnSelect className="pcGradientDarkGreen px-5 w-100">
 			<Navbar.Brand href="/home">PETREP</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse id="responsive-navbar-nav">

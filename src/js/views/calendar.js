@@ -1,12 +1,12 @@
 import * as React from "react";
 import Paper from "@material-ui/core/Paper";
+import { ViewState, EditingState, IntegratedEditing } from "@devexpress/dx-react-scheduler";
 import {
 	Scheduler,
 	Resources,
 	DayView,
 	WeekView,
 	MonthView,
-	EditRecurrenceMenu,
 	Appointments,
 	AppointmentTooltip,
 	AppointmentForm,
@@ -18,9 +18,10 @@ import {
 	ConfirmationDialog,
 	DragDropProvider
 } from "@devexpress/dx-react-scheduler-material-ui";
-import { ViewState, EditingState, IntegratedEditing } from "@devexpress/dx-react-scheduler";
 import appointments from "../../calendar-data/today-appointments";
+// import { appointments, resourcesData } from "../../calendar-data/resources";
 import { resourcesData } from "../../calendar-data/resources";
+
 import { owners } from "../../calendar-data/tasks";
 
 var currentTime = new Date();
@@ -38,13 +39,13 @@ export class Calendar extends React.PureComponent {
 			currentDate: curTimeFormat,
 			resources: [
 				{
-					fieldName: "roomId",
-					title: "Room",
+					fieldName: "habitatId",
+					title: "Habitat",
 					instances: resourcesData
 				},
 				{
-					fieldName: "members",
-					title: "Members",
+					fieldName: "pets",
+					title: "Pets",
 					instances: owners,
 					allowMultiple: true
 				}
@@ -79,24 +80,27 @@ export class Calendar extends React.PureComponent {
 
 		return (
 			<Paper>
-				<Scheduler data={data}>
+				<Scheduler data={data} maxHeight="400" maxWidth="550">
 					<ViewState defaultCurrentViewName="Week" />
 					<EditingState onCommitChanges={this.commitChanges} />
-					<IntegratedEditing />
-					<DayView startDayHour={9} endDayHour={14} />
+
+					<DayView startDayHour={9} endDayHour={19} />
 					<WeekView startDayHour={9} endDayHour={19} />
 					<MonthView />
-					<Toolbar />
-					<DateNavigator />
-					<TodayButton />
-					<ViewSwitcher />
-					<EditRecurrenceMenu />
-					<ConfirmationDialog />
+
 					<Appointments />
+					<Resources data={resources} mainResourceName="habitatId" />
+
+					<IntegratedEditing />
 					<AppointmentTooltip showCloseButton showOpenButton />
 					<AppointmentForm />
-					<Resources data={resources} mainResourceName="roomId" />
+
+					<ConfirmationDialog />
 					<AllDayPanel />
+					<Toolbar />
+					<TodayButton />
+					<DateNavigator />
+					<ViewSwitcher />
 					<DragDropProvider />
 				</Scheduler>
 			</Paper>

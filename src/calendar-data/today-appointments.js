@@ -1,5 +1,5 @@
 import moment from "moment";
-import { appointments } from "./appointments";
+import { appointments } from "./resources";
 
 const currentDate = moment();
 let date = currentDate.date();
