@@ -49,18 +49,16 @@ const Login = () => {
 							to="/signup"
 							onClick={() => {
 								actions.clearErrors();
-								actions.clearInputs();
 							}}>
-							<a>Sign up!</a>
+							<a>Sign up</a>
 						</Link>
 					</p>
 					<p>
-						Forgot your password{" "}
+						Forgot your password?{" "}
 						<Link
 							to="/reset"
 							onClick={() => {
 								actions.clearErrors();
-								actions.clearInputs();
 							}}>
 							<a>Click here</a>
 						</Link>
