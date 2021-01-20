@@ -14,6 +14,8 @@ import Login from "./views/login";
 import React, { useEffect, useContext } from "react";
 import { Context } from "../js/store/appContext";
 import ResetPassword from "./views/resetPassword";
+import UserProfile from "./views/userProfile";
+
 const Layout = () => {
 	const { store, actions } = useContext(Context);
 
@@ -38,6 +40,9 @@ const Layout = () => {
 								<div className="col mx-auto pcGradientLightGreen">
 									<Calendar />
 								</div>
+							</Route>
+							<Route exact path="/profile">
+								<UserProfile />
 							</Route>
 							<Route>
 								<h1>Not found!</h1>

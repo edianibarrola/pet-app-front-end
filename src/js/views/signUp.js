@@ -8,6 +8,7 @@ const SignUp = () => {
 	const [password, setPassword] = useState("");
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
+	//currently the hooks for firstName and lastName aren't really being used so try to look at firebase for implementing display_name
 	const { store, actions } = useContext(Context);
 	return (
 		<div>
@@ -71,7 +72,6 @@ const SignUp = () => {
 							to="/login"
 							onClick={() => {
 								actions.clearErrors();
-								actions.clearInputs();
 							}}>
 							<a>Sign in</a>
 						</Link>
