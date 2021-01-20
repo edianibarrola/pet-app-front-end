@@ -3,6 +3,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			user: "",
+			// email: "",
+			// password: "",
+			// firstName: "",
+			// lastName: "",
 			emailError: "",
 			passwordError: "",
 			emailSent: ""
@@ -13,6 +17,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
+			// clearInputs: () => {
+			// 	//Clears the input fields when signing up or logging in
+			// 	setStore({ email: "" });
+			// 	setStore({ password: "" });
+			// 	setStore({ firstName: "" });
+			// 	setStore({ lastName: "" });
+			// },
 
 			clearErrors: () => {
 				//Clears the error messages when signing up or logging in is successful
@@ -94,6 +105,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//Authenticates the user
 				fire.auth().onAuthStateChanged(user => {
 					if (user) {
+						//getActions().clearInputs();
 						setStore({ user: user });
 					} else {
 						setStore({ user: "" });

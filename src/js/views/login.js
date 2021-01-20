@@ -49,6 +49,7 @@ const Login = () => {
 							to="/signup"
 							onClick={() => {
 								actions.clearErrors();
+								// actions.clearInputs();
 							}}>
 							<a>Sign up</a>
 						</Link>
@@ -59,6 +60,7 @@ const Login = () => {
 							to="/reset"
 							onClick={() => {
 								actions.clearErrors();
+								// actions.clearInputs();
 							}}>
 							<a>Click here</a>
 						</Link>

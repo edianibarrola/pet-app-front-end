@@ -39,6 +39,7 @@ const ResetPassword = () => {
 							to="/login"
 							onClick={() => {
 								actions.clearErrors();
+								// actions.clearInputs();
 							}}>
 							<a>Login</a>
 						</Link>
