@@ -34,6 +34,10 @@ export const PetNavbar = () => {
 						<Nav.Link>
 							<Link to="/profile">Profile</Link>
 						</Nav.Link>
+
+						<Nav.Link>
+							<Link to="/adoptpage">Adoption Page</Link>
+						</Nav.Link>
 						<Nav.Link>
 							<Link to="/" onClick={actions.handleLogOut}>
 								Log Out
@@ -53,6 +57,7 @@ export const PetNavbar = () => {
 								<NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
 								<NavDropdown.Divider />
 								<NavDropdown.Item href="/calendar">Calendar</NavDropdown.Item>
+								<NavDropdown.Item href="/adoptpage">Adoptions</NavDropdown.Item>
 							</NavDropdown>
 						</Nav>
 					</Navbar.Collapse>

@@ -15,6 +15,7 @@ import React, { useEffect, useContext } from "react";
 import { Context } from "../js/store/appContext";
 import ResetPassword from "./views/resetPassword";
 import UserProfile from "./views/userProfile";
+import { AdoptPage } from "./views/adoptPage";
 
 const Layout = () => {
 	const { store, actions } = useContext(Context);
@@ -71,6 +72,9 @@ const Layout = () => {
 								</Route>
 								<Route exact path="/demo">
 									<Demo />
+								</Route>
+								<Route exact path="/adoptpage">
+									<AdoptPage />
 								</Route>
 								<Route exact path="/single/:theid">
 									<Single />
