@@ -3,10 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			user: "",
-			// email: "",
-			// password: "",
-			// firstName: "",
-			// lastName: "",
+			fullName: "",
 			emailError: "",
 			passwordError: "",
 			emailSent: ""
@@ -17,60 +14,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
-			// clearInputs: () => {
-			// 	//Clears the input fields when signing up or logging in
-			// 	setStore({ email: "" });
-			// 	setStore({ password: "" });
-			// 	setStore({ firstName: "" });
-			// 	setStore({ lastName: "" });
-			// },
+
+			changeEmailError: msg => {
+				setStore({ emailError: msg });
+			},
+
+			changePasswordError: msg => {
+				setStore({ passwordError: msg });
+			},
 
 			clearErrors: () => {
 				//Clears the error messages when signing up or logging in is successful
 				setStore({ emailError: "" });
 				setStore({ passwordError: "" });
-			},
-
-			handleLogin: (userEmail, userPassword) => {
-				//Logins the user if the user is in the database, if not it will provide an error message as to why you cannot login
-				getActions().clearErrors();
-				fire.auth()
-					.signInWithEmailAndPassword(userEmail, userPassword)
-					// .then(() => {
-					// 	history.push("/dashboard");
-					// })
-					.catch(err => {
-						switch (err.code) {
-							case "auth/invalid-email":
-							case "auth/user-disabled":
-							case "auth/user-not-found":
-								setStore({ emailError: err.message });
-								break;
-							case "auth/wrong-password":
-								setStore({ passwordError: err.message });
-								break;
-						}
-					});
-			},
-
-			handleSignUp: (userEmail, userPassword) => {
-				//Signs up the user if the user is not in the database, if not it will provide an error message as to why you cannot signup
-				getActions().clearErrors();
-				fire.auth()
-					.createUserWithEmailAndPassword(userEmail, userPassword)
-					.catch(err => {
-						switch (err.code) {
-							case "auth/weak-password":
-								setStore({ passwordError: err.message });
-								break;
-							case "auth/email-already-in-use":
-								setStore({ emailError: err.message });
-								break;
-							case "auth/invalid-email":
-								setStore({ emailError: err.message });
-								break;
-						}
-					});
 			},
 
 			handleResetPassword: userEmail => {
@@ -102,10 +58,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			authListener: () => {
-				//Authenticates the user
+				//Authenticates the user when the user signs in, is only ran once in the layout.js file, useEffect();
 				fire.auth().onAuthStateChanged(user => {
 					if (user) {
-						//getActions().clearInputs();
 						setStore({ user: user });
 					} else {
 						setStore({ user: "" });
