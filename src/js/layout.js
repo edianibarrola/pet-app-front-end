@@ -61,31 +61,13 @@ const Layout = () => {
 									<LandingPage />
 								</Route>
 								<Route exact path="/login">
-									<div
-										className="container d-flex align-items-center justify-content-center"
-										style={{ minHeight: "100vh" }}>
-										<div className="w-100" style={{ maxWidth: "400px" }}>
-											<Login />
-										</div>
-									</div>
+									<Login />
 								</Route>
 								<Route exact path="/signup">
-									<div
-										className="container d-flex align-items-center justify-content-center"
-										style={{ minHeight: "100vh" }}>
-										<div className="w-100" style={{ maxWidth: "400px" }}>
-											<SignUp />
-										</div>
-									</div>
+									<SignUp />
 								</Route>
 								<Route exact path="/reset">
-									<div
-										className="container d-flex align-items-center justify-content-center"
-										style={{ minHeight: "100vh" }}>
-										<div className="w-100" style={{ maxWidth: "400px" }}>
-											<ResetPassword />
-										</div>
-									</div>
+									<ResetPassword />
 								</Route>
 								<Route exact path="/demo">
 									<Demo />

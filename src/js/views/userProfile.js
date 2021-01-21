@@ -6,27 +6,28 @@ const UserProfile = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<li className="list-group-item">
-			<div className="row w-100">
-				<div className="col-12 col-sm-6 col-md-3 px-0">
-					<img src="" alt="" className="rounded-circle mx-auto d-block img-fluid" />
-				</div>
-				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
-					<div className=" float-right">
-						<i className="fas fa-pencil-alt mr-3" />
+		<div className="container d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
+			<div className="w-100" style={{ maxWidth: "400px" }}>
+				<div>
+					<div className="card">
+						<div className="card-body">
+							<h2 className="text-center mb-4">Profile</h2>
+							<div>
+								{/* <div className="float-right">
+									<Link to="/profile/edit">
+										<i className="fas fa-pencil-alt mr-3" />
+									</Link>
+								</div> */}
+								<h2>Email: {store.user.email}</h2>
+								<h2 />
+								<h2>Full Name: {store.user.displayName}</h2>
+								<h2 />
+							</div>
+						</div>
 					</div>
-					<label className="name lead">{store.user.email}</label>
-					<br />
-					<span
-						className="fa fa-envelope fa-fw text-muted mr-3"
-						data-toggle="tooltip"
-						data-original-title=""
-						title=""
-					/>
-					<span className="text-muted small text-truncate">{store.email}</span>
 				</div>
 			</div>
-		</li>
+		</div>
 	);
 };
 

@@ -29,6 +29,9 @@ export const PetNavbar = () => {
 							<Link to="/pets">Your Pet(s)</Link>
 						</Nav.Link>
 						<Nav.Link>
+							<Link to="/calendar">Calendar</Link>
+						</Nav.Link>
+						<Nav.Link>
 							<Link to="/profile">Profile</Link>
 						</Nav.Link>
 						<Nav.Link>
