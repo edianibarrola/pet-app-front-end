@@ -20,7 +20,7 @@ const adoptableList = [
 	},
 	{
 		adoptId: 2,
-		Name: "Sir Buckley",
+		Name: "Buxy",
 		PetType: "Cat",
 		Sex: "Male",
 		Color: "White/Gray"
@@ -35,11 +35,13 @@ const adoptableList = [
 ];
 export const AdoptPage = () => {
 	return (
-		<div className="mx-auto m-4 p-4 pcGradientDarkGreen ">
-			{adoptableList.map((pet, index) => {
-				console.log("Adoptable Pet ID", pet, "end");
-				return <AdoptCard key={pet.adoptId} propObj={pet} />;
-			})}
+		<div className="row align-items-center justify-content-around">
+			<div className=" m-4 p-4 scrollWrapper  ">
+				{adoptableList.map((pet, index) => {
+					console.log("Adoptable Pet ID", pet, "end");
+					return <AdoptCard key={pet.adoptId} propObj={pet} />;
+				})}
+			</div>
 		</div>
 	);
 };

@@ -1,7 +1,8 @@
 import React from "react";
-
+import Accordion from "react-bootstrap/Accordion";
+import Card from "react-bootstrap/Card";
+import Image from "react-bootstrap/Image";
 import PropTypes from "prop-types";
-
 import { Link } from "react-router-dom";
 
 // const adoptable = {
@@ -42,37 +43,64 @@ export class AdoptCard extends React.Component {
 	}
 	render() {
 		return (
-			<div>
-				<div className="card cardSmall m-4 p-4" style={{ width: "auto" }}>
-					<div className="cardBGSmall">
-						<div className="d-flex no-wrap card-bodySmall align-items-center">
-							<img className="card-img-left m-4" src="https://via.placeholder.com/150" alt="Card image" />
-							<h4 className="card-title">{this.state.val0}</h4>
-							<div className="container">
-								<li>
-									{this.state.key1}
-									{this.state.val1}{" "}
-								</li>
-								<li>
-									{" "}
-									{this.state.key2} {this.state.val2}
-								</li>
-								<li>
-									{" "}
-									{this.state.key3} {this.state.val3}
-								</li>
+			<Accordion defaultActiveKey="0">
+				<div className="p-4 m-4 pcGradientDarkGreen pcLightGreenBorderSmall">
+					<Card>
+						<Accordion.Toggle as={Card.Header} eventKey="0" className="pcGradientLightGreen">
+							<div className="d-flex justify-content-center ">
+								<Image src="https://picsum.photos/150" roundedCircle fluid />
 							</div>
-							{/* <Link
-									to={{
-										pathname: "/detailsview/" + this.props.propUid,
-										state: this.state
-									}}>
-									<button className="btn btn-secondary float-right">More Info</button>
-								</Link> */}
-						</div>
-					</div>
+							<div className=" text-center">
+								<h1>{this.state.val0}</h1>
+							</div>
+						</Accordion.Toggle>
+						<Accordion.Collapse eventKey="0">
+							<Card.Body>
+								<div className="container text-nowrap">
+									<li>
+										{this.state.key1}
+										{this.state.val1}{" "}
+									</li>
+									<li>
+										{" "}
+										{this.state.key2} {this.state.val2}
+									</li>
+									<li>
+										{" "}
+										{this.state.key3} {this.state.val3}
+									</li>
+								</div>
+							</Card.Body>
+						</Accordion.Collapse>
+					</Card>
 				</div>
-			</div>
+			</Accordion>
+
+			// <>
+			// 	<div className="card cardSmall m-4 p-4 col-3" style={{ width: "auto" }}>
+			// 		<div className="cardBGSmall">
+			// 			<div className="d-flex no-wrap card-bodySmall align-items-center">
+			// 				<img className="card-img-left m-4" src="https://via.placeholder.com/150" alt="Card image" />
+			// 				<h4 className="card-title">{this.state.val0}</h4>
+			// <div className="container">
+			// 	<li>
+			// 		{this.state.key1}
+			// 		{this.state.val1}{" "}
+			// 	</li>
+			// 	<li>
+			// 		{" "}
+			// 		{this.state.key2} {this.state.val2}
+			// 	</li>
+			// 	<li>
+			// 		{" "}
+			// 		{this.state.key3} {this.state.val3}
+			// 	</li>
+			// </div>
+
+			// 			</div>
+			// 		</div>
+			// 	</div>
+			// </>
 		);
 	}
 }
