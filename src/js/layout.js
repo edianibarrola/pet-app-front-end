@@ -38,9 +38,7 @@ const Layout = () => {
 								<Dashboard />
 							</Route>
 							<Route exact path="/calendar">
-								<div className="col mx-auto pcGradientLightGreen">
-									<Calendar />
-								</div>
+								<Calendar />
 							</Route>
 							<Route exact path="/profile">
 								<UserProfile />
@@ -79,6 +77,11 @@ const Layout = () => {
 								<Route exact path="/single/:theid">
 									<Single />
 								</Route>
+
+								<Route exact path="/calendar">
+									<Calendar />
+								</Route>
+
 								<Route>
 									<h1>Not found!</h1>
 								</Route>

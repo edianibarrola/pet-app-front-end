@@ -44,8 +44,8 @@ export class AdoptCard extends React.Component {
 	render() {
 		return (
 			<Accordion defaultActiveKey="0">
-				<div className="p-4 m-4 pcGradientDarkGreen pcLightGreenBorderSmall">
-					<Card>
+				<div className="p-4 m-4 pcGradientDarkGreen minw-20 pcLightGreenBorderSmall">
+					<Card style={{ width: "18rem" }}>
 						<Accordion.Toggle as={Card.Header} eventKey="0" className="pcGradientLightGreen">
 							<div className="d-flex justify-content-center ">
 								<Image src="https://picsum.photos/150" roundedCircle fluid />

@@ -10,7 +10,7 @@ export const PetNavbar = () => {
 	return (
 		<div>
 			{store.user ? (
-				<Navbar className="pcDarkGreen px-5 w-100">
+				<Navbar className="pcDarkGreen px-5 w-100 ">
 					<Navbar.Brand href="/dashboard">PETREP</Navbar.Brand>
 					<Nav className="ml-auto">
 						<Nav.Link>
@@ -31,6 +31,7 @@ export const PetNavbar = () => {
 						<Nav.Link>
 							<Link to="/calendar">Calendar</Link>
 						</Nav.Link>
+
 						<Nav.Link>
 							<Link to="/profile">Profile</Link>
 						</Nav.Link>
