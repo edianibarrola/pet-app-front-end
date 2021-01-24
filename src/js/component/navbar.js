@@ -54,6 +54,7 @@ export const PetNavbar = () => {
 						<Nav className="ml-auto ">
 							<NavDropdown title="Menu" id="collasible-nav-dropdown">
 								<NavDropdown.Item href="/dashboard">Dashboard</NavDropdown.Item>
+								<NavDropdown.Item href="/pets">Pets</NavDropdown.Item>
 								<NavDropdown.Item href="/">Landing Page</NavDropdown.Item>
 								<NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
 								<NavDropdown.Divider />

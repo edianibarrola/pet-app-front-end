@@ -16,6 +16,7 @@ import { Context } from "../js/store/appContext";
 import ResetPassword from "./views/resetPassword";
 import UserProfile from "./views/userProfile";
 import { AdoptPage } from "./views/adoptPage";
+import { PetView } from "./views/petview";
 
 const Layout = () => {
 	const { store, actions } = useContext(Context);
@@ -42,6 +43,9 @@ const Layout = () => {
 							</Route>
 							<Route exact path="/profile">
 								<UserProfile />
+							</Route>
+							<Route exact path="/adoptpage">
+								<AdoptPage />
 							</Route>
 							<Route>
 								<h1>Not found!</h1>
@@ -80,6 +84,9 @@ const Layout = () => {
 
 								<Route exact path="/calendar">
 									<Calendar />
+								</Route>
+								<Route exact path="/pets">
+									<PetView />
 								</Route>
 
 								<Route>
