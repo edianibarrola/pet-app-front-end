@@ -26,6 +26,7 @@ export const resourcesData = [
 	{
 		text: "Indoor Enclosure",
 		id: 1,
+
 		color: amber
 	},
 	{

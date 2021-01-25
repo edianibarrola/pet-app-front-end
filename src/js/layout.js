@@ -17,6 +17,7 @@ import ResetPassword from "./views/resetPassword";
 import UserProfile from "./views/userProfile";
 import { AdoptPage } from "./views/adoptPage";
 import PetView from "./views/petview";
+import HabitatView from "./views/habitatView";
 
 const Layout = () => {
 	const { store, actions } = useContext(Context);
@@ -87,6 +88,9 @@ const Layout = () => {
 								</Route>
 								<Route exact path="/pets">
 									<PetView />
+								</Route>
+								<Route exact path="/habitats">
+									<HabitatView />
 								</Route>
 
 								<Route>

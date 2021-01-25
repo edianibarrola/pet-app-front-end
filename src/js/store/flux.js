@@ -7,6 +7,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 			emailError: "",
 			passwordError: "",
 			emailSent: "",
+			habitatList: [
+				{
+					habitatId: 0,
+					habitatName: "Outdoor Tort Enclosure 1"
+				},
+				{
+					habitatId: 1,
+					habitatName: "Snake Rack 1"
+				},
+				{
+					habitatId: 2,
+					habitatName: "Indoor Tort Enclosure 2"
+				}
+			],
 			petList: [
 				{
 					petId: 0,
