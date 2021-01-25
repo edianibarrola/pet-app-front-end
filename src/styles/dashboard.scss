@@ -1,6 +1,73 @@
-// body{
-//     background-image: url("https://www.wooinfo.com/wp-content/uploads/2014/03/cc1.jpg");
-//     background-repeat: no-repeat;
-//     background-size: 100% 300px;
-//     image-rendering: -webkit-optimize-contrast;
-// }
+.main-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url("https://www.nationalband.com/wp-content/uploads/2014/12/doggie-slide.jpg");
+    background-repeat: no-repeat;
+    image-rendering: -webkit-optimize-contrast;
+    background-size: cover;
+    height: 250px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.overviewcard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgb(95,137,137);
+    border-radius: 10px;
+    margin: 40px;
+}
+
+.circle {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    color: white;
+    font-size: 45px;
+    text-align: center;
+}
+
+.navbarCircle {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-right: 5px;
+    background: rgb(248,197,85);
+}
+
+.cardFont{
+    font-size: 30px;
+    color:white;
+}
+
+.blue{
+    background: #38a9e4;
+}
+
+.red{
+    background: rgb(113,24,34);
+}
+
+.green{
+    background: rgb(79,200,120);
+}
+
+.card {
+    background-color: rgb(95,137,137);
+    margin: 20px;
+}
+
+.card-header{
+    background-color: rgb(57, 83, 83);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}

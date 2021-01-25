@@ -11,8 +11,13 @@ export const PetNavbar = () => {
 		<div>
 			{store.user ? (
 				<Navbar className="pcDarkGreen px-5 w-100">
-					<Navbar.Brand href="/dashboard">PETREP</Navbar.Brand>
-					<Nav className="ml-auto">
+					<Navbar.Brand href="/dashboard">
+						<div className="navbarCircle">
+							<i className="fas fa-paw" />
+						</div>
+						<span style={{ fontSize: "20px" }}>PETREP</span>
+					</Navbar.Brand>
+					<Nav className="ml-auto navLinkStyle">
 						<Nav.Link>
 							<Link to="/dashboard">Dashboard </Link>
 						</Nav.Link>
@@ -43,7 +48,12 @@ export const PetNavbar = () => {
 				</Navbar>
 			) : (
 				<Navbar collapseOnSelect className="pcDarkGreen px-5 w-100">
-					<Navbar.Brand href="/home">PETREP</Navbar.Brand>
+					<Navbar.Brand href="/home">
+						<div className="navbarCircle">
+							<i className="fas fa-paw" />
+						</div>
+						<span style={{ fontSize: "20px" }}>PETREP</span>
+					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 					<Navbar.Collapse id="responsive-navbar-nav">
 						<Nav className="ml-auto ">

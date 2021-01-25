@@ -29,28 +29,30 @@ const Layout = () => {
 	return (
 		<div>
 			{store.user ? (
-				<BrowserRouter basename={basename}>
-					<ScrollToTop>
-						<PetNavbar />
-						<Switch>
-							<Route exact path="/dashboard">
-								<Dashboard />
-							</Route>
-							<Route exact path="/calendar">
-								<div className="col mx-auto pcGradientLightGreen">
-									<Calendar />
-								</div>
-							</Route>
-							<Route exact path="/profile">
-								<UserProfile />
-							</Route>
-							<Route>
-								<h1>Not found!</h1>
-							</Route>
-						</Switch>
-						<Footer />
-					</ScrollToTop>
-				</BrowserRouter>
+				<div className="d-flex flex-column">
+					<BrowserRouter basename={basename}>
+						<ScrollToTop>
+							<PetNavbar />
+							<Switch>
+								<Route exact path="/dashboard">
+									<Dashboard />
+								</Route>
+								<Route exact path="/calendar">
+									<div className="col mx-auto pcGradientLightGreen">
+										<Calendar />
+									</div>
+								</Route>
+								<Route exact path="/profile">
+									<UserProfile />
+								</Route>
+								<Route>
+									<h1>Not found!</h1>
+								</Route>
+							</Switch>
+							<Footer />
+						</ScrollToTop>
+					</BrowserRouter>
+				</div>
 			) : (
 				<div className="d-flex flex-column">
 					<BrowserRouter basename={basename}>
