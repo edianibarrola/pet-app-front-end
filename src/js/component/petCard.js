@@ -1,17 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 // const adoptable = {
 // 	Name: "Meeshka",
 // 	PetType: "Dog",
 // 	Sex: "Female",
 // 	Color: "Yellowish"
 // };
-export class AdoptCard extends React.Component {
+const EditPetModal = () => {
+	const [show, setShow] = useState(false);
+
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+
+	return (
+		<>
+			<Button variant="primary" onClick={handleShow}>
+				Launch demo modal
+			</Button>
+
+			<Modal show={show} onHide={handleClose}>
+				<Modal.Header closeButton>
+					<Modal.Title>Modal heading</Modal.Title>
+				</Modal.Header>
+				<Modal.Body>Woohoo youre reading this text in a modal!</Modal.Body>
+				<Modal.Footer>
+					<Button variant="secondary" onClick={handleClose}>
+						Close
+					</Button>
+					<Button variant="primary" onClick={handleClose}>
+						Save Changes
+					</Button>
+				</Modal.Footer>
+			</Modal>
+		</>
+	);
+};
+export class PetCard extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -41,6 +71,7 @@ export class AdoptCard extends React.Component {
 			val3: this.props.propObj.Color
 		});
 	}
+
 	render() {
 		return (
 			<Accordion defaultActiveKey="0">
@@ -70,6 +101,9 @@ export class AdoptCard extends React.Component {
 										{this.state.key3} {this.state.val3}
 									</li>
 								</div>
+								<button className="btn pcGradientLightGreen float-right mb-3" onClick={EditPetModal}>
+									<i className="fas fa-edit mr-auto fa-1x " />
+								</button>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
@@ -105,6 +139,6 @@ export class AdoptCard extends React.Component {
 	}
 }
 
-AdoptCard.propTypes = {
+PetCard.propTypes = {
 	propObj: PropTypes.object
 };

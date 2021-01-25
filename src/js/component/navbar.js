@@ -36,8 +36,13 @@ export const PetNavbar = () => {
 						<Nav.Link>
 							<Link to="/calendar">Calendar</Link>
 						</Nav.Link>
+
 						<Nav.Link>
 							<Link to="/profile">Profile</Link>
+						</Nav.Link>
+
+						<Nav.Link>
+							<Link to="/adoptpage">Adoption Page</Link>
 						</Nav.Link>
 						<Nav.Link>
 							<Link to="/" onClick={actions.handleLogOut}>
@@ -59,10 +64,12 @@ export const PetNavbar = () => {
 						<Nav className="ml-auto ">
 							<NavDropdown title="Menu" id="collasible-nav-dropdown">
 								<NavDropdown.Item href="/dashboard">Dashboard</NavDropdown.Item>
+								<NavDropdown.Item href="/pets">Pets</NavDropdown.Item>
 								<NavDropdown.Item href="/">Landing Page</NavDropdown.Item>
 								<NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
 								<NavDropdown.Divider />
 								<NavDropdown.Item href="/calendar">Calendar</NavDropdown.Item>
+								<NavDropdown.Item href="/adoptpage">Adoptions</NavDropdown.Item>
 							</NavDropdown>
 						</Nav>
 					</Navbar.Collapse>

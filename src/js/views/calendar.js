@@ -80,7 +80,7 @@ export class Calendar extends React.PureComponent {
 
 		return (
 			<Paper>
-				<Scheduler data={data} maxHeight="400" maxWidth="550">
+				<Scheduler data={data} adaptivityEnabled="true" height="575">
 					<ViewState defaultCurrentViewName="Week" />
 					<EditingState onCommitChanges={this.commitChanges} />
 
