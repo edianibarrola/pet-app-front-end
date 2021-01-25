@@ -18,7 +18,6 @@ export class PetCard extends React.Component {
 		super(props);
 
 		this.state = {
-			petInfo: this.pet,
 			val0: null,
 			val1: null,
 			val2: null,

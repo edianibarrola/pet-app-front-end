@@ -10,7 +10,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			petList: [
 				{
 					petId: 0,
-					name: "Meeshka",
+					name: "Meesh",
 					petType: "Dog",
 					sex: "Female",
 					petColor: "Yellowish"
@@ -96,6 +96,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ user: "" });
 					}
 				});
+			},
+			updatePetList: pet => {
+				const newPetList = getStore().petList.map((input, index) => {
+					if (index == pet.petId) {
+						input.name = pet.name;
+						return input;
+					} else {
+						return input;
+					}
+				});
+				setStore({ petList: newPetList });
 			}
 		}
 	};
