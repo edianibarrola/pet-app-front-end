@@ -58,6 +58,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 					lastSeen: "34743",
 					description: "Please call my number at ###-###-#### if you found my pet!"
 				}
+			],
+			petList: [
+				{
+					petId: 0,
+					name: "Meesh",
+					petType: "Dog",
+					sex: "Female",
+					petColor: "Yellowish"
+				},
+				{
+					petId: 1,
+					name: "Taika",
+					petType: "Tortoise",
+					sex: "Unknown",
+					petColor: "Red/Black"
+				},
+				{
+					petId: 2,
+					name: "Buxy",
+					petType: "Cat",
+					sex: "Male",
+					petColor: "White/Gray"
+				},
+				{
+					petId: 3,
+					name: "Apopis",
+					petType: "Snake",
+					sex: "Unknown",
+					petColor: "Red/Black"
+				}
 			]
 		},
 		actions: {
@@ -118,6 +148,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ user: "" });
 					}
 				});
+			},
+			updatePetList: pet => {
+				const newPetList = getStore().petList.map((input, index) => {
+					if (index == pet.petId) {
+						input.name = pet.name;
+						return input;
+					} else {
+						return input;
+					}
+				});
+				setStore({ petList: newPetList });
 			}
 		}
 	};

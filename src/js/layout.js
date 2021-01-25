@@ -16,9 +16,9 @@ import { Context } from "../js/store/appContext";
 import ResetPassword from "./views/resetPassword";
 import UserProfile from "./views/userProfile";
 import { AdoptPage } from "./views/adoptPage";
-import { PetView } from "./views/petview";
 import { ReportLostPet } from "./views/reportLostPet";
 import { ReportFoundPet } from "./views/reportFoundPet";
+import PetView from "./views/petview";
 
 const Layout = () => {
 	const { store, actions } = useContext(Context);
