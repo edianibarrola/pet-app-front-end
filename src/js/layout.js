@@ -16,7 +16,7 @@ import { Context } from "../js/store/appContext";
 import ResetPassword from "./views/resetPassword";
 import UserProfile from "./views/userProfile";
 import { AdoptPage } from "./views/adoptPage";
-import { PetView } from "./views/petview";
+import PetView from "./views/petview";
 
 const Layout = () => {
 	const { store, actions } = useContext(Context);
@@ -31,32 +31,6 @@ const Layout = () => {
 	return (
 		<div>
 			{store.user ? (
-<<<<<<< HEAD
-				<div className="d-flex flex-column">
-					<BrowserRouter basename={basename}>
-						<ScrollToTop>
-							<PetNavbar />
-							<Switch>
-								<Route exact path="/dashboard">
-									<Dashboard />
-								</Route>
-								<Route exact path="/calendar">
-									<div className="col mx-auto pcGradientLightGreen">
-										<Calendar />
-									</div>
-								</Route>
-								<Route exact path="/profile">
-									<UserProfile />
-								</Route>
-								<Route>
-									<h1>Not found!</h1>
-								</Route>
-							</Switch>
-							<Footer />
-						</ScrollToTop>
-					</BrowserRouter>
-				</div>
-=======
 				<BrowserRouter basename={basename}>
 					<ScrollToTop>
 						<PetNavbar />
@@ -80,7 +54,6 @@ const Layout = () => {
 						<Footer />
 					</ScrollToTop>
 				</BrowserRouter>
->>>>>>> 8cdca7919eff52ef494a1315258c44d6141a6adb
 			) : (
 				<div className="d-flex flex-column">
 					<BrowserRouter basename={basename}>

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import Modal from "react-bootstrap/Modal";
+import { PetModal } from "./petModal";
 import Button from "react-bootstrap/Button";
 // const adoptable = {
 // 	Name: "Meeshka",
@@ -12,45 +12,13 @@ import Button from "react-bootstrap/Button";
 // 	Sex: "Female",
 // 	Color: "Yellowish"
 // };
-const EditPetModal = () => {
-	const [show, setShow] = useState(false);
 
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
-
-	return (
-		<>
-			<Button variant="primary" onClick={handleShow}>
-				Launch demo modal
-			</Button>
-
-			<Modal show={show} onHide={handleClose}>
-				<Modal.Header closeButton>
-					<Modal.Title>Modal heading</Modal.Title>
-				</Modal.Header>
-				<Modal.Body>Woohoo youre reading this text in a modal!</Modal.Body>
-				<Modal.Footer>
-					<Button variant="secondary" onClick={handleClose}>
-						Close
-					</Button>
-					<Button variant="primary" onClick={handleClose}>
-						Save Changes
-					</Button>
-				</Modal.Footer>
-			</Modal>
-		</>
-	);
-};
 export class PetCard extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			petInfo: this.pet,
-			key0: null,
-			key1: null,
-			key2: null,
-			key3: null,
 			val0: null,
 			val1: null,
 			val2: null,
@@ -61,14 +29,14 @@ export class PetCard extends React.Component {
 	componentDidMount() {
 		this.setState({
 			//petInfo: jsonified results from api call,
-			key0: "Name: ",
-			key1: "Pet Type: ",
-			key2: "Sex: ",
-			key3: "Color: ",
-			val0: this.props.propObj.Name,
-			val1: this.props.propObj.PetType,
-			val2: this.props.propObj.Sex,
-			val3: this.props.propObj.Color
+			// key0: "Name: ",
+			// key1: "Pet Type: ",
+			// key2: "Sex: ",
+			// key3: "Color: ",
+			val0: this.props.propObj.name,
+			val1: this.props.propObj.petType,
+			val2: this.props.propObj.sex,
+			val3: this.props.propObj.petColor
 		});
 	}
 
@@ -82,28 +50,32 @@ export class PetCard extends React.Component {
 								<Image src="https://picsum.photos/150" roundedCircle fluid />
 							</div>
 							<div className=" text-center">
-								<h1>{this.state.val0}</h1>
+								<h2>{this.state.val0}</h2>
 							</div>
 						</Accordion.Toggle>
 						<Accordion.Collapse eventKey="0">
 							<Card.Body>
 								<div className="container text-nowrap">
 									<li>
-										{this.state.key1}
+										{" Pet Type "}
 										{this.state.val1}{" "}
 									</li>
 									<li>
-										{" "}
-										{this.state.key2} {this.state.val2}
+										{" sex "}
+										{this.state.val2}
 									</li>
 									<li>
-										{" "}
-										{this.state.key3} {this.state.val3}
+										{" color "}
+										{this.state.val3}
 									</li>
 								</div>
-								<button className="btn pcGradientLightGreen float-right mb-3" onClick={EditPetModal}>
-									<i className="fas fa-edit mr-auto fa-1x " />
-								</button>
+
+								<PetModal
+									show={this.state.isOpen}
+									onClose={this.toggleModal}
+									petValues={this.state}
+									petId={this.props.propObj.petId}
+								/>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>

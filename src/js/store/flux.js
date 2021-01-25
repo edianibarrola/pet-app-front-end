@@ -6,7 +6,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 			fullName: "",
 			emailError: "",
 			passwordError: "",
-			emailSent: ""
+			emailSent: "",
+			petList: [
+				{
+					petId: 0,
+					name: "Meeshka",
+					petType: "Dog",
+					sex: "Female",
+					petColor: "Yellowish"
+				},
+				{
+					petId: 1,
+					name: "Taika",
+					petType: "Tortoise",
+					sex: "Unknown",
+					petColor: "Red/Black"
+				},
+				{
+					petId: 2,
+					name: "Buxy",
+					petType: "Cat",
+					sex: "Male",
+					petColor: "White/Gray"
+				},
+				{
+					petId: 3,
+					name: "Apopis",
+					petType: "Snake",
+					sex: "Unknown",
+					petColor: "Red/Black"
+				}
+			]
 		},
 		actions: {
 			loadSomeData: () => {
