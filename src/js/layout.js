@@ -16,8 +16,8 @@ import { Context } from "../js/store/appContext";
 import ResetPassword from "./views/resetPassword";
 import UserProfile from "./views/userProfile";
 import { AdoptPage } from "./views/adoptPage";
-import { ReportLostPet } from "./views/reportLostPet";
-import { ReportFoundPet } from "./views/reportFoundPet";
+import { SearchLostPet } from "./views/searchLostPet";
+import { SearchFoundPet } from "./views/searchFoundPet";
 import PetView from "./views/petview";
 
 const Layout = () => {
@@ -91,10 +91,10 @@ const Layout = () => {
 									<PetView />
 								</Route>
 								<Route exact path="/lostpets">
-									<ReportLostPet />
+									<SearchLostPet />
 								</Route>
 								<Route exact path="/foundpets">
-									<ReportFoundPet />
+									<SearchFoundPet />
 								</Route>
 
 								<Route>
