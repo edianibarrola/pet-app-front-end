@@ -21,6 +21,58 @@ const getState = ({ getStore, getActions, setStore }) => {
 					habitatName: "Indoor Tort Enclosure 2"
 				}
 			],
+			lostPet: [
+				{
+					name: "Sasha",
+					petType: "Cat",
+					color: "Orange",
+					eyeColor: "Green",
+					lastSeen: "34743",
+					description: "Please call my number at ###-###-#### if you found my pet!"
+				},
+				{
+					name: "Brutus",
+					petType: "Dog",
+					color: "Black and white",
+					eyeColor: "Blue",
+					lastSeen: "34743",
+					description: "Please call my number at ###-###-#### if you found my pet!"
+				},
+				{
+					name: "Lily",
+					petType: "Ferret",
+					color: "Light brown and white",
+					eyeColor: "Brown Yellow",
+					lastSeen: "34743",
+					description: "Please call my number at ###-###-#### if you found my pet!"
+				}
+			],
+			foundPet: [
+				{
+					name: "Timmy",
+					petType: "Cat",
+					color: "Orange",
+					eyeColor: "Green",
+					lastSeen: "34743",
+					description: "Please call my number at ###-###-#### if you found my pet!"
+				},
+				{
+					name: "Max",
+					petType: "Dog",
+					color: "Black and white",
+					eyeColor: "Blue",
+					lastSeen: "34743",
+					description: "Please call my number at ###-###-#### if you found my pet!"
+				},
+				{
+					name: "Bouncer",
+					petType: "Ferret",
+					color: "Light brown and white",
+					eyeColor: "Brown Yellow",
+					lastSeen: "34743",
+					description: "Please call my number at ###-###-#### if you found my pet!"
+				}
+			],
 			petList: [
 				{
 					petId: 0,

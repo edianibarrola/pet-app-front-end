@@ -13,7 +13,7 @@ export default class HabitatView extends React.Component {
 				{({ store, actions }) => {
 					return (
 						<div>
-							<button className="btn pcButton mx-auto mt-5">Add New Habitat</button>
+							<button className="btn pcButton  mt-5">Add New Habitat</button>
 							<div className=" m-4 p-4 scrollWrapper  ">
 								{store.habitatList
 									? store.habitatList.map((habitat, index) => {
