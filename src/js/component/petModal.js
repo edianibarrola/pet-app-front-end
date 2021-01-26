@@ -14,7 +14,10 @@ export function PetModal(props) {
 		name: props.petValues.name,
 		pet_type: props.petValues.pet_type,
 		sex: props.petValues.sex,
-		color: props.petValues.color
+		color: props.petValues.color,
+		dob: props.petValues.dob,
+		habitat_id: props.petValues.habitat_id,
+		note: props.petValues.note
 	});
 	const handleClose = () => {
 		setShow(false);
@@ -49,7 +52,19 @@ export function PetModal(props) {
 						</label>
 						<label>
 							Color:
-							<input type="text" value={pet.pet_color} onChange={handleChange} name="pet_color" />
+							<input type="text" value={pet.color} onChange={handleChange} name="color" />
+						</label>
+						<label>
+							Date of birth:
+							<input type="text" value={pet.dob} onChange={handleChange} name="dob" />
+						</label>
+						<label>
+							Habitat:
+							<input type="text" value={pet.habitat_id} onChange={handleChange} name="habitat_id" />
+						</label>
+						<label>
+							Note:
+							<input type="text" value={pet.note} onChange={handleChange} name="note" />
 						</label>
 					</form>
 				</Modal.Body>
