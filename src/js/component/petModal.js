@@ -7,14 +7,14 @@ import { Context } from "../store/appContext";
 export function PetModal(props) {
 	const [show, setShow] = useState(false);
 	const { store, actions } = useContext(Context);
-
-	const info = store.petList.find(element => element.petId == props.petId);
+	console.log(props.petValues);
+	//const info = store.petList.find(element => element.petId == props.petId);
 	const [pet, setPet] = useState({
-		petId: info.petId,
-		name: info.name,
-		petType: info.petType,
-		sex: info.sex,
-		petColor: info.petColor
+		id: props.petValues.id,
+		name: props.petValues.name,
+		pet_type: props.petValues.pet_type,
+		sex: props.petValues.sex,
+		color: props.petValues.color
 	});
 	const handleClose = () => {
 		setShow(false);
@@ -31,29 +31,25 @@ export function PetModal(props) {
 			</Button>
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
-					<Modal.Title>{props.petValues.val0}</Modal.Title>
+					<Modal.Title>{props.petValues.name}</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					<form>
 						<label>
 							Name:
-							<input
-								type="text"
-								value={pet.name}
-								placeholder={props.petValues.val0}
-								onChange={handleChange}
-								name="name"
-							/>
+							<input type="text" value={pet.name} onChange={handleChange} name="name" />
 						</label>
 						<label>
 							Pet Type:
-							<input
-								type="text"
-								value={pet.petType}
-								placeholder={props.petValues.val1}
-								onChange={handleChange}
-								name="petType"
-							/>
+							<input type="text" value={pet.pet_type} onChange={handleChange} name="pet_type" />
+						</label>
+						<label>
+							Sex:
+							<input type="text" value={pet.sex} onChange={handleChange} name="sex" />
+						</label>
+						<label>
+							Color:
+							<input type="text" value={pet.pet_color} onChange={handleChange} name="pet_color" />
 						</label>
 					</form>
 				</Modal.Body>

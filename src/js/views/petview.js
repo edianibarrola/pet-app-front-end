@@ -23,7 +23,7 @@ export default class PetView extends React.Component {
 									{store.petList
 										? store.petList.map((pet, index) => {
 												console.log(pet);
-												return <PetCard key={pet.petId} propObj={pet} />;
+												return <PetCard key={pet.id} pet_prop={pet} />;
 										  })
 										: "getting data"}
 								</div>

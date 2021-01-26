@@ -70,6 +70,7 @@ export const PetNavbar = () => {
 								<NavDropdown.Divider />
 								<NavDropdown.Item href="/calendar">Calendar</NavDropdown.Item>
 								<NavDropdown.Item href="/adoptpage">Adoptions</NavDropdown.Item>
+								<NavDropdown.Item href="/habitats">Habitats</NavDropdown.Item>
 							</NavDropdown>
 						</Nav>
 					</Navbar.Collapse>

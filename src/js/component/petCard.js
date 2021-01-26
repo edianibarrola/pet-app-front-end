@@ -18,26 +18,22 @@ export class PetCard extends React.Component {
 		super(props);
 
 		this.state = {
-			val0: null,
-			val1: null,
-			val2: null,
-			val3: null
+			name: this.props.pet_prop.name,
+			pet_type: this.props.pet_prop.pet_type,
+			sex: this.props.pet_prop.sex,
+			color: this.props.pet_prop.color
 		};
-		this.petApiUrl = "waitingForApiKey";
 	}
-	componentDidMount() {
-		this.setState({
-			//petInfo: jsonified results from api call,
-			// key0: "Name: ",
-			// key1: "Pet Type: ",
-			// key2: "Sex: ",
-			// key3: "Color: ",
-			val0: this.props.propObj.name,
-			val1: this.props.propObj.petType,
-			val2: this.props.propObj.sex,
-			val3: this.props.propObj.petColor
-		});
-	}
+	// componentDidMount() {
+	// 	this.setState({
+	// 		//petInfo: jsonified results from api call,
+	// 		// key0: "Name: ",
+	// 		// key1: "Pet Type: ",
+	// 		// key2: "Sex: ",
+	// 		// key3: "Color: ",
+
+	// 	});
+	// }
 
 	render() {
 		return (
@@ -49,7 +45,7 @@ export class PetCard extends React.Component {
 								<Image src="https://picsum.photos/150" roundedCircle fluid />
 							</div>
 							<div className=" text-center">
-								<h2>{this.state.val0}</h2>
+								<h2>{this.state.name}</h2>
 							</div>
 						</Accordion.Toggle>
 						<Accordion.Collapse eventKey="0">
@@ -57,23 +53,22 @@ export class PetCard extends React.Component {
 								<div className="container text-nowrap">
 									<li>
 										{" Pet Type "}
-										{this.state.val1}{" "}
+										{this.state.pet_type}{" "}
 									</li>
 									<li>
 										{" sex "}
-										{this.state.val2}
+										{this.state.sex}
 									</li>
 									<li>
 										{" color "}
-										{this.state.val3}
+										{this.state.pet_color}
 									</li>
 								</div>
 
 								<PetModal
 									show={this.state.isOpen}
 									onClose={this.toggleModal}
-									petValues={this.state}
-									petId={this.props.propObj.petId}
+									petValues={this.props.pet_prop}
 								/>
 							</Card.Body>
 						</Accordion.Collapse>
@@ -111,5 +106,5 @@ export class PetCard extends React.Component {
 }
 
 PetCard.propTypes = {
-	propObj: PropTypes.object
+	pet_prop: PropTypes.object
 };

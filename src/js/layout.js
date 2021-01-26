@@ -19,6 +19,7 @@ import { AdoptPage } from "./views/adoptPage";
 import { SearchLostPet } from "./views/searchLostPet";
 import { SearchFoundPet } from "./views/searchFoundPet";
 import PetView from "./views/petview";
+import HabitatView from "./views/habitatView";
 
 const Layout = () => {
 	const { store, actions } = useContext(Context);
@@ -89,6 +90,9 @@ const Layout = () => {
 								</Route>
 								<Route exact path="/pets">
 									<PetView />
+								</Route>
+								<Route exact path="/habitats">
+									<HabitatView />
 								</Route>
 								<Route exact path="/lostpets">
 									<SearchLostPet />
