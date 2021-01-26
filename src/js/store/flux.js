@@ -73,38 +73,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					description: "Please call my number at ###-###-#### if you found my pet!"
 				}
 			],
-			petList: [
-				{
-					petId: 0,
-					name: "Meesh",
-					petType: "Dog",
-					sex: "Female",
-					petColor: "Yellowish"
-				},
-				{
-					petId: 1,
-					name: "Taika",
-					petType: "Tortoise",
-					sex: "Unknown",
-					petColor: "Red/Black"
-				},
-				{
-					petId: 2,
-					name: "Buxy",
-					petType: "Cat",
-					sex: "Male",
-					petColor: "White/Gray"
-				},
-				{
-					petId: 3,
-					name: "Apopis",
-					petType: "Snake",
-					sex: "Unknown",
-					petColor: "Red/Black"
-				}
-			]
+			petList: null,
+			getPetUrl: "https://3000-bb954a08-1134-4c45-bb4c-b81574018d42.ws-us03.gitpod.io/pet"
 		},
 		actions: {
+			loadInitialData: () => {
+				fetch(getStore().getPetUrl)
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => setStore({ petList: jsonifiedResponse }))
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
 			loadSomeData: () => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
@@ -165,7 +150,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			updatePetList: pet => {
 				const newPetList = getStore().petList.map((input, index) => {
-					if (index == pet.petId) {
+					if (input.id == pet.id) {
 						input.name = pet.name;
 						return input;
 					} else {
