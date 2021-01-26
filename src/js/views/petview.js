@@ -4,12 +4,16 @@
 //Make a button that takes you to another webpage
 import React, { useContext } from "react";
 import { PetCard } from "../component/petCard";
+import { PetModal } from "../component/petModal";
 import ReactDOM from "react-dom";
 import { Context } from "../store/appContext";
 
 export default class PetView extends React.Component {
 	constructor() {
 		super();
+		this.state = {
+			isOpen: false
+		};
 	}
 	render() {
 		return (
@@ -18,7 +22,18 @@ export default class PetView extends React.Component {
 					{({ store, actions }) => {
 						return (
 							<div>
-								<button className="btn pcButton mt-5">Add new pet</button>
+								<div className="mx-auto">
+									<button className="btn pcButton mt-5 ">
+										<div className="align-items-center">
+											<div>Add new pet</div>
+											<PetModal
+												show={this.state.isOpen}
+												onClose={this.toggleModal}
+												petValues={""}
+											/>
+										</div>
+									</button>
+								</div>
 								<div className=" m-4 p-4 scrollWrapper  ">
 									{store.petList
 										? store.petList.map((pet, index) => {

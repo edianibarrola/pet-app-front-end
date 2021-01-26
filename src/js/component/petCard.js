@@ -59,7 +59,7 @@ export const PetCard = props => {
 									{info.color}
 								</li>
 							</div>
-
+							Edit:
 							<PetModal show={isOpen} onClose={toggleModal} petValues={info} />
 						</Card.Body>
 					</Accordion.Collapse>
