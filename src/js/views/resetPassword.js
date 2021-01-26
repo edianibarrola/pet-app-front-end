@@ -29,7 +29,8 @@ const ResetPassword = () => {
 							<div>
 								<Button
 									className="w-100 text-center mt-2"
-									onClick={() => actions.handleResetPassword(email)}>
+									// onClick={() => actions.handleResetPassword(email)}
+								>
 									Reset Password
 								</Button>
 							</div>
@@ -45,7 +46,7 @@ const ResetPassword = () => {
 										actions.clearErrors();
 										// actions.clearInputs();
 									}}>
-									<a>Login</a>
+									Login
 								</Link>
 							</p>
 						</>

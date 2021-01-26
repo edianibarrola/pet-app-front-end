@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Form, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import fire from "../../firebase";
 
 const SignUp = () => {
 	const [email, setEmail] = useState("");
@@ -11,30 +10,27 @@ const SignUp = () => {
 	const { store, actions } = useContext(Context);
 	const history = useHistory();
 
-	const handleSignUp = (email, password) => {
-		//Signs up the user if the user is not in the database, if not it will provide an error message as to why you cannot signup
+	const handleSignUp = (email, password, fullName) => {
 		actions.clearErrors();
-		fire.auth()
-			.createUserWithEmailAndPassword(email, password)
-			.then(() => {
-				let getUser = fire.auth().currentUser;
-				getUser.updateProfile({
-					displayName: fullName
-				});
-				history.push("/dashboard");
-			})
-			.catch(err => {
-				switch (err.code) {
-					case "auth/weak-password":
-						actions.changePasswordError(err.message);
-						break;
-					case "auth/email-already-in-use":
-						actions.changeEmailError(err.message);
-						break;
-					case "auth/invalid-email":
-						actions.changeEmailError(err.message);
-						break;
+		fetch(store.url + "signup", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ email: email, password: password, username: fullName })
+		})
+			.then(function(response) {
+				if (!response.ok) {
+					throw Error(response.statusText);
 				}
+				return response.json();
+			})
+			.then(data => {
+				if (data.id) {
+					history.push("/login");
+					console.log(data);
+				}
+			})
+			.catch(function(error) {
+				console.log("Looks like there was a problem: \n", error);
 			});
 	};
 
@@ -80,7 +76,7 @@ const SignUp = () => {
 								<Button
 									className="w-100 text-center mt-2"
 									onClick={() => {
-										handleSignUp(email, password);
+										handleSignUp(email, password, fullName);
 										actions.clearErrors();
 									}}>
 									Sign Up
@@ -97,7 +93,7 @@ const SignUp = () => {
 									onClick={() => {
 										actions.clearErrors();
 									}}>
-									<a>Sign in</a>
+									Sign in
 								</Link>
 							</p>
 						</>

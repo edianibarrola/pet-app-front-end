@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Form, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import fire from "../../firebase";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
@@ -10,25 +9,41 @@ const Login = () => {
 	const { store, actions } = useContext(Context);
 	const history = useHistory();
 
-	const handleLogin = (email, password) => {
-		//Logins the user if the user is in the database, if not it will provide an error message as to why you cannot login
+	const handleLogin = (userEmail, userPassword) => {
 		actions.clearErrors();
-		fire.auth()
-			.signInWithEmailAndPassword(email, password)
-			.then(() => {
-				history.push("/dashboard");
-			})
-			.catch(err => {
-				switch (err.code) {
-					case "auth/invalid-email":
-					case "auth/user-disabled":
-					case "auth/user-not-found":
-						actions.changeEmailError(err.message);
-						break;
-					case "auth/wrong-password":
-						actions.changePasswordError(err.message);
-						break;
+		fetch(store.url + "login", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ email: userEmail, password: userPassword })
+		})
+			.then(function(response) {
+				if (!response.ok) {
+					throw Error(response.statusText);
 				}
+				return response.json();
+			})
+			.then(token => {
+				if (token.msg) {
+					throw Error(token.msg);
+				} else {
+					actions.setToken(token.access_token);
+					console.log(token);
+					fetch(store.url + "user/" + token.id)
+						.then(function(response) {
+							if (!response.ok) {
+								throw Error(response.statusText);
+							}
+							return response.json();
+						})
+						.then(jsonifiedResponse => actions.setUser(jsonifiedResponse))
+						.catch(function(error) {
+							console.log("Looks like there was a problem: \n", error);
+						});
+					history.push("/dashboard");
+				}
+			})
+			.catch(function(error) {
+				console.log("Looks like there was a problem: \n", error);
 			});
 	};
 
@@ -77,7 +92,7 @@ const Login = () => {
 									onClick={() => {
 										actions.clearErrors();
 									}}>
-									<a>Sign up</a>
+									Sign up
 								</Link>
 							</p>
 							<p>
@@ -87,7 +102,7 @@ const Login = () => {
 									onClick={() => {
 										actions.clearErrors();
 									}}>
-									<a>Click here</a>
+									Click here
 								</Link>
 							</p>
 						</>
