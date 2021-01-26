@@ -61,7 +61,7 @@ export class PetCard extends React.Component {
 									</li>
 									<li>
 										{" color "}
-										{this.state.pet_color}
+										{this.state.color}
 									</li>
 								</div>
 
