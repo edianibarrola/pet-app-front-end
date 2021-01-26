@@ -11,7 +11,9 @@ export const Dashboard = () => {
 			<div className="row">
 				<div className="col">
 					<div className="main-header">
-						<div>{/* Welcome {store.user.displayName},<div>How are you today?</div> */}</div>
+						<div>
+							Welcome {store.user.username},<div>How are you today?</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -50,7 +52,7 @@ export const Dashboard = () => {
 					<div className="col">
 						<div className="card text-center">
 							<div className="card-header">Your Latest Messages</div>
-							<div className="card-body">
+							<div className="card-body darkerGreen">
 								{/* starts here */}
 								<div className="card text-center">
 									<div className="card-header">From Vivian</div>
