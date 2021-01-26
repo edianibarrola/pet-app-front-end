@@ -11,9 +11,7 @@ export const Dashboard = () => {
 			<div className="row">
 				<div className="col">
 					<div className="main-header">
-						<div>
-							Welcome {store.user.displayName},<div>How are you today?</div>
-						</div>
+						<div>{/* Welcome {store.user.displayName},<div>How are you today?</div> */}</div>
 					</div>
 				</div>
 			</div>

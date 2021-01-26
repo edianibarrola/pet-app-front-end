@@ -18,9 +18,9 @@ const UserProfile = () => {
 										<i className="fas fa-pencil-alt mr-3" />
 									</Link>
 								</div> */}
-								<h2>Email: {store.user.email}</h2>
+								{/* <h2>Email: {store.user.email}</h2> */}
 								<h2 />
-								<h2>Full Name: {store.user.displayName}</h2>
+								{/* <h2>Full Name: {store.user.displayName}</h2> */}
 								<h2 />
 							</div>
 						</div>
