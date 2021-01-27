@@ -188,7 +188,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(jsonifiedResponse => {
 						console.log(jsonifiedResponse);
-
 						fetch(getStore().url + "pet")
 							.then(function(response) {
 								if (!response.ok) {
