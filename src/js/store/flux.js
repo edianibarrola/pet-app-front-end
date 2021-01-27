@@ -229,8 +229,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(function(error) {
 						console.log("Looks like there was a problem2: \n", error);
 					});
-            },
-            addHabitat: data => {
+			},
+			addHabitat: data => {
 				fetch(getStore().url + "habitat", {
 					method: "POST", // or 'POST'
 					body: JSON.stringify({
