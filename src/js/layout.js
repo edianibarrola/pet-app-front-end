@@ -22,6 +22,7 @@ import PetView from "./views/petview";
 import HabitatView from "./views/habitatView";
 import AddFoundPet from "./views/addFoundPet";
 import AddLostPet from "./views/addLostPet";
+import EditUserProfile from "./views/editUserProfile";
 
 const Layout = () => {
 	const { store, actions } = useContext(Context);
@@ -49,6 +50,9 @@ const Layout = () => {
 							</Route>
 							<Route exact path="/profile">
 								<UserProfile />
+							</Route>
+							<Route exact path="/profile/edit">
+								<EditUserProfile />
 							</Route>
 							<Route exact path="/adoptpage">
 								<AdoptPage />

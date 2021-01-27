@@ -131,6 +131,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			handleLogOut: () => {
 				setStore({ login_token: "" });
+				setStore({ user: "" });
 			},
 			addPet: data => {
 				fetch(getStore().url + "pet", {
@@ -356,35 +357,43 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
-			}
+			},
 
-			// deleteLostPost: (id) =>{
-			//     fetch(getStore().url + "posts/" + id, {
-			// 		method: "DELETE",
-			// 	})
-			// 		.then(function(response) {
-			// 			if (!response.ok) {
-			// 				throw Error(response.statusText);
-			// 			}
-			// 			return response.json();
-			// 		})
-			// 		.then(jsonifiedResponse => {
-			// 			fetch(getStore().url + "posts/lost")
-			// 				.then(function(response) {
-			// 					if (!response.ok) {
-			// 						throw Error(response.statusText);
-			// 					}
-			// 					return response.json();
-			// 				})
-			// 				.then(jsonifiedResponse => setStore({ lostPets: jsonifiedResponse }))
-			// 				.catch(function(error) {
-			// 					console.log("Looks like there was a problem: \n", error);
-			// 				});
-			// 		})
-			// 		.catch(function(error) {
-			// 			console.log("Looks like there was a problem: \n", error);
-			// 		});
-			// }
+			updateUserProfile: (name, email, id) => {
+				fetch(getStore().url + "user/" + id, {
+					method: "PUT", // or 'POST'
+					body: JSON.stringify({
+						username: name,
+						email: email
+					}), // data can be `string` or {object}!
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => {
+						console.log(jsonifiedResponse);
+						fetch(getStore().url + "user/" + id)
+							.then(function(response) {
+								if (!response.ok) {
+									throw Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(jsonifiedResponse => setStore({ user: jsonifiedResponse }))
+							.catch(function(error) {
+								console.log("Looks like there was a problem: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			}
 		}
 	};
 };

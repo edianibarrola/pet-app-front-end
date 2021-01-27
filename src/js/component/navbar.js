@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export const PetNavbar = () => {
 	const { store, actions } = useContext(Context);
-
+	// const [id, setId] = useState(store.user.id);
 	return (
 		<div>
 			{store.login_token ? (

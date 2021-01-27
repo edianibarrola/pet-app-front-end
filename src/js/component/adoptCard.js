@@ -14,31 +14,25 @@ import { Link } from "react-router-dom";
 export class AdoptCard extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			petInfo: this.pet,
-			key0: null,
-			key1: null,
-			key2: null,
-			key3: null,
 			val0: null,
 			val1: null,
 			val2: null,
-			val3: null
+			val3: null,
+			val4: null
 		};
-		this.petApiUrl = "waitingForApiKey";
 	}
 	componentDidMount() {
 		this.setState({
 			//petInfo: jsonified results from api call,
-			key0: "Name: ",
-			key1: "Pet Type: ",
-			key2: "Sex: ",
-			key3: "Color: ",
-			val0: this.props.propObj.Name,
-			val1: this.props.propObj.PetType,
-			val2: this.props.propObj.Sex,
-			val3: this.props.propObj.Color
+			val0: this.props.propObj.species,
+			val1: this.props.propObj.breeds.primary,
+			val2: this.props.propObj.name,
+			val3: this.props.propObj.url,
+			val4: this.props.propObj.primary_photo_cropped
+				? this.props.propObj.primary_photo_cropped.medium
+				: "https://picsum.photos/150"
 		});
 	}
 	render() {
@@ -48,28 +42,28 @@ export class AdoptCard extends React.Component {
 					<Card style={{ width: "18rem" }}>
 						<Accordion.Toggle as={Card.Header} eventKey="0" className="pcGradientLightGreen">
 							<div className="d-flex justify-content-center ">
-								<Image src="https://picsum.photos/150" roundedCircle fluid />
+								<Image src={this.state.val4} roundedCircle fluid />
 							</div>
 							<div className=" text-center">
-								<h1>{this.state.val0}</h1>
+								<h6>{this.state.val2}</h6>
 							</div>
 						</Accordion.Toggle>
 						<Accordion.Collapse eventKey="0">
 							<Card.Body>
 								<div className="container text-nowrap">
-									<li>
-										{this.state.key1}
-										{this.state.val1}{" "}
-									</li>
-									<li>
-										{" "}
-										{this.state.key2} {this.state.val2}
-									</li>
-									<li>
-										{" "}
-										{this.state.key3} {this.state.val3}
-									</li>
+									<h1>Species: </h1>
+									<p>{this.state.val0}</p>
+									<h1>Breed:</h1>
+									<p>{this.state.val1}</p>
 								</div>
+								<a
+									role="button"
+									href={this.state.val3}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="btn btn-primary">
+									Learn More!
+								</a>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
