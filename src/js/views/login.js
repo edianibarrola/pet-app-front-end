@@ -26,6 +26,7 @@ const Login = () => {
 				if (token.msg) {
 					throw Error(token.msg);
 				} else {
+					history.push("/dashboard");
 					actions.setToken(token.access_token);
 					console.log(token);
 					fetch(store.url + "user/" + token.id)
@@ -39,7 +40,6 @@ const Login = () => {
 						.catch(function(error) {
 							console.log("Looks like there was a problem: \n", error);
 						});
-					history.push("/dashboard");
 				}
 			})
 			.catch(function(error) {

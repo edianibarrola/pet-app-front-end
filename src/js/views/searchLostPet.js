@@ -19,7 +19,7 @@ export const SearchLostPet = () => {
 		<div className="container">
 			<div>
 				<p className="text-right my-3">
-					<Link className="btn btn-primary" to="/addlostpet">
+					<Link className="btn btn-primary" to="/postlostpet">
 						Post Looking For Lost Pet
 					</Link>
 				</p>
@@ -34,27 +34,16 @@ export const SearchLostPet = () => {
 				</div>
 				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
 					<ul className="list-group pull-down" id="contact-list">
-						{store.lostPet
-							? store.lostPet.map((pet, index) => {
-									//Maps through the lostPet in store at flux.js, looks at each content at every index, and displays a ContactCard
-									//with information at that specific key.
+						{store.lostPets
+							? store.lostPets.map((pet, index) => {
 									if (
 										pet.name.toLowerCase().includes(search.toLowerCase()) ||
-										pet.lastSeen.includes(search) ||
-										pet.color.includes(search) ||
-										pet.petType.includes(search)
+										pet.lastSeen.toLowerCase().includes(search.toLowerCase()) ||
+										pet.petType.toLowerCase().includes(search.toLowerCase())
 									) {
-										//Displays the contact names if the typed letters in the input matches the contact.full_name
 										return <LostPetCard key={index} propPet={pet} />;
 									} else if (search == "") {
-										//If the user clears the search bar, it will then again display all of the contact cards.
-										return (
-											<LostPetCard
-												key={index}
-												propPet={pet}
-												// onDelete={() => setState({ showModal: true, id: contact.id })}
-											/>
-										);
+										return <LostPetCard key={index} propPet={pet} />;
 									}
 							  })
 							: null}

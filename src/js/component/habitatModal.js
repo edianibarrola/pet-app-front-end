@@ -81,7 +81,7 @@ export function HabitatModal(props) {
 					<Button
 						variant="primary"
 						onClick={() => {
-							if (props.habitat) {
+							if (props.habitat.id) {
 								actions.updateHabitat(habitat);
 
 								setShow(false);
@@ -100,6 +100,5 @@ export function HabitatModal(props) {
 }
 
 HabitatModal.propTypes = {
-	habitat: PropTypes.object,
-	habitat_id: PropTypes.number
+	habitat: PropTypes.object
 };

@@ -68,12 +68,7 @@ export const HabitatCard = props => {
 							<i className="far fa-trash-alt" />
 						</Button>
 						Edit Habitat:
-						<HabitatModal
-							show={isOpen}
-							onClose={toggleModal}
-							habitat_id={props.prop_habitat.id}
-							habitat={props.prop_habitat}
-						/>
+						<HabitatModal show={isOpen} onClose={toggleModal} habitat={props.prop_habitat} />
 					</div>
 				</div>
 			</Card>

@@ -1,11 +1,9 @@
-import React from "react";
-// import React, { useState, useContext } from "react";
-// import { GlobalState } from "../store/appContext";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 
 export const LostPetCard = props => {
-	// const { store, actions } = useContext(GlobalState);
-	// const [state, setState] = useState({});
+	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="container d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
@@ -13,12 +11,17 @@ export const LostPetCard = props => {
 				<div>
 					<div className="card">
 						<div className="card-body">
+							<i
+								className="far fa-times-circle float-right"
+								onClick={() => actions.deletePost(props.propPet.id)}
+							/>
 							<h2 className="text-center mb-4">Name: </h2>
 							<p>{props.propPet.name}</p>
+
 							<div>
 								<div>
 									<h2>Type of Animal: </h2>
-									<p>{props.propPet.petType}</p>
+									<p>{props.propPet.pet_type}</p>
 								</div>
 								<div>
 									<h2>Color: </h2>
@@ -26,11 +29,11 @@ export const LostPetCard = props => {
 								</div>
 								<div>
 									<h2>Eye Color: </h2>
-									<p>{props.propPet.eyeColor}</p>
+									<p>{props.propPet.eye_color}</p>
 								</div>
 								<div>
 									<h2>Last Seen Location: </h2>
-									<p>{props.propPet.lastSeen}</p>
+									<p>{props.propPet.last_seen}</p>
 								</div>
 								<div>
 									<h2>Description: </h2>
