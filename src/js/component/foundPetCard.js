@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 
 export const FoundPetCard = props => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="container d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
 			<div className="w-100" style={{ maxWidth: "400px" }}>
 				<div>
 					<div className="card">
 						<div className="card-body">
+							<i
+								className="far fa-times-circle float-right"
+								onClick={() => actions.deletePost(props.propPet.id)}
+							/>
 							<h2 className="text-center mb-4">Name: </h2>
 							<p>{props.propPet.name}</p>
 							<div>

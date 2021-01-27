@@ -156,7 +156,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(jsonifiedResponse => {
 						// console.log(jsonifiedResponse);
-
 						fetch(getStore().url + "pet")
 							.then(function(response) {
 								if (!response.ok) {
@@ -316,7 +315,76 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
+			},
+
+			deletePost: id => {
+				fetch(getStore().url + "posts/" + id, {
+					method: "DELETE"
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => {
+						fetch(getStore().url + "posts/found")
+							.then(function(response) {
+								if (!response.ok) {
+									throw Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(jsonifiedResponse => setStore({ foundPets: jsonifiedResponse }))
+							.catch(function(error) {
+								console.log("Looks like there was a problem: \n", error);
+							});
+					})
+					.then(jsonifiedResponse => {
+						fetch(getStore().url + "posts/lost")
+							.then(function(response) {
+								if (!response.ok) {
+									throw Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(jsonifiedResponse => setStore({ lostPets: jsonifiedResponse }))
+							.catch(function(error) {
+								console.log("Looks like there was a problem: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
 			}
+
+			// deleteLostPost: (id) =>{
+			//     fetch(getStore().url + "posts/" + id, {
+			// 		method: "DELETE",
+			// 	})
+			// 		.then(function(response) {
+			// 			if (!response.ok) {
+			// 				throw Error(response.statusText);
+			// 			}
+			// 			return response.json();
+			// 		})
+			// 		.then(jsonifiedResponse => {
+			// 			fetch(getStore().url + "posts/lost")
+			// 				.then(function(response) {
+			// 					if (!response.ok) {
+			// 						throw Error(response.statusText);
+			// 					}
+			// 					return response.json();
+			// 				})
+			// 				.then(jsonifiedResponse => setStore({ lostPets: jsonifiedResponse }))
+			// 				.catch(function(error) {
+			// 					console.log("Looks like there was a problem: \n", error);
+			// 				});
+			// 		})
+			// 		.catch(function(error) {
+			// 			console.log("Looks like there was a problem: \n", error);
+			// 		});
+			// }
 		}
 	};
 };
