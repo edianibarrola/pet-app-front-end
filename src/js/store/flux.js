@@ -8,7 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			passwordError: "",
 			emailSent: "",
 			token: "",
-			url: "https://3000-bb954a08-1134-4c45-bb4c-b81574018d42.ws-us03.gitpod.io/",
+			url: "https://3000-dd56cdb1-af4d-43bb-bb6b-ed4132109aff.ws-us03.gitpod.io/",
 			habitatList: [
 				{
 					habitatId: 0,
@@ -23,59 +23,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					habitatName: "Indoor Tort Enclosure 2"
 				}
 			],
-			lostPet: [
-				{
-					name: "Sasha",
-					petType: "Cat",
-					color: "Orange",
-					eyeColor: "Green",
-					lastSeen: "34743",
-					description: "Please call my number at ###-###-#### if you found my pet!"
-				},
-				{
-					name: "Brutus",
-					petType: "Dog",
-					color: "Black and white",
-					eyeColor: "Blue",
-					lastSeen: "34743",
-					description: "Please call my number at ###-###-#### if you found my pet!"
-				},
-				{
-					name: "Lily",
-					petType: "Ferret",
-					color: "Light brown and white",
-					eyeColor: "Brown Yellow",
-					lastSeen: "34743",
-					description: "Please call my number at ###-###-#### if you found my pet!"
-				}
-			],
-			foundPet: [
-				{
-					name: "Timmy",
-					petType: "Cat",
-					color: "Orange",
-					eyeColor: "Green",
-					lastSeen: "34743",
-					description: "Please call my number at ###-###-#### if you found my pet!"
-				},
-				{
-					name: "Max",
-					petType: "Dog",
-					color: "Black and white",
-					eyeColor: "Blue",
-					lastSeen: "34743",
-					description: "Please call my number at ###-###-#### if you found my pet!"
-				},
-				{
-					name: "Bouncer",
-					petType: "Ferret",
-					color: "Light brown and white",
-					eyeColor: "Brown Yellow",
-					lastSeen: "34743",
-					description: "Please call my number at ###-###-#### if you found my pet!"
-				}
-			],
-			petList: null
+			petList: null,
+			lostPets: null,
+			foundPets: null
 		},
 		actions: {
 			loadInitialData: () => {
@@ -87,6 +37,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(jsonifiedResponse => setStore({ petList: jsonifiedResponse }))
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+				fetch(getStore().url + "posts/lost")
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => setStore({ lostPets: jsonifiedResponse }))
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+				fetch(getStore().url + "posts/found")
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => setStore({ foundPets: jsonifiedResponse }))
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
@@ -156,6 +128,81 @@ const getState = ({ getStore, getActions, setStore }) => {
 								return response.json();
 							})
 							.then(jsonifiedResponse => setStore({ petList: jsonifiedResponse }))
+							.catch(function(error) {
+								console.log("Looks like there was a problem: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
+
+			addToLost: (name, petType, color, eyeColor, lastSeen, description, status) => {
+				fetch(getStore().url + "posts/lost", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						name: name,
+						pet_type: petType,
+						color: color,
+						eye_color: eyeColor,
+						last_seen: lastSeen,
+						description: description,
+						status: status
+					})
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => {
+						fetch(getStore().url + "posts/lost")
+							.then(function(response) {
+								if (!response.ok) {
+									throw Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(jsonifiedResponse => setStore({ lostPets: jsonifiedResponse }))
+							.catch(function(error) {
+								console.log("Looks like there was a problem: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
+			addToFound: (name, petType, color, eyeColor, lastSeen, description, status) => {
+				fetch(getStore().url + "posts/found", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						name: name,
+						pet_type: petType,
+						color: color,
+						eye_color: eyeColor,
+						last_seen: lastSeen,
+						description: description,
+						status: status
+					})
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => {
+						fetch(getStore().url + "posts/found")
+							.then(function(response) {
+								if (!response.ok) {
+									throw Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(jsonifiedResponse => setStore({ foundPets: jsonifiedResponse }))
 							.catch(function(error) {
 								console.log("Looks like there was a problem: \n", error);
 							});

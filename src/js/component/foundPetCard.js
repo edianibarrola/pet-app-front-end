@@ -13,7 +13,7 @@ export const FoundPetCard = props => {
 							<div>
 								<div>
 									<h2>Type of Animal: </h2>
-									<p>{props.propPet.petType}</p>
+									<p>{props.propPet.pet_type}</p>
 								</div>
 								<div>
 									<h2>Color: </h2>
@@ -21,11 +21,11 @@ export const FoundPetCard = props => {
 								</div>
 								<div>
 									<h2>Eye Color: </h2>
-									<p>{props.propPet.eyeColor}</p>
+									<p>{props.propPet.eye_color}</p>
 								</div>
 								<div>
 									<h2>Last Seen Location: </h2>
-									<p>{props.propPet.lastSeen}</p>
+									<p>{props.propPet.last_seen}</p>
 								</div>
 								<div>
 									<h2>Description: </h2>

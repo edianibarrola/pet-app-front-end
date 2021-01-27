@@ -17,7 +17,7 @@ export const SearchFoundPet = () => {
 		<div className="container">
 			<div>
 				<p className="text-right my-3">
-					<Link className="btn btn-primary" to="/addfoundpet">
+					<Link className="btn btn-primary" to="/postfoundpet">
 						Post Found Pet
 					</Link>
 				</p>
@@ -32,13 +32,12 @@ export const SearchFoundPet = () => {
 				</div>
 				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
 					<ul className="list-group pull-down" id="contact-list">
-						{store.foundPet
-							? store.foundPet.map((pet, index) => {
+						{store.foundPets
+							? store.foundPets.map((pet, index) => {
 									if (
 										pet.name.toLowerCase().includes(search.toLowerCase()) ||
-										pet.lastSeen.includes(search) ||
-										pet.color.includes(search) ||
-										pet.petType.includes(search)
+										pet.lastSeen.toLowerCase().includes(search.toLowerCase()) ||
+										pet.petType.toLowerCase().includes(search.toLowerCase())
 									) {
 										return <FoundPetCard key={index} propPet={pet} />;
 									} else if (search == "") {

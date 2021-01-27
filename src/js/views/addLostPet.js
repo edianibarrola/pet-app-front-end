@@ -3,14 +3,14 @@ import { Context } from "../store/appContext";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const AddFoundPet = () => {
+const AddLostPet = () => {
 	const [name, setName] = useState("");
 	const [petType, setPetType] = useState("");
 	const [color, setColor] = useState("");
 	const [eyeColor, setEyeColor] = useState("");
 	const [lastSeen, setLastSeen] = useState("");
 	const [description, setDescription] = useState("");
-	const status = "found";
+	const status = "lost";
 	const { store, actions } = useContext(Context);
 
 	return (
@@ -19,7 +19,7 @@ const AddFoundPet = () => {
 				<div>
 					<div className="card">
 						<div className="card-body">
-							<h2 className="text-center mb-4">Post a Found Pet</h2>
+							<h2 className="text-center mb-4">Post a Lost Pet</h2>
 							<Form>
 								<Form.Group id="name">
 									<Form.Label>Name, if applicable</Form.Label>
@@ -53,9 +53,7 @@ const AddFoundPet = () => {
 									/>
 								</Form.Group>
 								<Form.Group id="lastSeen">
-									<Form.Label>
-										Where was it last seen? Or are you currently housing the animal?
-									</Form.Label>
+									<Form.Label>Where was it last seen?</Form.Label>
 									<Form.Control
 										type="text"
 										onChange={e => setLastSeen(e.target.value)}
@@ -76,15 +74,7 @@ const AddFoundPet = () => {
 								<Button
 									className="w-100 text-center mt-2"
 									onClick={() =>
-										actions.addToFound(
-											name,
-											petType,
-											color,
-											eyeColor,
-											lastSeen,
-											description,
-											status
-										)
+										actions.addToLost(name, petType, color, eyeColor, lastSeen, description, status)
 									}>
 									Submit Post
 								</Button>
@@ -94,7 +84,7 @@ const AddFoundPet = () => {
 					<div className="w-100 text-center mt-2">
 						<>
 							<p>
-								Want to go back to found pet search? <Link to="/foundpets">Click here</Link>
+								Want to go back to lost pet search? <Link to="/lostpets">Click here</Link>
 							</p>
 						</>
 					</div>
@@ -104,4 +94,4 @@ const AddFoundPet = () => {
 	);
 };
 
-export default AddFoundPet;
+export default AddLostPet;
