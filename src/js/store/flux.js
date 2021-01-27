@@ -7,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			emailError: "",
 			passwordError: "",
 			emailSent: "",
-			token: "",
+			login_token: "",
 			url: "https://3000-bb954a08-1134-4c45-bb4c-b81574018d42.ws-us03.gitpod.io/",
 			habitatList: [
 				{
@@ -78,6 +78,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 			petList: null
 		},
 		actions: {
+			getApiToken: () => {
+				fetch("https://api.petfinder.com/v2/oauth2/token", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: {
+						grant_type: "client_credentials",
+						client_id: "0PjeCX5aqMkV0dApIVx5Ne3wn1gokANETjuY80Rsk0wdFtpfeh",
+						client_secret: "4NpBhqb0kHhhBeVclmtUldqwnBD1fERELKYuCwi1"
+					}
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => setStore({ petList: jsonifiedResponse }))
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
 			loadInitialData: () => {
 				fetch(getStore().url + "pet")
 					.then(function(response) {
@@ -111,7 +134,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ passwordError: "" });
 			},
 			setToken: token => {
-				setStore({ token: token });
+				setStore({ login_token: token });
 			},
 
 			setUser: userInfo => {
@@ -119,7 +142,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			handleLogOut: () => {
-				setStore({ token: "" });
+				setStore({ login_token: "" });
 			},
 			addPet: data => {
 				fetch(getStore().url + "pet", {
