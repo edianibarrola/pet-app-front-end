@@ -6,7 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			fullName: "",
 			emailError: "",
 			passwordError: "",
-			emailSent: "",
+            emailSent: "",
+            petfinder_token: "",
 			login_token: "",
 			url: "https://3000-dd56cdb1-af4d-43bb-bb6b-ed4132109aff.ws-us03.gitpod.io/",
 			habitatList: [
@@ -46,7 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 						return response.json();
 					})
-					.then(jsonifiedResponse => setStore({ petList: jsonifiedResponse }))
+					.then(jsonifiedResponse => setStore({ petfinder_token : jsonifiedResponse.access_token }))
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
