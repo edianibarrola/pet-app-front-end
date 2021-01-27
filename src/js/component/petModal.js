@@ -29,8 +29,8 @@ export function PetModal(props) {
 	};
 	return (
 		<>
-			<Button className="btn pcGradientLightGreen float-right mx-auto mb-3" onClick={handleShow}>
-				<i className="fas fa-edit mr-auto fa-1x " />
+			<Button className="btn pcGradientLightGreen m-3 mx-auto " onClick={handleShow}>
+				<i className="fas fa-edit mx-auto fa-1x " />
 			</Button>
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
