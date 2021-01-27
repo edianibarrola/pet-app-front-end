@@ -9,20 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			emailSent: "",
 			token: "",
 			url: "https://3000-bb954a08-1134-4c45-bb4c-b81574018d42.ws-us03.gitpod.io/",
-			habitatList: [
-				{
-					habitatId: 0,
-					habitatName: "Outdoor Tort Enclosure 1"
-				},
-				{
-					habitatId: 1,
-					habitatName: "Snake Rack 1"
-				},
-				{
-					habitatId: 2,
-					habitatName: "Indoor Tort Enclosure 2"
-				}
-			],
+			habitatList: null,
 			lostPet: [
 				{
 					name: "Sasha",
@@ -87,6 +74,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(jsonifiedResponse => setStore({ petList: jsonifiedResponse }))
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+				fetch(getStore().url + "habitat")
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => setStore({ habitatList: jsonifiedResponse }))
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
@@ -224,6 +222,114 @@ const getState = ({ getStore, getActions, setStore }) => {
 								return response.json();
 							})
 							.then(jsonifiedResponse => setStore({ petList: jsonifiedResponse }))
+							.catch(function(error) {
+								console.log("Looks like there was a problem1: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem2: \n", error);
+					});
+			},
+			addHabitat: data => {
+				fetch(getStore().url + "habitat", {
+					method: "POST", // or 'POST'
+					body: JSON.stringify({
+						name: data.name,
+						pet_in_habitat_id: data.pet_in_habitat_id,
+						info: data.info,
+						habitat_location: data.habitat_location,
+						habitat_supplies: data.habitat_supplies,
+						habitat_equipment: data.habitat_equipment
+					}), // data can be `string` or {object}!
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => {
+						// console.log(jsonifiedResponse);
+
+						fetch(getStore().url + "habitat")
+							.then(function(response) {
+								if (!response.ok) {
+									throw Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(jsonifiedResponse => setStore({ habitatList: jsonifiedResponse }))
+							.catch(function(error) {
+								console.log("Looks like there was a problem: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
+			updateHabitat: data => {
+				fetch(getStore().url + "habitat/" + data.id, {
+					method: "PUT", // or 'POST'
+					body: JSON.stringify({
+						id: data.id,
+						name: data.name,
+						pet_in_habitat_id: data.pet_in_habitat_id,
+						info: data.info,
+						habitat_location: data.habitat_location,
+						habitat_supplies: data.habitat_supplies,
+						habitat_equipment: data.habitat_equipment
+					}), // data can be `string` or {object}!
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => {
+						console.log(jsonifiedResponse);
+						fetch(getStore().url + "habitat")
+							.then(function(response) {
+								if (!response.ok) {
+									throw Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(jsonifiedResponse => setStore({ habitatList: jsonifiedResponse }))
+							.catch(function(error) {
+								console.log("Looks like there was a problem: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
+			deleteHabitat: id => {
+				fetch(getStore().url + "habitat/" + id, {
+					method: "DELETE"
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => {
+						console.log(jsonifiedResponse);
+						fetch(getStore().url + "habitat")
+							.then(function(response) {
+								if (!response.ok) {
+									throw Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(jsonifiedResponse => setStore({ habitatList: jsonifiedResponse }))
 							.catch(function(error) {
 								console.log("Looks like there was a problem1: \n", error);
 							});
