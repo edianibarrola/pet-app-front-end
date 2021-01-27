@@ -6,8 +6,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			fullName: "",
 			emailError: "",
 			passwordError: "",
-			emailSent: "",
-			token: "",
+            emailSent: "",
+            petfinder_token: "",
+			login_token: "",
 			url: "https://3000-dd56cdb1-af4d-43bb-bb6b-ed4132109aff.ws-us03.gitpod.io/",
 			habitatList: [
 				{
@@ -23,11 +24,47 @@ const getState = ({ getStore, getActions, setStore }) => {
 					habitatName: "Indoor Tort Enclosure 2"
 				}
 			],
-			petList: null,
+            petList: [],
+            adoptablePets: [],
 			lostPets: null,
 			foundPets: null
 		},
 		actions: {
+            getAdoptablePets: () => {
+                fetch("https://api.petfinder.com/v2/{CATEGORY}/{ACTION}?{parameter_1}={value_1}&{parameter_2}={value_2}", {
+                    headers: {
+                        Authorization: "Bearer " + petfinder_token
+                    }
+                })
+                .then(resp => resp.json())
+                .then(data => {
+                    setStore({ adoptablePets: data.animals })
+                })
+                .catch(err => console.log("Following errors has occurred: ", err));
+            },
+			getApiToken: () => {
+				fetch("https://api.petfinder.com/v2/oauth2/token", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: {
+						grant_type: "client_credentials",
+						client_id: "0PjeCX5aqMkV0dApIVx5Ne3wn1gokANETjuY80Rsk0wdFtpfeh",
+						client_secret: "4NpBhqb0kHhhBeVclmtUldqwnBD1fERELKYuCwi1"
+					}
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => setStore({ petfinder_token : jsonifiedResponse.access_token }))
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
 			loadInitialData: () => {
 				fetch(getStore().url + "pet")
 					.then(function(response) {
@@ -83,7 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ passwordError: "" });
 			},
 			setToken: token => {
-				setStore({ token: token });
+				setStore({ login_token: token });
 			},
 
 			setUser: userInfo => {
@@ -91,7 +128,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			handleLogOut: () => {
-				setStore({ token: "" });
+				setStore({ login_token: "" });
 			},
 			addPet: data => {
 				fetch(getStore().url + "pet", {
