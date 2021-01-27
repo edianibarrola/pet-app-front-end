@@ -10,7 +10,9 @@ export const AdoptPage = () => {
 			<div className=" m-4 p-4 scrollWrapper  ">
 				{store.adoptablePets.map((pet, index) => {
 					console.log("Adoptable Pet ID", pet, "end");
-					return <AdoptCard key={pet.adoptId} propObj={pet} />;
+					if (pet.contact.address.state == "FL") {
+						return <AdoptCard key={pet.adoptId} propObj={pet} />;
+					}
 				})}
 			</div>
 		</div>
