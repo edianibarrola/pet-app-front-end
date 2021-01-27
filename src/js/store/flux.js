@@ -63,7 +63,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 						return response.json();
 					})
-					.then(jsonifiedResponse => setStore({ petfinder_token: jsonifiedResponse.access_token }))
+					.then(jsonifiedResponse => {
+						setStore({ petfinder_token: jsonifiedResponse.access_token });
+						getActions().getAdoptablePets();
+					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
