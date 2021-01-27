@@ -20,6 +20,8 @@ import { SearchLostPet } from "./views/searchLostPet";
 import { SearchFoundPet } from "./views/searchFoundPet";
 import PetView from "./views/petview";
 import HabitatView from "./views/habitatView";
+import AddFoundPet from "./views/addFoundPet";
+import AddLostPet from "./views/addLostPet";
 
 const Layout = () => {
 	const { store, actions } = useContext(Context);
@@ -94,7 +96,12 @@ const Layout = () => {
 							<Route exact path="/foundpets">
 								<SearchFoundPet />
 							</Route>
-
+							<Route exact path="/postfoundpet">
+								<AddFoundPet />
+							</Route>
+							<Route exact path="/postlostpet">
+								<AddLostPet />
+							</Route>
 							<Route>
 								<h1>Not found!</h1>
 							</Route>
