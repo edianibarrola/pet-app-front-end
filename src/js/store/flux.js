@@ -93,9 +93,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 			handleLogOut: () => {
 				setStore({ token: "" });
 			},
+			addPet: data => {
+				fetch(getStore().url + "pet", {
+					method: "POST", // or 'POST'
+					body: JSON.stringify({
+						name: data.name,
+						pet_type: data.pet_type,
+						sex: data.sex,
+						color: data.color,
+						dob: data.dob,
+						habitat_id: data.habitat_id,
+						note: data.note
+					}), // data can be `string` or {object}!
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => {
+						// console.log(jsonifiedResponse);
 
-			updatePetList: data => {
-				console.log(data);
+						fetch(getStore().url + "pet")
+							.then(function(response) {
+								if (!response.ok) {
+									throw Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(jsonifiedResponse => setStore({ petList: jsonifiedResponse }))
+							.catch(function(error) {
+								console.log("Looks like there was a problem: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
+
+			updatePet: data => {
 				fetch(getStore().url + "pet/" + data.id, {
 					method: "PUT", // or 'POST'
 					body: JSON.stringify({
@@ -135,8 +175,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
+            },
+            deletePet: id => {
+				fetch(getStore().url + "pet/" + id, {
+					method: "DELETE"
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => {
+						console.log(jsonifiedResponse);
+						fetch(getStore().url + "pet")
+							.then(function(response) {
+								if (!response.ok) {
+									throw Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(jsonifiedResponse => setStore({ petList: jsonifiedResponse }))
+							.catch(function(error) {
+								console.log("Looks like there was a problem1: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem2: \n", error);
+					});
 			},
-
 			addToLost: (name, petType, color, eyeColor, lastSeen, description, status) => {
 				fetch(getStore().url + "posts/lost", {
 					method: "POST",
@@ -210,7 +277,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
-			}
+            }
 		}
 	};
 };
