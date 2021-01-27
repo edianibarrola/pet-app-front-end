@@ -24,11 +24,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					habitatName: "Indoor Tort Enclosure 2"
 				}
 			],
-			petList: null,
+            petList: [],
+            adoptablePets: [],
 			lostPets: null,
 			foundPets: null
 		},
 		actions: {
+            getAdoptablePets: () => {
+                fetch("https://api.petfinder.com/v2/{CATEGORY}/{ACTION}?{parameter_1}={value_1}&{parameter_2}={value_2}", {
+                    headers: {
+                        Authorization: "Bearer " + petfinder_token
+                    }
+                })
+                .then(resp => resp.json())
+                .then(data => {
+                    setStore({ adoptablePets: data.animals })
+                })
+                .catch(err => console.log("Following errors has occurred: ", err));
+            },
 			getApiToken: () => {
 				fetch("https://api.petfinder.com/v2/oauth2/token", {
 					method: "POST",
