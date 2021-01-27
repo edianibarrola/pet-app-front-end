@@ -6,8 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			fullName: "",
 			emailError: "",
 			passwordError: "",
-            emailSent: "",
-            petfinder_token: "",
+			emailSent: "",
+			petfinder_token: "",
 			login_token: "",
 			url: "https://3000-dd56cdb1-af4d-43bb-bb6b-ed4132109aff.ws-us03.gitpod.io/",
 			habitatList: [
@@ -24,24 +24,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 					habitatName: "Indoor Tort Enclosure 2"
 				}
 			],
-            petList: [],
-            adoptablePets: [],
+			petList: [],
+			adoptablePets: [],
 			lostPets: null,
 			foundPets: null
 		},
 		actions: {
-            getAdoptablePets: () => {
-                fetch("https://api.petfinder.com/v2/{CATEGORY}/{ACTION}?{parameter_1}={value_1}&{parameter_2}={value_2}", {
-                    headers: {
-                        Authorization: "Bearer " + petfinder_token
-                    }
-                })
-                .then(resp => resp.json())
-                .then(data => {
-                    setStore({ adoptablePets: data.animals })
-                })
-                .catch(err => console.log("Following errors has occurred: ", err));
-            },
+			getAdoptablePets: () => {
+				fetch(
+					"https://api.petfinder.com/v2/{CATEGORY}/{ACTION}?{parameter_1}={value_1}&{parameter_2}={value_2}",
+					{
+						headers: {
+							Authorization: "Bearer " + petfinder_token
+						}
+					}
+				)
+					.then(resp => resp.json())
+					.then(data => {
+						setStore({ adoptablePets: data.animals });
+					})
+					.catch(err => console.log("Following errors has occurred: ", err));
+			},
 			getApiToken: () => {
 				fetch("https://api.petfinder.com/v2/oauth2/token", {
 					method: "POST",
@@ -60,7 +63,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 						return response.json();
 					})
-					.then(jsonifiedResponse => setStore({ petfinder_token : jsonifiedResponse.access_token }))
+					.then(jsonifiedResponse => setStore({ petfinder_token: jsonifiedResponse.access_token }))
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
@@ -154,7 +157,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(jsonifiedResponse => {
 						// console.log(jsonifiedResponse);
-
 						fetch(getStore().url + "pet")
 							.then(function(response) {
 								if (!response.ok) {

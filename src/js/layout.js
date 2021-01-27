@@ -39,7 +39,7 @@ const Layout = () => {
 				<ScrollToTop>
 					<PetNavbar />
 
-					{store.token ? (
+					{store.login_token ? (
 						<Switch>
 							<Route exact path="/dashboard">
 								<Dashboard />

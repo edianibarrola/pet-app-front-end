@@ -9,7 +9,7 @@ export const PetNavbar = () => {
 
 	return (
 		<div>
-			{store.token ? (
+			{store.login_token ? (
 				<Navbar className="pcDarkGreen px-5 w-100">
 					<Navbar.Brand href="/dashboard">
 						<div className="navbarCircle">
