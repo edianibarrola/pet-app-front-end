@@ -75,9 +75,14 @@ export function PetModal(props) {
 					<Button
 						variant="primary"
 						onClick={() => {
-							actions.updatePetList(pet);
+							if (props.petValues) {
+								actions.updatePet(pet);
 
-							setShow(false);
+								setShow(false);
+							} else {
+								actions.addPet(pet);
+								setShow(false);
+							}
 						}}>
 						{/* onClose={() => actions.updatePetList(pet)} */}
 						Save Changes

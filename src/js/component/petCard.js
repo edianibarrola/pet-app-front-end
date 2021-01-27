@@ -19,7 +19,7 @@ export const PetCard = props => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [toggleModal, setToggleModal] = useState(false);
 	const info = store.petList.find(element => element.id == props.pet_prop.id);
-
+	const currentPetId = props.pet_prop.id;
 	// componentDidMount() {
 	// 	this.setState({
 	// 		//petInfo: jsonified results from api call,
@@ -59,6 +59,9 @@ export const PetCard = props => {
 									{info.color}
 								</li>
 							</div>
+							<Button onClick={() => actions.deletePet(currentPetId)}>
+								<i className="far fa-trash-alt" />
+							</Button>
 							Edit:
 							<PetModal show={isOpen} onClose={toggleModal} petValues={info} />
 						</Card.Body>
