@@ -31,14 +31,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			getAdoptablePets: () => {
-				fetch(
-					"https://api.petfinder.com/v2/{CATEGORY}/{ACTION}?{parameter_1}={value_1}&{parameter_2}={value_2}",
-					{
-						headers: {
-							Authorization: "Bearer " + petfinder_token
-						}
+				fetch("https://api.petfinder.com/v2/animals?type=dog&page=2", {
+					headers: {
+						Authorization: "Bearer " + getStore().petfinder_token
 					}
-				)
+				})
 					.then(resp => resp.json())
 					.then(data => {
 						setStore({ adoptablePets: data.animals });
@@ -51,11 +48,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					headers: {
 						"Content-Type": "application/json"
 					},
-					body: {
+					body: JSON.stringify({
 						grant_type: "client_credentials",
 						client_id: "0PjeCX5aqMkV0dApIVx5Ne3wn1gokANETjuY80Rsk0wdFtpfeh",
 						client_secret: "4NpBhqb0kHhhBeVclmtUldqwnBD1fERELKYuCwi1"
-					}
+					})
 				})
 					.then(function(response) {
 						if (!response.ok) {
@@ -65,7 +62,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(jsonifiedResponse => {
 						setStore({ petfinder_token: jsonifiedResponse.access_token });
-						getActions().getAdoptablePets();
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/dashboard.scss";
 import { Calendar } from "../views/calendar";
@@ -6,6 +6,12 @@ import { Calendar } from "../views/calendar";
 
 export const Dashboard = () => {
 	const { store, actions } = useContext(Context);
+
+	useEffect(() => {
+		actions.getApiToken();
+		actions.getAdoptablePets();
+	}, []);
+
 	return (
 		<div>
 			<div className="row">
