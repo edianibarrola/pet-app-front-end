@@ -72,7 +72,15 @@
 .green{
     background: rgb(79,200,120);
 }
-
+.yellow{
+    background: rgb(248,197,85);
+}
+.purple{
+    background:rgb(138,97,155);
+}
+.orange{
+    background: rgb(253,106,2);
+}
 .card {
     // background-color: rgb(95,137,137);
     margin: 20px;
@@ -87,4 +95,13 @@
     color: white;
     font-size: 30px;
     font-weight: bold;
+}
+
+.bgSearch{
+    background-color: rgb(33,194,143);
+    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+    //background-image: url("https://www.transparenttextures.com/patterns/random-grey-variations.png");
+
+
+
 }

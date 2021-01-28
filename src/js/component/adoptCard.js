@@ -20,7 +20,10 @@ export class AdoptCard extends React.Component {
 			val1: null,
 			val2: null,
 			val3: null,
-			val4: null
+			val4: null,
+			val5: null,
+			val6: null,
+			val7: null
 		};
 	}
 	componentDidMount() {
@@ -32,7 +35,10 @@ export class AdoptCard extends React.Component {
 			val3: this.props.propObj.url,
 			val4: this.props.propObj.primary_photo_cropped
 				? this.props.propObj.primary_photo_cropped.medium
-				: "https://picsum.photos/150"
+				: "https://picsum.photos/150",
+			val5: this.props.propObj.contact.address.city,
+			val6: this.props.propObj.contact.address.postcode,
+			val7: this.props.propObj.contact.address.state
 		});
 	}
 	render() {
@@ -45,7 +51,7 @@ export class AdoptCard extends React.Component {
 								<Image src={this.state.val4} roundedCircle fluid />
 							</div>
 							<div className=" text-center">
-								<h6>{this.state.val2}</h6>
+								<h3>{this.state.val2}</h3>
 							</div>
 						</Accordion.Toggle>
 						<Accordion.Collapse eventKey="0">
@@ -55,6 +61,10 @@ export class AdoptCard extends React.Component {
 									<p>{this.state.val0}</p>
 									<h1>Breed:</h1>
 									<p>{this.state.val1}</p>
+									<h1>Location:</h1>
+									<p>
+										{this.state.val5}, {this.state.val7} {this.state.val6}
+									</p>
 								</div>
 								<a
 									role="button"

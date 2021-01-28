@@ -2,15 +2,16 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export const PetNavbar = () => {
 	const { store, actions } = useContext(Context);
 	// const [id, setId] = useState(store.user.id);
+	const history = useHistory();
 	return (
 		<div>
 			{store.login_token ? (
-				<Navbar className="pcDarkGreen px-5 w-100">
+				<Navbar className="bannerNav px-5 w-100 fixed-top">
 					<Navbar.Brand href="/dashboard">
 						<div className="navbarCircle">
 							<i className="fas fa-paw" />
@@ -21,39 +22,18 @@ export const PetNavbar = () => {
 						<Nav.Link>
 							<Link to="/dashboard">Dashboard </Link>
 						</Nav.Link>
-						<Nav.Link>
-							<Link to="/services">Services</Link>
-						</Nav.Link>
-						<Nav.Link>
-							<Link to="/lostpets">Lost Pets</Link>
-						</Nav.Link>
-						<Nav.Link>
-							<Link to="/foundpets">Found Pets</Link>
-						</Nav.Link>
-						<Nav.Link>
-							<Link to="/pets">Your Pet(s)</Link>
-						</Nav.Link>
-						<Nav.Link>
-							<Link to="/calendar">Calendar</Link>
-						</Nav.Link>
-
-						<Nav.Link>
-							<Link to="/profile">Profile</Link>
-						</Nav.Link>
-
-						<Nav.Link>
-							<Link to="/adoptpage">Adoption Page</Link>
-						</Nav.Link>
-						<Nav.Link>
-							<Link to="/" onClick={actions.handleLogOut}>
-								Log Out
-							</Link>
-						</Nav.Link>
+						<span className="whiteText">
+							<button>
+								<Link to="/" onClick={actions.handleLogOut}>
+									Logout
+								</Link>
+							</button>
+						</span>
 					</Nav>
 				</Navbar>
 			) : (
-				<Navbar collapseOnSelect className="pcDarkGreen px-5 w-100">
-					<Navbar.Brand href="/home">
+				<Navbar collapseOnSelect className="bannerNav px-5 w-100 fixed-top">
+					<Navbar.Brand href="/">
 						<div className="navbarCircle">
 							<i className="fas fa-paw" />
 						</div>
@@ -62,7 +42,10 @@ export const PetNavbar = () => {
 					<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 					<Navbar.Collapse id="responsive-navbar-nav">
 						<Nav className="ml-auto ">
-							<NavDropdown title="Menu" id="collasible-nav-dropdown">
+							<span className="whiteText">
+								Have an account? <button onClick={() => history.push("/login")}>Login</button>
+							</span>
+							{/* <NavDropdown title="Menu" id="collasible-nav-dropdown">
 								<NavDropdown.Item href="/dashboard">Dashboard</NavDropdown.Item>
 								<NavDropdown.Item href="/pets">Pets</NavDropdown.Item>
 								<NavDropdown.Item href="/">Landing Page</NavDropdown.Item>
@@ -71,7 +54,7 @@ export const PetNavbar = () => {
 								<NavDropdown.Item href="/calendar">Calendar</NavDropdown.Item>
 								<NavDropdown.Item href="/adoptpage">Adoptions</NavDropdown.Item>
 								<NavDropdown.Item href="/habitats">Habitats</NavDropdown.Item>
-							</NavDropdown>
+							</NavDropdown> */}
 						</Nav>
 					</Navbar.Collapse>
 				</Navbar>

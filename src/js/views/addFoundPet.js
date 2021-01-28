@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const AddFoundPet = () => {
 	const [name, setName] = useState("");
@@ -11,10 +11,11 @@ const AddFoundPet = () => {
 	const [lastSeen, setLastSeen] = useState("");
 	const [description, setDescription] = useState("");
 	const status = "found";
+	const history = useHistory();
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
+		<div className="d-flex align-items-center justify-content-center bgLanding" style={{ minHeight: "100vh" }}>
 			<div className="w-100" style={{ maxWidth: "400px" }}>
 				<div>
 					<div className="card">
@@ -75,7 +76,7 @@ const AddFoundPet = () => {
 							<div>
 								<Button
 									className="w-100 text-center mt-2"
-									onClick={() =>
+									onClick={() => {
 										actions.addToFound(
 											name,
 											petType,
@@ -84,19 +85,20 @@ const AddFoundPet = () => {
 											lastSeen,
 											description,
 											status
-										)
-									}>
+										);
+										history.push("/foundpets");
+									}}>
 									Submit Post
 								</Button>
 							</div>
+							<div className="w-100 text-center mt-2">
+								<>
+									<p>
+										Want to go back to found pet search? <Link to="/foundpets">Click here</Link>
+									</p>
+								</>
+							</div>
 						</div>
-					</div>
-					<div className="w-100 text-center mt-2">
-						<>
-							<p>
-								Want to go back to found pet search? <Link to="/foundpets">Click here</Link>
-							</p>
-						</>
 					</div>
 				</div>
 			</div>

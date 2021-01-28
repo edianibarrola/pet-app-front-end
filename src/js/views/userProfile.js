@@ -6,7 +6,7 @@ const UserProfile = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
+		<div className="d-flex align-items-center justify-content-center bgLanding" style={{ minHeight: "100vh" }}>
 			<div className="w-100" style={{ maxWidth: "800px" }}>
 				<div>
 					<div className="card">

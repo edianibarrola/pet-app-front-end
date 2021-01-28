@@ -9,16 +9,22 @@ html,body{
     margin:0;
     padding:0;
 }
-.pageContentWrapper{
-    margin-bottom:100px;/* Height of footer*/
-}
-body * {
+// .pageContentWrapper{
+//     margin-bottom:100px;/* Height of footer*/
+// }
+body  {
     color:rgb(75, 74, 74);
 };
 h1{
     font-size: 300%;
 };
-
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.whiteText{
+    color:white;
+}
 .pcDarkGreen {
     background: #5f8989;
 };
@@ -47,6 +53,17 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5f8989",endCo
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b6dbdb",endColorstr="#8cb6b6",GradientType=1);
     };
 
+.banner{
+    background-color: #005e51;
+    background-image: url("https://www.transparenttextures.com/patterns/xv.png");
+    padding: 60px;
+    margin: 80px 0px 80px 0px;
+}
+
+.bannerNav{
+    background-color: #005e51;
+    background-image: url("https://www.transparenttextures.com/patterns/xv.png");
+}
 .pcTextYellow {
     color: #dabe96;
 
@@ -72,11 +89,70 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5f8989",endCo
     overflow-x: auto;
     overflow-y:auto;
 }
-.footer{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height:100px;
+// .footer{
+//     position: absolute;
+//     bottom: 0;
+//     // left: 0;
+//     // right: 0;
+//     height:100px;
     
+// }
+
+.leftBackground{
+    background-image: url("https://i.pinimg.com/736x/c9/7b/8b/c97b8bac3169298c4b165a4ac9fbd1db.jpg");
+    background-repeat: none;
+    background-size: cover;
+    background-color: white;
+    height: auto;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.rightBackground{
+    background-image: url("https://ahchealthenewscdn.azureedge.net/wp-content/uploads/2017/02/AdobeStock_47165532.jpeg");
+    background-repeat: none;
+    background-size: 100% 100%;
+    height: auto;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.fullHeaderCard{
+    box-shadow: 5px 10px 18px #000000;
+    border-radius: 20px;
+    margin: 0px 20px 100px 0px;
+    text-align:center;
+    font-size: 40px;
+    color:rgb(166,205,205);
+    font-weight: bold;
+}
+.boxShadow{
+    box-shadow: 5px 10px 18px #000000;
+    border-radius: 20px;
+}
+.bgLanding{
+    background-color: #00cc92;
+    background-image: url("https://www.transparenttextures.com/patterns/football-no-lines.png");
+}
+
+.loginAndSignUpForm{
+    background-color: white;
+    border-radius: 20px 0px 0px 20px;
+    padding: 80px 20px 80px 20px;
+}
+
+.loginPicture{
+    background-image: url("https://www.chromethemer.com/images/the-boss-270x480.jpg");
+    background-repeat: none;
+    background-size: 100% 100%;
+    height: auto;
+    border-radius: 0px 20px 20px 0px;
+    padding: 80px 20px 80px 20px;
+}
+
+.signUpPicture{
+    background-image: url("https://i.pinimg.com/originals/df/49/99/df49995fb60c34aa8c0ecef3292c0e00.jpg");
+    background-repeat: none;
+    background-size: 100% 100%;
+    height: auto;
+    border-radius: 0px 20px 20px 0px;
+    padding: 80px 20px 80px 20px;
 }
