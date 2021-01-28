@@ -17,7 +17,7 @@ export const HabitatCard = props => {
 	const petsInHabitat = store.petList.map(e => {
 		console.log(e);
 		if (currentHabitatId == e.habitat_id) {
-			return e.name;
+			return <li>{e.name}</li>;
 		} else {
 			console.log("not in");
 		}
@@ -60,8 +60,7 @@ export const HabitatCard = props => {
 								<Dropdown.Item href="#/action-3">pet 3</Dropdown.Item>
 							</Dropdown.Menu>
 						</Dropdown>
-						<li>{petsInHabitat}</li>
-						<li>pet 3</li>
+						{petsInHabitat}
 					</div>
 					<div className="col d-flex m-auto align-content-center">
 						<Button onClick={() => actions.deleteHabitat(currentHabitatId)}>
