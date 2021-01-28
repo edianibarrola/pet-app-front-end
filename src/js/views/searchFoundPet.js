@@ -37,8 +37,8 @@ export const SearchFoundPet = () => {
 							? store.foundPets.map((pet, index) => {
 									if (
 										pet.name.toLowerCase().includes(search.toLowerCase()) ||
-										pet.lastSeen.toLowerCase().includes(search.toLowerCase()) ||
-										pet.petType.toLowerCase().includes(search.toLowerCase())
+										pet.last_seen.toLowerCase().includes(search.toLowerCase()) ||
+										pet.pet_type.toLowerCase().includes(search.toLowerCase())
 									) {
 										return <FoundPetCard key={index} propPet={pet} />;
 									} else if (search == "") {
