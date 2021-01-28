@@ -10,7 +10,7 @@ export function HabitatModal(props) {
 	console.log(props.petValues);
 	//const info = store.petList.find(element => element.petId == props.petId);
 	const [habitat, setHabitat] = useState({
-		id: props.habitat_id,
+		id: props.habitat.id,
 		name: props.habitat.name,
 		pet_in_habitat_id: props.habitat.pet_in_habitat_id,
 		info: props.habitat.info,
@@ -81,7 +81,7 @@ export function HabitatModal(props) {
 					<Button
 						variant="primary"
 						onClick={() => {
-							if (props.habitat.id) {
+							if (props.habitat) {
 								actions.updateHabitat(habitat);
 
 								setShow(false);
