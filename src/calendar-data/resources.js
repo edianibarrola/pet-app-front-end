@@ -1,4 +1,6 @@
 import { pink, purple, teal, amber, deepOrange } from "@material-ui/core/colors";
+import { Context } from "../js/store/appContext";
+
 export const appointments = [
 	{
 		allDay: false,
@@ -25,28 +27,10 @@ export const appointments = [
 export const resourcesData = [
 	{
 		text: "Indoor Enclosure",
-		id: 1,
-
-		color: amber
+		id: 1
 	},
 	{
 		text: "Outdoor Enclosure",
-		id: 2,
-		color: pink
-	},
-	{
-		text: "Tank",
-		id: 3,
-		color: purple
-	},
-	{
-		text: "Cage",
-		id: 4,
-		color: deepOrange
-	},
-	{
-		text: "Home",
-		id: 5,
-		color: teal
+		id: 2
 	}
 ];
