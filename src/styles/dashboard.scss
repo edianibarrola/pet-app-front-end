@@ -72,7 +72,15 @@
 .green{
     background: rgb(79,200,120);
 }
-
+.yellow{
+    background: rgb(248,197,85);
+}
+.purple{
+    background:rgb(138,97,155);
+}
+.orange{
+    background: rgb(253,106,2);
+}
 .card {
     // background-color: rgb(95,137,137);
     margin: 20px;
@@ -87,4 +95,35 @@
     color: white;
     font-size: 30px;
     font-weight: bold;
+}
+
+.bgSearch{
+    background-color: rgb(33,194,143);
+    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+    //background-image: url("https://www.transparenttextures.com/patterns/random-grey-variations.png");
+}
+
+.bgLost{
+    background-image: url("https://www.marcadamus.com/images/xl/Spirit-Garden700.jpg");
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+
+.bgFound{
+    background-image: url("https://www.fodors.com/wp-content/uploads/2019/04/MGS-Shutterstock-By-Anuradha-Marwah.jpg");
+    background-repeat: none;
+    background-size: 100% 100%;
+}
+.bgEditProfile{
+    background-image: url("https://cdn.cnn.com/cnnnext/dam/assets/150306144109-beautiful-japan-happo-pond-nagano.jpg");
+    background-repeat:none;
+    background-size: 100% 100%;
+}
+.smallIndent{
+    margin: 60px 0px 0px 0px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.pottaOne{
+    font-family: "Potta One";
 }

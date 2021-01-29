@@ -2,10 +2,12 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/dashboard.scss";
 import { Calendar } from "../views/calendar";
+import { useHistory } from "react-router-dom";
 //import { Link } from "react-router-dom";
 
 export const Dashboard = () => {
 	const { store, actions } = useContext(Context);
+	const history = useHistory();
 
 	useEffect(() => {
 		actions.getApiToken();
@@ -13,42 +15,61 @@ export const Dashboard = () => {
 	}, []);
 
 	return (
-		<div>
-			<div className="row">
-				<div className="col">
-					<div className="main-header">
-						<div>
-							Welcome {store.user.username},<div>How are you today?</div>
-						</div>
-					</div>
+		<div className="bgLanding">
+			<div style={{ padding: "30px" }} />
+
+			<div className="main-header w-100">
+				<div className="pottaOne">
+					Welcome {store.user.username},<div>How are you today?</div>
 				</div>
 			</div>
-
+			{/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 			<div className="row">
-				<div className="col overviewcard">
+				<div className="col overviewcard boxShadow" onClick={() => history.push("/pets")}>
 					<div className="circle blue">
-						<i className="fas fa-paw" />
+						<i className="fas fa-bone" />
 					</div>
-					<div className="cardFont">Notifications</div>
+					<div className="cardFont">Your Pets</div>
 				</div>
-				<div className="col overviewcard">
+				<div className="col overviewcard boxShadow" onClick={() => history.push("/habitats")}>
+					<div className="circle green">
+						<i className="fas fa-globe-americas" />
+					</div>
+					<div className="cardFont">Habitats</div>
+				</div>
+				<div className="col overviewcard boxShadow" onClick={() => history.push("/calendar")}>
 					<div className="circle red">
 						<i className="far fa-calendar-alt" />
 					</div>
-					<div className="cardFont">Upcoming Events</div>
-				</div>
-				<div className="col overviewcard">
-					<div className="circle green">
-						<i className="far fa-envelope" />
-					</div>
-					<div className="cardFont">Inbox</div>
+					<div className="cardFont">Calendar</div>
 				</div>
 			</div>
-			{/* It stops here */}
+			{/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+			<div className="row">
+				<div className="col overviewcard boxShadow" onClick={() => history.push("/lostpets")}>
+					<div className="circle yellow">
+						<i className="fas fa-paw" />
+					</div>
+					<div className="cardFont">Lost Pets</div>
+				</div>
+				<div className="col overviewcard boxShadow" onClick={() => history.push("/foundpets")}>
+					<div className="circle orange">
+						<i className="fas fa-paw" />
+					</div>
+					<div className="cardFont">Found Pets</div>
+				</div>
+				<div className="col overviewcard boxShadow" onClick={() => history.push("/profile")}>
+					<div className="circle purple">
+						<i className="fas fa-user-circle" />
+					</div>
+					<div className="cardFont">Profile</div>
+				</div>
+			</div>
+			{/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 			<div>
 				<div className="row">
 					<div className="col">
-						<div className="card text-center">
+						<div className="card text-center ">
 							<div className="card-header">Your Events</div>
 							<div className="card-body">
 								<Calendar />
@@ -56,7 +77,7 @@ export const Dashboard = () => {
 						</div>
 					</div>
 					<div className="col">
-						<div className="card text-center">
+						<div className="card text-center ">
 							<div className="card-header">Your Latest Messages</div>
 							<div className="card-body darkerGreen">
 								{/* starts here */}
@@ -100,9 +121,22 @@ export const Dashboard = () => {
 								{/* ends here */}
 							</div>
 						</div>
-						<div className="card text-center">
-							<div className="card-header">Your Pets</div>
-							<div className="card-body" />
+					</div>
+				</div>
+			</div>
+			<div className="row ">
+				<div className="col">
+					<div className="card text-center ">
+						<div className="card-header">Services</div>
+						<div className="card-body">
+							<div className="overviewcard boxShadow">
+								<div className="circle yellow">
+									<i className="fas fa-paw" />
+								</div>
+								<div className="cardFont" onClick={() => history.push("/adoptpage")}>
+									Adopt A Pet!
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -6,9 +6,6 @@ import { LostPetCard } from "../component/lostPetCard";
 
 export const SearchLostPet = () => {
 	const { store, actions } = useContext(Context);
-	// const [state, setState] = useState({
-	// 	id: null
-	// });
 	const [search, setSearch] = useState("");
 
 	const handleChange = e => {
@@ -16,30 +13,31 @@ export const SearchLostPet = () => {
 	};
 
 	return (
-		<div className="container">
-			<div>
-				<p className="text-right my-3">
-					<Link className="btn btn-primary" to="/postlostpet">
-						Post Looking For Lost Pet
-					</Link>
-				</p>
+		<div className="bgSearch">
+			<div className="container bgLanding">
+				<div style={{ padding: "50px" }} />
 				<div>
-					<input
-						className="list-group-item"
-						type="text"
-						value={search}
-						onChange={handleChange}
-						placeholder="Search for a lost pet..."
-					/>
-				</div>
-				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
-					<ul className="list-group pull-down" id="contact-list">
+					<p className="justify-content-center d-flex">
+						<Link className="btn btn-primary" to="/postlostpet">
+							Post Looking For Lost Pet
+						</Link>
+					</p>
+					<div className="justify-content-center d-flex">
+						<input
+							className="list-group-item w-50"
+							type="text"
+							value={search}
+							onChange={handleChange}
+							placeholder="Search for a lost pet by name, zipcode, or species..."
+						/>
+					</div>
+					<div>
 						{store.lostPets
 							? store.lostPets.map((pet, index) => {
 									if (
 										pet.name.toLowerCase().includes(search.toLowerCase()) ||
-										pet.lastSeen.toLowerCase().includes(search.toLowerCase()) ||
-										pet.petType.toLowerCase().includes(search.toLowerCase())
+										pet.last_seen.toLowerCase().includes(search.toLowerCase()) ||
+										pet.pet_type.toLowerCase().includes(search.toLowerCase())
 									) {
 										return <LostPetCard key={index} propPet={pet} />;
 									} else if (search == "") {
@@ -47,7 +45,7 @@ export const SearchLostPet = () => {
 									}
 							  })
 							: null}
-					</ul>
+					</div>
 				</div>
 			</div>
 		</div>

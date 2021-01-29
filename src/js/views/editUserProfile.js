@@ -1,16 +1,17 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const EditUserProfile = () => {
 	const { store, actions } = useContext(Context);
+	const history = useHistory();
 	const [name, setName] = useState(store.user.username);
 	const [email, setEmail] = useState(store.user.email);
 	const [id, setId] = useState(store.user.id);
 
 	return (
-		<div className="container d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
+		<div className="d-flex align-items-center justify-content-center bgEditProfile" style={{ minHeight: "100vh" }}>
 			<div className="w-100" style={{ maxWidth: "400px" }}>
 				<div>
 					<div className="card">
@@ -36,18 +37,19 @@ const EditUserProfile = () => {
 									className="w-100 text-center mt-2"
 									onClick={() => {
 										actions.updateUserProfile(name, email, id);
+										history.push("/profile");
 									}}>
 									Finish Editing
 								</Button>
 							</div>
+							<div className="w-100 text-center mt-2">
+								<>
+									<p>
+										Want to go back to your profile? <Link to="/profile">Click here</Link>
+									</p>
+								</>
+							</div>
 						</div>
-					</div>
-					<div className="w-100 text-center mt-2">
-						<>
-							<p>
-								Want to go back to your profile? <Link to="/profile">Click here</Link>
-							</p>
-						</>
 					</div>
 				</div>
 			</div>

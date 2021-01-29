@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const AddFoundPet = () => {
 	const [name, setName] = useState("");
@@ -11,23 +11,30 @@ const AddFoundPet = () => {
 	const [lastSeen, setLastSeen] = useState("");
 	const [description, setDescription] = useState("");
 	const status = "found";
+	const history = useHistory();
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
-			<div className="w-100" style={{ maxWidth: "400px" }}>
+		<div className="d-flex align-items-center justify-content-center bgFound" style={{ minHeight: "100vh" }}>
+			<div className="w-100" style={{ maxWidth: "800px" }}>
 				<div>
-					<div className="card">
-						<div className="card-body">
+					<div className="row mx-auto boxShadow">
+						<div className="col-8 postCards">
 							<h2 className="text-center mb-4">Post a Found Pet</h2>
-							<Form>
+							<Form className="text-center">
 								<Form.Group id="name">
 									<Form.Label>Name, if applicable</Form.Label>
-									<Form.Control type="text" onChange={e => setName(e.target.value)} value={name} />
+									<Form.Control
+										className="w-75 mx-auto"
+										type="text"
+										onChange={e => setName(e.target.value)}
+										value={name}
+									/>
 								</Form.Group>
 								<Form.Group id="petType">
 									<Form.Label>What type of animal?</Form.Label>
 									<Form.Control
+										className="w-75 mx-auto"
 										type="text"
 										onChange={e => setPetType(e.target.value)}
 										value={petType}
@@ -37,6 +44,7 @@ const AddFoundPet = () => {
 								<Form.Group id="color">
 									<Form.Label>Color of the animal</Form.Label>
 									<Form.Control
+										className="w-75 mx-auto"
 										type="text"
 										onChange={e => setColor(e.target.value)}
 										value={color}
@@ -46,6 +54,7 @@ const AddFoundPet = () => {
 								<Form.Group id="eyeColor">
 									<Form.Label>Eye color</Form.Label>
 									<Form.Control
+										className="w-75 mx-auto"
 										type="text"
 										onChange={e => setEyeColor(e.target.value)}
 										value={eyeColor}
@@ -57,6 +66,7 @@ const AddFoundPet = () => {
 										Where was it last seen? Or are you currently housing the animal?
 									</Form.Label>
 									<Form.Control
+										className="w-75 mx-auto"
 										type="text"
 										onChange={e => setLastSeen(e.target.value)}
 										value={lastSeen}
@@ -66,16 +76,17 @@ const AddFoundPet = () => {
 								<Form.Group id="description">
 									<Form.Label>Description</Form.Label>
 									<Form.Control
+										className="w-75 mx-auto"
 										type="text"
 										onChange={e => setDescription(e.target.value)}
 										value={description}
 									/>
 								</Form.Group>
 							</Form>
-							<div>
+							<div className="text-center">
 								<Button
-									className="w-100 text-center mt-2"
-									onClick={() =>
+									className="w-75 text-center mt-2"
+									onClick={() => {
 										actions.addToFound(
 											name,
 											petType,
@@ -84,19 +95,21 @@ const AddFoundPet = () => {
 											lastSeen,
 											description,
 											status
-										)
-									}>
+										);
+										history.push("/foundpets");
+									}}>
 									Submit Post
 								</Button>
 							</div>
+							<div className="w-100 text-center mt-2">
+								<>
+									<p>
+										Want to go back to found pet search? <Link to="/foundpets">Click here</Link>
+									</p>
+								</>
+							</div>
 						</div>
-					</div>
-					<div className="w-100 text-center mt-2">
-						<>
-							<p>
-								Want to go back to found pet search? <Link to="/foundpets">Click here</Link>
-							</p>
-						</>
+						<div className="col-4 foundPicture" />
 					</div>
 				</div>
 			</div>

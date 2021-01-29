@@ -48,11 +48,11 @@ const Login = () => {
 	};
 
 	return (
-		<div className="container d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
-			<div className="w-100" style={{ maxWidth: "400px" }}>
+		<div className="d-flex align-items-center justify-content-center bgLanding" style={{ minHeight: "100vh" }}>
+			<div className="w-100" style={{ maxWidth: "800px" }}>
 				<div>
-					<div className="card">
-						<div className="card-body">
+					<div className="row mx-auto boxShadow">
+						<div className="col-8 cardForm">
 							<h2 className="text-center mb-4">Log In</h2>
 							<Form>
 								<Form.Group id="email">
@@ -81,31 +81,22 @@ const Login = () => {
 									Sign in
 								</Button>
 							</div>
+							<div className="w-100 text-center mt-2">
+								<>
+									<p>
+										Don&apos;t have an account?{" "}
+										<Link
+											to="/signup"
+											onClick={() => {
+												actions.clearErrors();
+											}}>
+											Sign up
+										</Link>
+									</p>
+								</>
+							</div>
 						</div>
-					</div>
-					<div className="w-100 text-center mt-2">
-						<>
-							<p>
-								Don&apos;t have an account?{" "}
-								<Link
-									to="/signup"
-									onClick={() => {
-										actions.clearErrors();
-									}}>
-									Sign up
-								</Link>
-							</p>
-							<p>
-								Forgot your password?{" "}
-								<Link
-									to="/reset"
-									onClick={() => {
-										actions.clearErrors();
-									}}>
-									Click here
-								</Link>
-							</p>
-						</>
+						<div className="col-4 loginPicture" />
 					</div>
 				</div>
 			</div>

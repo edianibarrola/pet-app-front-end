@@ -48,6 +48,24 @@ const Layout = () => {
 							<Route exact path="/calendar">
 								<Calendar />
 							</Route>
+							<Route exact path="/pets">
+								<PetView />
+							</Route>
+							<Route exact path="/habitats">
+								<HabitatView />
+							</Route>
+							<Route exact path="/lostpets">
+								<SearchLostPet />
+							</Route>
+							<Route exact path="/foundpets">
+								<SearchFoundPet />
+							</Route>
+							<Route exact path="/postfoundpet">
+								<AddFoundPet />
+							</Route>
+							<Route exact path="/postlostpet">
+								<AddLostPet />
+							</Route>
 							<Route exact path="/profile">
 								<UserProfile />
 							</Route>

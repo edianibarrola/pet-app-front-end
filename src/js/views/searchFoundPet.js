@@ -14,30 +14,31 @@ export const SearchFoundPet = () => {
 	};
 
 	return (
-		<div className="container">
-			<div>
-				<p className="text-right my-3">
-					<Link className="btn btn-primary" to="/postfoundpet">
-						Post Found Pet
-					</Link>
-				</p>
+		<div className="bgSearch">
+			<div className="container bgLanding">
+				<div style={{ padding: "50px" }} />
 				<div>
-					<input
-						className="list-group-item"
-						type="text"
-						value={search}
-						onChange={handleChange}
-						placeholder="Search for a found pet..."
-					/>
-				</div>
-				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
-					<ul className="list-group pull-down" id="contact-list">
+					<p className="justify-content-center d-flex">
+						<Link className="btn btn-primary" to="/postfoundpet">
+							Post Found Pet
+						</Link>
+					</p>
+					<div className="justify-content-center d-flex">
+						<input
+							className="list-group-item w-50"
+							type="text"
+							value={search}
+							onChange={handleChange}
+							placeholder="Search for a found pet by name, zipcode, or species..."
+						/>
+					</div>
+					<div>
 						{store.foundPets
 							? store.foundPets.map((pet, index) => {
 									if (
 										pet.name.toLowerCase().includes(search.toLowerCase()) ||
-										pet.lastSeen.toLowerCase().includes(search.toLowerCase()) ||
-										pet.petType.toLowerCase().includes(search.toLowerCase())
+										pet.last_seen.toLowerCase().includes(search.toLowerCase()) ||
+										pet.pet_type.toLowerCase().includes(search.toLowerCase())
 									) {
 										return <FoundPetCard key={index} propPet={pet} />;
 									} else if (search == "") {
@@ -45,7 +46,7 @@ export const SearchFoundPet = () => {
 									}
 							  })
 							: null}
-					</ul>
+					</div>
 				</div>
 			</div>
 		</div>
