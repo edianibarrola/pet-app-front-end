@@ -8,6 +8,17 @@ export function PetModal(props) {
 	const [show, setShow] = useState(false);
 	const { store, actions } = useContext(Context);
 	console.log(props.petValues);
+	const currentPetId = props.petId;
+	const [habitatValue, setHabitatValue] = useState("");
+	// const availableHabitats = store.habitatList.map(e => {
+	// 	console.log(e);
+	// 	if (currentPetId == e.habitat_id) {
+	// 		return <li>{e.name}</li>;
+	// 	} else {
+	// 		console.log("not in");
+	// 	}
+	// });
+
 	//const info = store.petList.find(element => element.petId == props.petId);
 	const [pet, setPet] = useState({
 		id: props.petValues.id,
@@ -60,7 +71,27 @@ export function PetModal(props) {
 						</label>
 						<label>
 							Habitat:
-							<input type="text" value={pet.habitat_id} onChange={handleChange} name="habitat_id" />
+							<select
+								id="Select a Habitat"
+								name="habitat_id"
+								onChange={handleChange}
+								value={habitatValue}>
+								<option value="" />
+								{store.habitatList.map((habitat, index) => {
+									console.log(habitatValue);
+									return (
+										<option
+											key={index}
+											value={habitat.id}
+											onClick={e => {
+												setHabitatValue(e.target.value);
+											}}>
+											{habitat.name}
+										</option>
+									);
+								})}
+							</select>
+							{/* <input type="text" value={pet.habitat_id}  name="habitat_id" /> */}
 						</label>
 						<label>
 							Note:

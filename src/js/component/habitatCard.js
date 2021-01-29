@@ -25,7 +25,7 @@ export const HabitatCard = props => {
 
 	console.log(petsInHabitat);
 	return (
-		<div className="mx-auto">
+		<div className="mx-auto p-4 pcGradientDarkGreen">
 			<Card style={{ width: "30rem", maxHeight: "auto" }}>
 				<div className="row">
 					<div className="col-4 ">
@@ -38,36 +38,31 @@ export const HabitatCard = props => {
 							<Card.Text>
 								<label> Info:</label>
 								<li>{props.prop_habitat.info}</li>
-
+								<br />
 								<label> Supplies:</label>
 								<li>{props.prop_habitat.habitat_supplies}</li>
-
+								<br />
 								<label> Equipment:</label>
 								<li>{props.prop_habitat.habitat_equipment}</li>
 							</Card.Text>
 						</Card.Body>
 					</div>
 
-					<div className="col text-nowrap p-4">
-						<Dropdown>
-							<Dropdown.Toggle variant="success" id="dropdown-basic">
-								Add pet to Habitat
-							</Dropdown.Toggle>
-
-							<Dropdown.Menu>
-								<Dropdown.Item href="#/action-1">pet 1</Dropdown.Item>
-								<Dropdown.Item href="#/action-2">pet 2</Dropdown.Item>
-								<Dropdown.Item href="#/action-3">pet 3</Dropdown.Item>
-							</Dropdown.Menu>
-						</Dropdown>
+					<div className="col-6 text-nowrap p-4">
+						Pets in Habitat
 						{petsInHabitat}
 					</div>
-					<div className="col d-flex m-auto align-content-center">
-						<Button onClick={() => actions.deleteHabitat(currentHabitatId)}>
-							<i className="far fa-trash-alt" />
-						</Button>
-						Edit Habitat:
-						<HabitatModal show={isOpen} onClose={toggleModal} habitat={props.prop_habitat} />
+					<div className="col-6 d-flex m-auto justify-content-around align-items-center">
+						<div className="col">
+							<div>Delete Habitat </div>
+							<Button onClick={() => actions.deleteHabitat(currentHabitatId)}>
+								<i className="far fa-trash-alt " />
+							</Button>
+						</div>
+						<div className="col">
+							Edit Habitat:
+							<HabitatModal show={isOpen} onClose={toggleModal} habitat={props.prop_habitat} />
+						</div>
 					</div>
 				</div>
 			</Card>

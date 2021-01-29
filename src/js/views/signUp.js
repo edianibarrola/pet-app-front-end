@@ -35,7 +35,7 @@ const SignUp = () => {
 	};
 
 	return (
-		<div className="d-flex align-items-center justify-content-center bgLanding" style={{ minHeight: "100vh" }}>
+		<div className="d-flex align-items-center justify-content-center bgLanding pt-5" style={{ height: "100vh" }}>
 			<div className="w-100" style={{ maxWidth: "800px" }}>
 				<div>
 					<div className="row mx-auto boxShadow">

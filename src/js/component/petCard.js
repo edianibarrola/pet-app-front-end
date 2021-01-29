@@ -20,6 +20,7 @@ export const PetCard = props => {
 	const [toggleModal, setToggleModal] = useState(false);
 	const info = store.petList.find(element => element.id == props.pet_prop.id);
 	const currentPetId = props.pet_prop.id;
+
 	// componentDidMount() {
 	// 	this.setState({
 	// 		//petInfo: jsonified results from api call,
