@@ -18,7 +18,7 @@ export const LandingPage = () => (
 			<div>
 				<div className="row mx-auto fullHeaderCard" style={{ width: "50%" }}>
 					<div className="col-6 leftBackground">
-						<div className="container">
+						<div className="container smallIndent pottaOne">
 							<p>Life is too dull without </p>
 							<p>your furry or scaly friends around! </p>
 							<p>Try the one in all </p>

@@ -19,62 +19,50 @@ export const Dashboard = () => {
 			<div style={{ padding: "30px" }} />
 
 			<div className="main-header w-100">
-				<div>
+				<div className="pottaOne">
 					Welcome {store.user.username},<div>How are you today?</div>
 				</div>
 			</div>
 			{/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 			<div className="row">
-				<div className="col overviewcard boxShadow">
+				<div className="col overviewcard boxShadow" onClick={() => history.push("/pets")}>
 					<div className="circle blue">
 						<i className="fas fa-bone" />
 					</div>
-					<div className="cardFont" onClick={() => history.push("/pets")}>
-						Your Pets
-					</div>
+					<div className="cardFont">Your Pets</div>
 				</div>
-				<div className="col overviewcard boxShadow">
+				<div className="col overviewcard boxShadow" onClick={() => history.push("/habitats")}>
 					<div className="circle green">
 						<i className="fas fa-globe-americas" />
 					</div>
-					<div className="cardFont" onClick={() => history.push("/habitats")}>
-						Habitats
-					</div>
+					<div className="cardFont">Habitats</div>
 				</div>
-				<div className="col overviewcard boxShadow">
+				<div className="col overviewcard boxShadow" onClick={() => history.push("/calendar")}>
 					<div className="circle red">
 						<i className="far fa-calendar-alt" />
 					</div>
-					<div className="cardFont" onClick={() => history.push("/calendar")}>
-						Calendar
-					</div>
+					<div className="cardFont">Calendar</div>
 				</div>
 			</div>
 			{/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 			<div className="row">
-				<div className="col overviewcard boxShadow">
+				<div className="col overviewcard boxShadow" onClick={() => history.push("/lostpets")}>
 					<div className="circle yellow">
 						<i className="fas fa-paw" />
 					</div>
-					<div className="cardFont" onClick={() => history.push("/lostpets")}>
-						Lost Pets
-					</div>
+					<div className="cardFont">Lost Pets</div>
 				</div>
-				<div className="col overviewcard boxShadow">
+				<div className="col overviewcard boxShadow" onClick={() => history.push("/foundpets")}>
 					<div className="circle orange">
 						<i className="fas fa-paw" />
 					</div>
-					<div className="cardFont" onClick={() => history.push("/foundpets")}>
-						Found Pets
-					</div>
+					<div className="cardFont">Found Pets</div>
 				</div>
-				<div className="col overviewcard boxShadow">
+				<div className="col overviewcard boxShadow" onClick={() => history.push("/profile")}>
 					<div className="circle purple">
 						<i className="fas fa-user-circle" />
 					</div>
-					<div className="cardFont" onClick={() => history.push("/profile")}>
-						Profile
-					</div>
+					<div className="cardFont">Profile</div>
 				</div>
 			</div>
 			{/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}

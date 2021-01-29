@@ -12,7 +12,10 @@ export const PetNavbar = () => {
 		<div>
 			{store.login_token ? (
 				<Navbar className="bannerNav px-5 w-100 fixed-top">
-					<Navbar.Brand href="/dashboard">
+					<Navbar.Brand
+						onClick={() => {
+							history.push("/dashboard");
+						}}>
 						<div className="navbarCircle">
 							<i className="fas fa-paw" />
 						</div>
@@ -45,6 +48,7 @@ export const PetNavbar = () => {
 							<span className="whiteText">
 								Have an account? <button onClick={() => history.push("/login")}>Login</button>
 							</span>
+
 							{/* <NavDropdown title="Menu" id="collasible-nav-dropdown">
 								<NavDropdown.Item href="/dashboard">Dashboard</NavDropdown.Item>
 								<NavDropdown.Item href="/pets">Pets</NavDropdown.Item>

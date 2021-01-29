@@ -52,7 +52,7 @@ const Login = () => {
 			<div className="w-100" style={{ maxWidth: "800px" }}>
 				<div>
 					<div className="row mx-auto boxShadow">
-						<div className="col-8 loginAndSignUpForm">
+						<div className="col-8 cardForm">
 							<h2 className="text-center mb-4">Log In</h2>
 							<Form>
 								<Form.Group id="email">

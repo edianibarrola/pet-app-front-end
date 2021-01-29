@@ -133,10 +133,16 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5f8989",endCo
     background-image: url("https://www.transparenttextures.com/patterns/football-no-lines.png");
 }
 
-.loginAndSignUpForm{
+.cardForm{
     background-color: white;
     border-radius: 20px 0px 0px 20px;
     padding: 80px 20px 80px 20px;
+}
+
+.postCards{
+    background-color: white;
+    border-radius: 20px 0px 0px 20px;
+    padding: 40px 0px 40px 0px;
 }
 
 .loginPicture{
@@ -150,6 +156,24 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5f8989",endCo
 
 .signUpPicture{
     background-image: url("https://i.pinimg.com/originals/df/49/99/df49995fb60c34aa8c0ecef3292c0e00.jpg");
+    background-repeat: none;
+    background-size: 100% 100%;
+    height: auto;
+    border-radius: 0px 20px 20px 0px;
+    padding: 80px 20px 80px 20px;
+}
+
+.lostPicture{
+    background-image: url("https://adcouncil-campaigns.brightspotcdn.com/dims4/default/7555ed2/2147483647/strip/true/crop/241x800+5+0/resize/250x830!/quality/90/?url=https%3A%2F%2Fad-council-brightspot.s3.amazonaws.com%2Fad-council-campaigns%2F73%2Fd1%2F34da26fb4f7e895fa0100bbdcf94%2Fimage-8-1.png");
+    background-repeat: none;
+    background-size: 100% 100%;
+    height: auto;
+    border-radius: 0px 20px 20px 0px;
+    padding: 80px 20px 80px 20px;
+}
+
+.foundPicture{
+    background-image: url("https://static.wixstatic.com/media/e04848_f677e2d89c6648d69bb8a63bd3c6492e~mv2_d_1200_1599_s_2.jpg/v1/fill/w_260,h_760,al_c,q_80,usm_0.66_1.00_0.01/Billy%20Tranmer_JPG.webp");
     background-repeat: none;
     background-size: 100% 100%;
     height: auto;
