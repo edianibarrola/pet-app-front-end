@@ -20,7 +20,8 @@ export const PetCard = props => {
 	const [toggleModal, setToggleModal] = useState(false);
 	const info = store.petList.find(element => element.id == props.pet_prop.id);
 	const currentPetId = props.pet_prop.id;
-
+	const habitat_info = store.habitatList.find(element => element.id == props.pet_prop.habitat_id);
+	console.log(habitat_info);
 	// componentDidMount() {
 	// 	this.setState({
 	// 		//petInfo: jsonified results from api call,
@@ -33,9 +34,9 @@ export const PetCard = props => {
 	// }
 
 	return (
-		<Accordion defaultActiveKey="0">
+		<Accordion defaultActiveKey="1">
 			<div className="p-4 m-4 pcGradientDarkGreen minw-20 pcLightGreenBorderSmall">
-				<Card style={{ width: "18rem" }}>
+				<Card style={{ width: "25rem" }}>
 					<Accordion.Toggle as={Card.Header} eventKey="0" className="pcGradientLightGreen">
 						<div className="d-flex justify-content-center ">
 							<Image src="https://picsum.photos/150" roundedCircle fluid />
@@ -48,23 +49,37 @@ export const PetCard = props => {
 						<Card.Body>
 							<div className="container text-nowrap">
 								<li>
-									{" Pet Type "}
+									{" Type:  "}
 									{info.pet_type}{" "}
 								</li>
 								<li>
-									{" sex "}
+									{" Sex:  "}
 									{info.sex}
 								</li>
 								<li>
-									{" color "}
+									{" Color:  "}
 									{info.color}
 								</li>
+								<li>
+									{" Habitat:  "}
+									{habitat_info.name}
+								</li>
 							</div>
-							<Button onClick={() => actions.deletePet(currentPetId)}>
-								<i className="far fa-trash-alt" />
-							</Button>
-							Edit:
-							<PetModal show={isOpen} onClose={toggleModal} petValues={info} />
+							<div className="d-flex align-items-center justify-content-end mt-auto">
+								<div className="col ">
+									<label>
+										<Button variant="danger" onClick={() => actions.deletePet(currentPetId)}>
+											<i className="far fa-trash-alt" />
+										</Button>
+									</label>
+								</div>
+								<div className="col">
+									<label>
+										{"Edit: "}
+										<PetModal show={isOpen} onClose={toggleModal} petValues={info} />
+									</label>
+								</div>
+							</div>
 						</Card.Body>
 					</Accordion.Collapse>
 				</Card>

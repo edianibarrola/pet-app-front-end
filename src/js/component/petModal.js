@@ -10,6 +10,7 @@ export function PetModal(props) {
 	console.log(props.petValues);
 	const currentPetId = props.petId;
 	const [habitatValue, setHabitatValue] = useState("");
+	const [habitatName, setHabitatName] = useState("");
 	// const availableHabitats = store.habitatList.map(e => {
 	// 	console.log(e);
 	// 	if (currentPetId == e.habitat_id) {
@@ -76,7 +77,7 @@ export function PetModal(props) {
 								name="habitat_id"
 								onChange={handleChange}
 								value={habitatValue}>
-								<option value="" />
+								<option value={habitatName} />
 								{store.habitatList.map((habitat, index) => {
 									console.log(habitatValue);
 									return (
@@ -85,6 +86,7 @@ export function PetModal(props) {
 											value={habitat.id}
 											onClick={e => {
 												setHabitatValue(e.target.value);
+												setHabitatName(e.target);
 											}}>
 											{habitat.name}
 										</option>

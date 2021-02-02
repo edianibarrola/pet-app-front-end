@@ -28,7 +28,7 @@ export function HabitatModal(props) {
 	};
 	return (
 		<>
-			<Button className="btn pcGradientLightGreen m-3  mx-auto " onClick={handleShow}>
+			<Button className="btn pcGradientLightGreen mb-3  mx-auto " onClick={handleShow}>
 				<i className="fas fa-edit mx-auto fa-1x " />
 			</Button>
 			<Modal show={show} onHide={handleClose}>

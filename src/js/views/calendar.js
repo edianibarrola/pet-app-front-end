@@ -75,20 +75,7 @@ export const Calendar = () => {
 
 		addedAppointment: {},
 		appointmentChanges: {},
-		editingAppointment: undefined,
-		resources: [
-			{
-				fieldName: "habitatId",
-				title: "Habitat",
-				instances: resourcesData
-			},
-			{
-				fieldName: "pets",
-				title: "Pets",
-				instances: owners
-				// allowMultiple: true
-			}
-		]
+		editingAppointment: undefined
 	});
 
 	useEffect(
@@ -144,42 +131,45 @@ export const Calendar = () => {
 	};
 	const { currentDate, data, addedAppointment, appointmentChanges, editingAppointment, currentViewName } = state;
 	return (
-		<Paper>
-			<Scheduler data={data} adaptivityEnabled="true" height="575">
-				<ViewState
-					currentViewName={view}
-					onCurrentViewNameChange={setView}
-					currentDate={dateView}
-					onCurrentDateChange={setDateView}
-				/>
-				<EditingState
-					onCommitChanges={commitChanges}
-					// addedAppointment={addedAppointment}
-					// onAddedAppointmentChange={changeAddedAppointment}
-					// appointmentChanges={appointmentChanges}
-					// onAppointmentChangesChange={changeAppointmentChanges}
-					// editingAppointment={editingAppointment}
-					// onEditingAppointmentChange={changeEditingAppointment}
-				/>
-				<IntegratedEditing isRecurrence="false" />
-				{/* <EditRecurrenceMenu /> */}
-				<DayView startDayHour={9} endDayHour={19} />
-				<WeekView startDayHour={9} endDayHour={19} />
-				<MonthView />
-				{/* <AllDayPanel /> */}
-				<Toolbar />
-				<TodayButton />
-				<DateNavigator />
-				<ViewSwitcher />
+		<div className="my-auto p-auto">
+			<Paper>
+				<Scheduler data={data} adaptivityEnabled="true" height="575">
+					<ViewState
+						currentViewName={view}
+						onCurrentViewNameChange={setView}
+						currentDate={dateView}
+						onCurrentDateChange={setDateView}
+					/>
+					<EditingState
+						onCommitChanges={commitChanges}
+						// addedAppointment={addedAppointment}
+						// onAddedAppointmentChange={changeAddedAppointment}
+						// appointmentChanges={appointmentChanges}
+						// onAppointmentChangesChange={changeAppointmentChanges}
+						// editingAppointment={editingAppointment}
+						// onEditingAppointmentChange={changeEditingAppointment}
+					/>
+					<IntegratedEditing isRecurrence="false" />
+					{/* <EditRecurrenceMenu /> */}
+					<DayView startDayHour={9} endDayHour={19} />
+					<WeekView startDayHour={9} endDayHour={19} />
+					<MonthView />
+					{/* <AllDayPanel /> */}
+					<Toolbar />
+					<TodayButton />
+					<DateNavigator />
+					<ViewSwitcher />
 
-				<Appointments />
-				<AppointmentTooltip showCloseButton showDeleteButton />
-				<AppointmentForm />
-				{/* <AppointmentForm booleanEditorComponent={BooleanEditor} isRecurrence="false" /> */}
-				{/* <DragDropProvider /> */}
-				<ConfirmationDialog />
-				{/* <Resources data={state.resources} mainResourceName="pets" /> */}
-			</Scheduler>
-		</Paper>
+					<Appointments />
+					<AppointmentTooltip showCloseButton showDeleteButton />
+					<AppointmentForm />
+					{/* <AppointmentForm booleanEditorComponent={BooleanEditor} isRecurrence="false" /> */}
+					{/* <DragDropProvider /> */}
+					<ConfirmationDialog />
+
+					{/* <Resources data={state.resources} mainResourceName="pets" /> */}
+				</Scheduler>
+			</Paper>
+		</div>
 	);
 };

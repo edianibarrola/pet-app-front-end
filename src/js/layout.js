@@ -46,7 +46,9 @@ const Layout = () => {
 								<Dashboard />
 							</Route>
 							<Route exact path="/calendar">
-								<Calendar />
+								<div className="mt-5">
+									<Calendar />
+								</div>
 							</Route>
 							<Route exact path="/pets">
 								<PetView />
@@ -104,7 +106,9 @@ const Layout = () => {
 							</Route>
 
 							<Route exact path="/calendar">
-								<Calendar />
+								<div className="mt-5">
+									<Calendar />
+								</div>
 							</Route>
 							<Route exact path="/pets">
 								<PetView />

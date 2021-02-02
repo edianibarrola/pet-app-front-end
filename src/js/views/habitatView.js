@@ -16,7 +16,7 @@ export default class HabitatView extends React.Component {
 			<Context.Consumer>
 				{({ store, actions }) => {
 					return (
-						<div className="mt-5 pt-5 p-5 pcGradientLightGreen ">
+						<div className="mt-5 pt-5 py-5 px-2 pcGradientLightGreen ">
 							Add new Habitat
 							<HabitatModal show={this.state.isOpen} onClose={this.toggleModal} habitat={""} />
 							<div className=" m-4 p-4 scrollWrapper pt-4 ">
