@@ -15,7 +15,7 @@ const AddFoundPet = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="d-flex align-items-center justify-content-center bgFound" style={{ minHeight: "100vh" }}>
+		<div className="d-flex align-items-center mt-5 justify-content-center bgFound" style={{ minHeight: "100vh" }}>
 			<div className="w-100" style={{ maxWidth: "800px" }}>
 				<div>
 					<div className="row mx-auto boxShadow">

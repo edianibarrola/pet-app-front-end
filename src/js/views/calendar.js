@@ -131,7 +131,7 @@ export const Calendar = () => {
 	};
 	const { currentDate, data, addedAppointment, appointmentChanges, editingAppointment, currentViewName } = state;
 	return (
-		<div className="my-auto p-auto">
+		<div className="mt-auto p-auto">
 			<Paper>
 				<Scheduler data={data} adaptivityEnabled="true" height="575">
 					<ViewState

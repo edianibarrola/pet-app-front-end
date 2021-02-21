@@ -35,7 +35,7 @@ export default class PetView extends React.Component {
 										</div>
 									</button>
 								</div>
-								<div className=" m-4 p-4 scrollWrapper  ">
+								<div className=" mt-4 mx-4 p-4 scrollWrapper  ">
 									{store.petList
 										? store.petList.map((pet, index) => {
 												console.log(pet);

@@ -35,7 +35,7 @@ export const PetCard = props => {
 
 	return (
 		<Accordion defaultActiveKey="1">
-			<div className="p-4 m-4 pcGradientDarkGreen minw-20 pcLightGreenBorderSmall">
+			<div className="p-4 m-4 petBG boxShadow minw-20 ">
 				<Card style={{ width: "25rem" }}>
 					<Accordion.Toggle as={Card.Header} eventKey="0" className="pcGradientLightGreen">
 						<div className="d-flex justify-content-center ">
@@ -46,7 +46,7 @@ export const PetCard = props => {
 						</div>
 					</Accordion.Toggle>
 					<Accordion.Collapse eventKey="0">
-						<Card.Body>
+						<Card.Body className="mb-0 pb-0">
 							<div className="container text-nowrap">
 								<li>
 									{" Type:  "}
@@ -64,8 +64,12 @@ export const PetCard = props => {
 									{" Habitat:  "}
 									{habitat_info.name}
 								</li>
+								<li>
+									{" Note:  "}
+									{info.note}
+								</li>
 							</div>
-							<div className="d-flex align-items-center justify-content-end mt-auto">
+							<div className="d-flex align-items-center justify-content-end mb-auto">
 								<div className="col ">
 									<label>
 										<Button variant="danger" onClick={() => actions.deletePet(currentPetId)}>
