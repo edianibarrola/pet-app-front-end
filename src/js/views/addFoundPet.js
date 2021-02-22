@@ -55,7 +55,14 @@ const AddFoundPet = () => {
 								<input type="file" onChange={handleChange} />
 								<button onClick={handleUpload}>Upload</button>
 							</div>
-							<div>{url}</div>
+							<br />
+							<div className="text-center pt-2">
+								{url ? (
+									<div className="alert alert-primary" role="alert">
+										Upload Success!
+									</div>
+								) : null}
+							</div>
 							<Form className="text-center">
 								<Form.Group id="name">
 									<Form.Label>Name, if applicable</Form.Label>

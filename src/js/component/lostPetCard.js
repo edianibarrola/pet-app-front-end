@@ -16,23 +16,23 @@ export const LostPetCard = props => {
 								className="far fa-times-circle float-right"
 								onClick={() => actions.deletePost(props.propPet.id)}
 							/>
-							<h2 className="text-center mb-4">Name: {props.propPet.name}</h2>
+							<h4 className="text-center mb-4">Name: {props.propPet.name}</h4>
 
 							<div className="text-center mb-4">
 								<div>
-									<h2>Type: {props.propPet.pet_type}</h2>
+									<h4>Type: {props.propPet.pet_type}</h4>
 								</div>
 								<div>
-									<h2>Color: {props.propPet.color}</h2>
+									<h4>Color: {props.propPet.color}</h4>
 								</div>
 								<div>
-									<h2>Eye Color: {props.propPet.eye_color}</h2>
+									<h4>Eye Color: {props.propPet.eye_color}</h4>
 								</div>
 								<div>
-									<h2>Last Seen Location: {props.propPet.last_seen}</h2>
+									<h4>Last Seen Location: {props.propPet.last_seen}</h4>
 								</div>
 								<div>
-									<h2>Description: {props.propPet.description}</h2>
+									<h4>Description: {props.propPet.description}</h4>
 								</div>
 							</div>
 						</div>

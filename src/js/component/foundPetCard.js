@@ -7,7 +7,7 @@ export const FoundPetCard = props => {
 	return (
 		<div className="container d-flex justify-content-center align-items-center">
 			<div className="w-100" style={{ maxWidth: "400px" }}>
-				<div>
+				<div className="foundBG boxShadow p-2 m-4">
 					<div className="card">
 						<img className="card-img-top" src={props.propPet.post_picture} alt="Card image cap" />
 						<div className="card-body text-center">
@@ -15,28 +15,23 @@ export const FoundPetCard = props => {
 								className="far fa-times-circle float-right"
 								onClick={() => actions.deletePost(props.propPet.id)}
 							/>
-							<h2 className="text-center mb-4">Name: </h2>
-							<p>{props.propPet.name}</p>
+							<h4 className="text-center mb-4">Name: {props.propPet.name}</h4>
+
 							<div className="text-center mb-4">
 								<div>
-									<h2>Type of Animal: </h2>
-									<p>{props.propPet.pet_type}</p>
+									<h4>Type of Animal: {props.propPet.pet_type}</h4>
 								</div>
 								<div>
-									<h2>Color: </h2>
-									<p>{props.propPet.color}</p>
+									<h4>Color: {props.propPet.color}</h4>
 								</div>
 								<div>
-									<h2>Eye Color: </h2>
-									<p>{props.propPet.eye_color}</p>
+									<h4>Eye Color: {props.propPet.eye_color}</h4>
 								</div>
 								<div>
-									<h2>Last Seen Location: </h2>
-									<p>{props.propPet.last_seen}</p>
+									<h4>Last Seen: {props.propPet.last_seen}</h4>
 								</div>
 								<div>
-									<h2>Description: </h2>
-									<p>{props.propPet.description}</p>
+									<h4>Description: {props.propPet.description}</h4>
 								</div>
 							</div>
 						</div>

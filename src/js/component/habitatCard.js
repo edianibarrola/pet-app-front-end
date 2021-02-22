@@ -26,7 +26,7 @@ export const HabitatCard = props => {
 	console.log(petsInHabitat);
 	return (
 		<div className="m-5 p-4  habitatBG boxShadow">
-			<Card style={{ width: "40rem", height: "90%" }}>
+			<Card bg="dark" text="white" style={{ width: "40rem", height: "90%" }}>
 				<div className="row">
 					<div className="col-6 ">
 						<Card.Img src="https://picsum.photos/300" className="my-4 " />
