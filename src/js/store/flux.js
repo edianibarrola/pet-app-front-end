@@ -350,7 +350,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 
-			addToLost: (name, petType, color, eyeColor, lastSeen, description, status) => {
+			addToLost: (name, petType, color, eyeColor, lastSeen, description, status, postUrl) => {
 				fetch(getStore().url + "posts/lost", {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
@@ -361,7 +361,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						eye_color: eyeColor,
 						last_seen: lastSeen,
 						description: description,
-						status: status
+						status: status,
+						post_picture: postUrl
 					})
 				})
 					.then(function(response) {
@@ -387,7 +388,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log("Looks like there was a problem: \n", error);
 					});
 			},
-			addToFound: (name, petType, color, eyeColor, lastSeen, description, status) => {
+			addToFound: (name, petType, color, eyeColor, lastSeen, description, status, postUrl) => {
 				fetch(getStore().url + "posts/found", {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
@@ -398,7 +399,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						eye_color: eyeColor,
 						last_seen: lastSeen,
 						description: description,
-						status: status
+						status: status,
+						post_picture: postUrl
 					})
 				})
 					.then(function(response) {

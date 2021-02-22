@@ -10,7 +10,7 @@ export const LostPetCard = props => {
 			<div className="w-100" style={{ maxWidth: "400px" }}>
 				<div>
 					<div className="card">
-						<img className="card-img-top" src="..." alt="Card image cap" />
+						<img className="card-img-top" src={props.propPet.post_picture} alt="Card image cap" />
 						<div className="card-body text-center">
 							<i
 								className="far fa-times-circle float-right"

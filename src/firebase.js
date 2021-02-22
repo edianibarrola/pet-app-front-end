@@ -13,6 +13,7 @@
 // export const auth = app.auth();
 // export default app;
 import firebase from "firebase";
+import "firebase/storage";
 
 var firebaseConfig = {
 	apiKey: "AIzaSyABFnRlibXGPrvqmyxxEXLplxQ-D4-kzNA",
@@ -24,5 +25,7 @@ var firebaseConfig = {
 };
 
 const fire = firebase.initializeApp(firebaseConfig);
+const storage = firebase.storage();
 
-export default fire;
+export { storage, fire as default };
+//export default fire;

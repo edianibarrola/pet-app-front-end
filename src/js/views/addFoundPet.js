@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Form, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
+import { storage } from "../../firebase";
 
 const AddFoundPet = () => {
 	const [name, setName] = useState("");
@@ -10,9 +11,38 @@ const AddFoundPet = () => {
 	const [eyeColor, setEyeColor] = useState("");
 	const [lastSeen, setLastSeen] = useState("");
 	const [description, setDescription] = useState("");
+	const [image, setImage] = useState("");
+	const [url, setUrl] = useState("");
 	const status = "found";
 	const history = useHistory();
 	const { store, actions } = useContext(Context);
+
+	const handleChange = e => {
+		if (e.target.files[0]) {
+			setImage(e.target.files[0]);
+		}
+	};
+
+	const handleUpload = () => {
+		const uploadTask = storage.ref(`${store.user.id}/posts/found/${image.name}`).put(image);
+		uploadTask.on(
+			"state_changed",
+			snapshot => {},
+			error => {
+				console.log(error);
+			},
+			() => {
+				storage
+					.ref(`${store.user.id}/posts/found`)
+					.child(image.name)
+					.getDownloadURL()
+					.then(url => {
+						setUrl(url);
+						console.log(url);
+					});
+			}
+		);
+	};
 
 	return (
 		<div className="d-flex align-items-center justify-content-center bgFound" style={{ minHeight: "100vh" }}>
@@ -21,6 +51,11 @@ const AddFoundPet = () => {
 					<div className="row mx-auto boxShadow">
 						<div className="col-8 postCards">
 							<h2 className="text-center mb-4">Post a Found Pet</h2>
+							<div className="text-center">
+								<input type="file" onChange={handleChange} />
+								<button onClick={handleUpload}>Upload</button>
+							</div>
+							<div>{url}</div>
 							<Form className="text-center">
 								<Form.Group id="name">
 									<Form.Label>Name, if applicable</Form.Label>
@@ -94,7 +129,8 @@ const AddFoundPet = () => {
 											eyeColor,
 											lastSeen,
 											description,
-											status
+											status,
+											url
 										);
 										history.push("/foundpets");
 									}}>
