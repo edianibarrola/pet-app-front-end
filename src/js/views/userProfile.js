@@ -5,6 +5,12 @@ import { Link } from "react-router-dom";
 const UserProfile = () => {
 	const { store, actions } = useContext(Context);
 
+	const availableHabitats = store.habitatList.map(e => {
+		if (e.name) {
+			return <li>{e.name}</li>;
+		}
+	});
+
 	return (
 		<div className="bgSearch">
 			<div
@@ -24,6 +30,7 @@ const UserProfile = () => {
 									</div>
 									<h2>Full Name: {store.user.username}</h2>
 									<h2>Email: {store.user.email}</h2>
+									<h3>Habitats:</h3> {availableHabitats}
 								</div>
 							</div>
 						</div>

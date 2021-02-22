@@ -6,9 +6,9 @@ export const LostPetCard = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container d-flex align-items-center justify-content-center">
+		<div className="container d-flex mt-5 align-items-center justify-content-center">
 			<div className="w-100" style={{ maxWidth: "400px" }}>
-				<div>
+				<div className="lostBG boxShadow p-2 m-4">
 					<div className="card">
 						<img className="card-img-top" src={props.propPet.post_picture} alt="Card image cap" />
 						<div className="card-body text-center">
@@ -16,29 +16,23 @@ export const LostPetCard = props => {
 								className="far fa-times-circle float-right"
 								onClick={() => actions.deletePost(props.propPet.id)}
 							/>
-							<h2 className="text-center mb-4">Name: </h2>
-							<p>{props.propPet.name}</p>
+							<h2 className="text-center mb-4">Name: {props.propPet.name}</h2>
 
 							<div className="text-center mb-4">
 								<div>
-									<h2>Type of Animal: </h2>
-									<p>{props.propPet.pet_type}</p>
+									<h2>Type: {props.propPet.pet_type}</h2>
 								</div>
 								<div>
-									<h2>Color: </h2>
-									<p>{props.propPet.color}</p>
+									<h2>Color: {props.propPet.color}</h2>
 								</div>
 								<div>
-									<h2>Eye Color: </h2>
-									<p>{props.propPet.eye_color}</p>
+									<h2>Eye Color: {props.propPet.eye_color}</h2>
 								</div>
 								<div>
-									<h2>Last Seen Location: </h2>
-									<p>{props.propPet.last_seen}</p>
+									<h2>Last Seen Location: {props.propPet.last_seen}</h2>
 								</div>
 								<div>
-									<h2>Description: </h2>
-									<p>{props.propPet.description}</p>
+									<h2>Description: {props.propPet.description}</h2>
 								</div>
 							</div>
 						</div>

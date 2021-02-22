@@ -12,9 +12,10 @@ export const AdoptPage = () => {
 	return (
 		<div className="bgLanding">
 			<div>
-				<div>
+				<div className="p-5" />
+				<div className="justify-content-center d-flex">
 					<input
-						className="list-group-item"
+						className="list-group-item w-50"
 						type="text"
 						value={search}
 						onChange={handleChange}

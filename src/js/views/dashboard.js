@@ -129,13 +129,11 @@ export const Dashboard = () => {
 					<div className="card text-center ">
 						<div className="card-header">Services</div>
 						<div className="card-body">
-							<div className="overviewcard boxShadow">
+							<div className="overviewcard boxShadow" onClick={() => history.push("/adoptpage")}>
 								<div className="circle yellow">
 									<i className="fas fa-paw" />
 								</div>
-								<div className="cardFont" onClick={() => history.push("/adoptpage")}>
-									Adopt A Pet!
-								</div>
+								<div className="cardFont">Adopt A Pet!</div>
 							</div>
 						</div>
 					</div>

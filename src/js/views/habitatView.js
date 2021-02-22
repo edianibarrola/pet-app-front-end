@@ -16,10 +16,10 @@ export default class HabitatView extends React.Component {
 			<Context.Consumer>
 				{({ store, actions }) => {
 					return (
-						<div>
+						<div className="mt-5 pt-5 py-5 px-2 bgLanding  ">
 							Add new Habitat
 							<HabitatModal show={this.state.isOpen} onClose={this.toggleModal} habitat={""} />
-							<div className=" m-4 p-4 scrollWrapper  ">
+							<div className=" m-4 p-4 scrollWrapper pt-4 ">
 								{store.habitatList
 									? store.habitatList.map((habitat, index) => {
 											console.log(habitat);

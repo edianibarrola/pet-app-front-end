@@ -35,7 +35,7 @@ export class AdoptCard extends React.Component {
 			val3: this.props.propObj.url,
 			val4: this.props.propObj.primary_photo_cropped
 				? this.props.propObj.primary_photo_cropped.medium
-				: "https://picsum.photos/150",
+				: "https://via.placeholder.com/150",
 			val5: this.props.propObj.contact.address.city,
 			val6: this.props.propObj.contact.address.postcode,
 			val7: this.props.propObj.contact.address.state
@@ -45,7 +45,7 @@ export class AdoptCard extends React.Component {
 		return (
 			<Accordion defaultActiveKey="0">
 				<div className="p-4 m-4 pcGradientDarkGreen minw-20 pcLightGreenBorderSmall">
-					<Card style={{ width: "18rem" }}>
+					<Card style={{ width: "auto" }}>
 						<Accordion.Toggle as={Card.Header} eventKey="0" className="pcGradientLightGreen">
 							<div className="d-flex justify-content-center ">
 								<Image src={this.state.val4} roundedCircle fluid />
@@ -57,14 +57,12 @@ export class AdoptCard extends React.Component {
 						<Accordion.Collapse eventKey="0">
 							<Card.Body>
 								<div className="container text-nowrap">
-									<h1>Species: </h1>
-									<p>{this.state.val0}</p>
-									<h1>Breed:</h1>
-									<p>{this.state.val1}</p>
-									<h1>Location:</h1>
-									<p>
-										{this.state.val5}, {this.state.val7} {this.state.val6}
-									</p>
+									{" "}
+									<h3> Species: {this.state.val0}</h3> <h3> Breed: {this.state.val1} </h3>
+									<h3>
+										{" "}
+										Location: {this.state.val5}, {this.state.val7} {this.state.val6}
+									</h3>
 								</div>
 								<a
 									role="button"

@@ -10,9 +10,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			petfinder_token: "",
 			login_token: "",
 			url: "https://3000-dd56cdb1-af4d-43bb-bb6b-ed4132109aff.ws-us03.gitpod.io/",
-			//url: "https://3000-bb954a08-1134-4c45-bb4c-b81574018d42.ws-us03.gitpod.io/",
+			// url: "https://3000-bb954a08-1134-4c45-bb4c-b81574018d42.ws-us03.gitpod.io/",
 			habitatList: [],
 			petList: [],
+			calendarList: [],
 			adoptablePets: [],
 			lostPets: null,
 			foundPets: null
@@ -97,6 +98,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(jsonifiedResponse => setStore({ foundPets: jsonifiedResponse }))
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+				fetch(getStore().url + "calendar")
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => setStore({ calendarList: jsonifiedResponse }))
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
@@ -501,6 +513,117 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
+					});
+			},
+			addCalendar: data => {
+				console.log(data);
+				fetch(getStore().url + "calendar", {
+					method: "POST", // or 'POST'
+					body: JSON.stringify({
+						title: data.title,
+
+						endDate: data.endDate,
+						startDate: data.startDate,
+						habitatId: data.habitatId,
+						notes: data.notes,
+						pets: data.pets
+					}), // data can be `string` or {object}!
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => {
+						// console.log(jsonifiedResponse);
+						fetch(getStore().url + "calendar")
+							.then(function(response) {
+								if (!response.ok) {
+									throw Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(jsonifiedResponse => setStore({ calendarList: jsonifiedResponse }))
+							.catch(function(error) {
+								console.log("Looks like there was a problem: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
+			updateCalendar: (data, id) => {
+				console.log("updateCalendar Data: ", data);
+				fetch(getStore().url + "calendar/" + id, {
+					method: "PUT", // or 'POST'
+					body: JSON.stringify({
+						title: data.title,
+
+						endDate: data.endDate,
+						startDate: data.startDate,
+						habitatId: data.habitatId,
+						notes: data.notes,
+						pets: data.pets,
+						id: data.id
+					}), // data can be `string` or {object}!
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => {
+						console.log(jsonifiedResponse);
+						fetch(getStore().url + "calendar")
+							.then(function(response) {
+								if (!response.ok) {
+									throw Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(jsonifiedResponse => setStore({ calendarList: jsonifiedResponse }))
+							.catch(function(error) {
+								console.log("Looks like there was a problem: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
+			deleteCalendar: id => {
+				fetch(getStore().url + "calendar/" + id, {
+					method: "DELETE"
+				})
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(jsonifiedResponse => {
+						console.log(jsonifiedResponse);
+						fetch(getStore().url + "calendar")
+							.then(function(response) {
+								if (!response.ok) {
+									throw Error(response.statusText);
+								}
+								return response.json();
+							})
+							.then(jsonifiedResponse => setStore({ calendarListcalendar: jsonifiedResponse }))
+							.catch(function(error) {
+								console.log("Looks like there was a problem1: \n", error);
+							});
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem2: \n", error);
 					});
 			}
 		}

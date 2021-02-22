@@ -23,6 +23,7 @@ import HabitatView from "./views/habitatView";
 import AddFoundPet from "./views/addFoundPet";
 import AddLostPet from "./views/addLostPet";
 import EditUserProfile from "./views/editUserProfile";
+import SimpleMap from "./views/map";
 
 const Layout = () => {
 	const { store, actions } = useContext(Context);
@@ -46,7 +47,9 @@ const Layout = () => {
 								<Dashboard />
 							</Route>
 							<Route exact path="/calendar">
-								<Calendar />
+								<div className="mt-5">
+									<Calendar />
+								</div>
 							</Route>
 							<Route exact path="/pets">
 								<PetView />
@@ -74,6 +77,9 @@ const Layout = () => {
 							</Route>
 							<Route exact path="/adoptpage">
 								<AdoptPage />
+							</Route>
+							<Route exact path="/map">
+								<SimpleMap />
 							</Route>
 							<Route>
 								<h1>Not found! logged in</h1>
@@ -104,7 +110,9 @@ const Layout = () => {
 							</Route>
 
 							<Route exact path="/calendar">
-								<Calendar />
+								<div className="mt-5">
+									<Calendar />
+								</div>
 							</Route>
 							<Route exact path="/pets">
 								<PetView />
