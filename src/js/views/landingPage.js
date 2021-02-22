@@ -1,5 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Image from "react-bootstrap/Image";
+import taikaImg from "../../img/taika.jpg";
+import babaImg from "../../img/baba.jpg";
+import drangusImg from "../../img/drangus.jpg";
+import meeshkaImg from "../../img/meeshka.jpg";
+import habitatImg from "../../img/habitat.jpg";
 
 export const LandingPage = () => (
 	<>
@@ -18,35 +24,35 @@ export const LandingPage = () => (
 			<div>
 				<div className="row mx-auto fullHeaderCard" style={{ maxWidth: "70%", maxHeight: "25%" }}>
 					<div className="col-6 leftBackground">
-						<div className="container smallIndent pottaOne">
-							<p>Life is too dull without </p>
-							<p>your furry or scaly friends around! </p>
-							<p>Try the one in all </p>
-							<p>pet platform today!</p>
+						<div className="container smallIndent ">
+							<p>We know you </p>
+							<p>love your pets</p>
+							<p>Let us help you give them the care they deserve </p>
+							<p>effortlessly with PETREP </p>
+
 							<Link to="/signup">
 								<button className="btn pcButton m-5">Sign Up Today!</button>
 							</Link>
 						</div>
 					</div>
-					<div className="col-6 rightBackground" />
+					<div className="col-6 rightBackground"> </div>
 				</div>
 			</div>
 			{/* 2nd block on landing page */}
 			<div className=" row align-items-center text-center banner whiteText w-100  ">
 				<div className="col h-50 px-3">
-					<div>
-						<img src="https://via.placeholder.com/200 " />
+					<div className="landingRoundImg mx-auto">
+						<Image src={taikaImg} roundedCircle fluid />
 					</div>
 					<br />
 					<h4>About Us!</h4>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis
-						justo mollis, auctor consequat urna. Morbi a bibendum metus. Donec scelerisque sollicitudin enim
-						eu venenatis. Duis tincidunt laoreet ex, in pretium orci vestibulum eget. Class aptent taciti
-						sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis pharetra luctus
-						lacus ut vestibulum. Maecenas ipsum lacus, lacinia quis posuere ut, pulvinar vitae dolor.
-						Integer eu nibh at nisi ullamcorper sagittis id vel leo. Integer feugiat faucibus libero, at
-						maximus nisl suscipit posuere. Morbi nec enim nunc.{" "}
+						At PETREP, we love pets. We know there is nothing else like the amazing bonds we build with our
+						creature companions. We want to do everything in our power to help people provide the ultimate
+						level of care for their furry, scaled and feathered friends. Whether you have one pet friend, or
+						a whole zoo, PETREP helps you keep track of all your animals, their dietary needs, their
+						habitats and supplies. Make use of our integrated calendar to set reminders or schedule
+						important events for your pets, like birthdays and vet checkups.{" "}
 					</p>
 				</div>
 			</div>
@@ -54,12 +60,16 @@ export const LandingPage = () => (
 			{/* 3rd block on landing page */}
 			<div className=" row align-items-center text-center banner whiteText px-5 w-100 ">
 				<div className="h-50 col float-left px-3">
-					<img src="https://via.placeholder.com/200 " />
+					<div className="landingRoundImg ">
+						<Image src={meeshkaImg} roundedCircle fluid />
+					</div>
 				</div>
 
 				<div className="col h-50 float-right px-3">
-					<h4>Features</h4>
-					<p>So cool! I like it all, tell me more!</p>
+					<h4>Your Pets</h4>
+					<p>Record information about your pets and store that information at your convenience. </p>
+					<p>Log special details for your pet, like dietary needs or medications. </p>
+					<p>Never miss a checkup or a playdate again! Set reminders and alerts for each pet!</p>
 				</div>
 			</div>
 
@@ -67,12 +77,19 @@ export const LandingPage = () => (
 
 			<div className=" row align-items-center text-center banner whiteText px-5 w-100  ">
 				<div className="col h-50 float-right px-3">
-					<h4>Your Pets</h4>
-					<p>Record information about your pets and store that information at your convenience. </p>
+					<h4>Your Habitats</h4>
+					<p>
+						Record information about your Habitats (enclosures) and store that information at your
+						convenience.{" "}
+					</p>
+					<p>Efficiently track supplies and material so you always have everything your pet needs.</p>
+					<p>Keep your Habitats in pristine condition by setting cleaning days</p>
 				</div>
 
 				<div className="h-50 col float-left px-3">
-					<img src="https://via.placeholder.com/200 " />
+					<div className="landingRoundImg mx-auto">
+						<Image src={habitatImg} roundedCircle fluid />
+					</div>
 				</div>
 			</div>
 
@@ -85,7 +102,7 @@ export const LandingPage = () => (
 				<div className="col h-50 float-right px-3">
 					<h4>Calendar</h4>
 					<p>
-						Get up to date with all your activities with your pets! Get notifications when you have an
+						Stay up to date with all your pet-related activities! Get notifications when you have an
 						activity coming up.
 					</p>
 				</div>
@@ -97,8 +114,7 @@ export const LandingPage = () => (
 				<div className="col h-50 float-right px-3">
 					<h4>Services</h4>
 					<p>
-						We provide nearby services near you in order to accomodate for the needs of your pets. Ex:
-						Veterinarians
+						We provide nearby services in order to accomodate for the needs of your pets. Ex: Veterinarians
 					</p>
 				</div>
 
@@ -112,7 +128,7 @@ export const LandingPage = () => (
 			<div className=" row align-items-center text-center banner whiteText px-5 w-100  ">
 				<div className="col h-50 float-right px-3">
 					<h4>Lost</h4>
-					<p>Lost your pet? Make posts that allow other users to see if they have found your pet!</p>
+					<p>Lost your pet? Our lost pet feature will alert other users in the area to Be On The Lookout!!</p>
 				</div>
 
 				<div className="h-50 col px-3">
@@ -122,8 +138,8 @@ export const LandingPage = () => (
 				<div className="col h-50 float-left px-3">
 					<h4>Found</h4>
 					<p>
-						Found an animal? Make posts that allow other users to see if the animal(s) posted are in fact
-						theirs!
+						Found an animal? Our found pet feature will help reunite lost pets by notifying other pet owners
+						in the neighborhood.
 					</p>
 				</div>
 			</div>

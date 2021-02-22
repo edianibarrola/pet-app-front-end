@@ -10,6 +10,11 @@ const UserProfile = () => {
 			return <li>{e.name}</li>;
 		}
 	});
+	const availablePets = store.petList.map(e => {
+		if (e.name) {
+			return <li>{e.name}</li>;
+		}
+	});
 
 	return (
 		<div className="bgSearch">
@@ -18,7 +23,7 @@ const UserProfile = () => {
 				style={{ minHeight: "100vh" }}>
 				<div className="w-100" style={{ maxWidth: "800px" }}>
 					<div>
-						<div className="card">
+						<div className="card profileBG">
 							<div className="card-body">
 								<div className="profileImg" />
 								<h2 className="text-center mb-4">Profile</h2>
@@ -30,7 +35,15 @@ const UserProfile = () => {
 									</div>
 									<h2>Full Name: {store.user.username}</h2>
 									<h2>Email: {store.user.email}</h2>
-									<h3>Habitats:</h3> {availableHabitats}
+								</div>
+								<div className="d-flex justify-content-around">
+									<div className="">
+										<h3>Pets: </h3>
+										{availablePets}
+									</div>
+									<div className="">
+										<h3>Habitats:</h3> {availableHabitats}
+									</div>
 								</div>
 							</div>
 						</div>
