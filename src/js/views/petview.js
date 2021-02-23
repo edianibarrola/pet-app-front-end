@@ -17,7 +17,7 @@ export default class PetView extends React.Component {
 	}
 	render() {
 		return (
-			<div className="align-items-center justify-content-around  bgLanding">
+			<div className="align-items-center justify-content-around  bgLanding " style={{ height: "100vh" }}>
 				<div style={{ padding: "30px" }} />
 				<Context.Consumer>
 					{({ store, actions }) => {

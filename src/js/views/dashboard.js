@@ -15,7 +15,7 @@ export const Dashboard = () => {
 	}, []);
 
 	return (
-		<div className="bgLanding">
+		<div className="bgLanding" style={{ height: "auto" }}>
 			<div style={{ padding: "30px" }} />
 
 			<div className="main-header w-100">

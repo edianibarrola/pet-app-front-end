@@ -92,14 +92,13 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5f8989",endCo
     overflow-x: auto;
     overflow-y:auto;
 }
-// .footer{
-//     position: absolute;
-//     bottom: 0;
-//     // left: 0;
-//     // right: 0;
-//     height:100px;
+.footer{
     
-// }
+    bottom: 0;
+    width:100vw;
+    height:100px;
+    
+}
 
 .leftBackground{
     background-image: url("https://i.pinimg.com/736x/c9/7b/8b/c97b8bac3169298c4b165a4ac9fbd1db.jpg");
