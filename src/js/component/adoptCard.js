@@ -35,7 +35,7 @@ export class AdoptCard extends React.Component {
 			val3: this.props.propObj.url,
 			val4: this.props.propObj.primary_photo_cropped
 				? this.props.propObj.primary_photo_cropped.medium
-				: "https://via.placeholder.com/150",
+				: "https://via.placeholder.com/300",
 			val5: this.props.propObj.contact.address.city,
 			val6: this.props.propObj.contact.address.postcode,
 			val7: this.props.propObj.contact.address.state
@@ -48,7 +48,12 @@ export class AdoptCard extends React.Component {
 					<Card style={{ minWidth: "400px", maxWidth: "400px" }}>
 						<Accordion.Toggle as={Card.Header} eventKey="0" className="pcGradientLightGreen">
 							<div className="d-flex justify-content-center ">
-								<Image src={this.state.val4} roundedCircle fluid />
+								<Image
+									src={this.state.val4}
+									roundedCircle
+									fluid
+									style={{ height: "300px", width: "300px" }}
+								/>
 							</div>
 							<div className=" text-center">
 								<h5>{this.state.val2}</h5>
