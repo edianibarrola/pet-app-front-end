@@ -6,6 +6,8 @@ import babaImg from "../../img/baba.jpg";
 import drangusImg from "../../img/drangus.jpg";
 import meeshkaImg from "../../img/meeshka.jpg";
 import habitatImg from "../../img/habitat.jpg";
+import mapImg from "../../img/map.png";
+import calendarImg from "../../img/calendar.png";
 
 export const LandingPage = () => (
 	<>
@@ -96,7 +98,9 @@ export const LandingPage = () => (
 			{/* 5th block on landing page */}
 			<div className=" row align-items-center text-center banner whiteText px-5 w-100  ">
 				<div className="h-50 col float-left px-3">
-					<img src="https://via.placeholder.com/200 " />
+					<div className="landingRoundImg mx-auto">
+						<Image src={calendarImg} roundedCircle fluid />
+					</div>
 				</div>
 
 				<div className="col h-50 float-right px-3">
@@ -119,7 +123,9 @@ export const LandingPage = () => (
 				</div>
 
 				<div className="h-50 col float-left px-3">
-					<img src="https://via.placeholder.com/200 " />
+					<div className="landingRoundImg mx-auto">
+						<Image src={mapImg} roundedCircle fluid />
+					</div>
 				</div>
 			</div>
 
