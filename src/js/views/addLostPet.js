@@ -53,12 +53,14 @@ const AddLostPet = () => {
 							<h2 className="text-center mb-4">Post a Lost Pet</h2>
 							<div className="text-center">
 								<input type="file" onChange={handleChange} />{" "}
-								<button onClick={handleUpload}>Upload</button>
+								<button type="button" className="btn btn-success" onClick={handleUpload}>
+									Upload
+								</button>
 							</div>
 							<br />
 							<div className="text-center pt-2">
 								{url ? (
-									<div className="alert alert-primary" role="alert">
+									<div className="alert alert-primary mx-auto w-75" role="alert">
 										Upload Success!
 									</div>
 								) : null}
@@ -124,8 +126,9 @@ const AddLostPet = () => {
 								</Form.Group>
 							</Form>
 							<div className="text-center">
-								<Button
-									className="w-75 text-center mt-2"
+								<button
+									type="button"
+									className="w-75 text-center mt-2 big-button mb-4 btn btn-success"
 									onClick={() => {
 										actions.addToLost(
 											name,
@@ -140,7 +143,7 @@ const AddLostPet = () => {
 										history.push("/lostpets");
 									}}>
 									Submit Post
-								</Button>
+								</button>
 							</div>
 							<div className="w-100 text-center mt-2">
 								<>

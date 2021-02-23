@@ -15,7 +15,7 @@ export const Dashboard = () => {
 	}, []);
 
 	return (
-		<div className="bgLanding">
+		<div className="bgLanding" style={{ height: "auto" }}>
 			<div style={{ padding: "30px" }} />
 
 			<div className="main-header w-100">
@@ -130,13 +130,13 @@ export const Dashboard = () => {
 						<div className="card-header">Services</div>
 						<div className="card-body">
 							<div className="overviewcard boxShadow" onClick={() => history.push("/adoptpage")}>
-								<div className="circle yellow">
+								<div className="circle pink">
 									<i className="fas fa-paw" />
 								</div>
 								<div className="cardFont">Adopt A Pet!</div>
 							</div>
 							<div className="overviewcard boxShadow" onClick={() => history.push("/map")}>
-								<div className="circle yellow">
+								<div className="circle brown">
 									<i className="fas fa-map" />
 								</div>
 								<div className="cardFont">Map</div>
