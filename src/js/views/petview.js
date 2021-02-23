@@ -23,17 +23,21 @@ export default class PetView extends React.Component {
 					{({ store, actions }) => {
 						return (
 							<div>
-								<div className="mx-auto">
-									<button className="btn pcButton mt-5 ">
-										<div className="align-items-center">
-											<div>Add new pet</div>
-											<PetModal
-												show={this.state.isOpen}
-												onClose={this.toggleModal}
-												petValues={""}
-											/>
-										</div>
-									</button>
+								<div className="row">
+									<div className=" mx-auto">
+										<button className="btn pcButton mt-5 ">
+											<div className="align-items-center">
+												<div>
+													<h4>Add new pet</h4>
+												</div>
+												<PetModal
+													show={this.state.isOpen}
+													onClose={this.toggleModal}
+													petValues={""}
+												/>
+											</div>
+										</button>
+									</div>
 								</div>
 								<div className=" mt-4 mx-4 p-4 scrollWrapper  ">
 									{store.petList
