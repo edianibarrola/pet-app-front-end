@@ -135,6 +135,12 @@ export const Dashboard = () => {
 								</div>
 								<div className="cardFont">Adopt A Pet!</div>
 							</div>
+							<div className="overviewcard boxShadow" onClick={() => history.push("/map")}>
+								<div className="circle yellow">
+									<i className="fas fa-map" />
+								</div>
+								<div className="cardFont">Map</div>
+							</div>
 						</div>
 					</div>
 				</div>

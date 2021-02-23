@@ -92,11 +92,10 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5f8989",endCo
     overflow-x: auto;
     overflow-y:auto;
 }
-// .footer{
+// footer{
 //     position: absolute;
 //     bottom: 0;
-//     // left: 0;
-//     // right: 0;
+//     width: 100vw;
 //     height:100px;
     
 // }
@@ -220,4 +219,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5f8989",endCo
     display: flex; 
     align-items: center; 
     justify-content: center;
+}
+
+h5{
+    overflow:hidden;
 }
