@@ -60,7 +60,7 @@ export const LandingPage = () => (
 			{/* 3rd block on landing page */}
 			<div className=" row align-items-center text-center banner whiteText px-5 w-100 ">
 				<div className="h-50 col float-left px-3">
-					<div className="landingRoundImg ">
+					<div className="landingRoundImg mx-auto ">
 						<Image src={meeshkaImg} roundedCircle fluid />
 					</div>
 				</div>
@@ -132,7 +132,9 @@ export const LandingPage = () => (
 				</div>
 
 				<div className="h-50 col px-3">
-					<img src="https://via.placeholder.com/200 " />
+					<div className="landingRoundImg lostFoundIcon mx-auto">
+						<i className="fas fa-paw fa-5x" />
+					</div>
 				</div>
 
 				<div className="col h-50 float-left px-3">
