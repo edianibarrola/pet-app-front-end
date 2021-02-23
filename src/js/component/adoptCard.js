@@ -69,14 +69,16 @@ export class AdoptCard extends React.Component {
 										Location: {this.state.val5}, {this.state.val7} {this.state.val6}
 									</h5>
 								</div>
-								<a
-									role="button"
-									href={this.state.val3}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="btn btn-primary">
-									Learn More!
-								</a>
+								<div className="text-center">
+									<a
+										role="button"
+										href={this.state.val3}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="btn btn-primary">
+										Learn More!
+									</a>
+								</div>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>

@@ -7,18 +7,18 @@ export const LostPetCard = props => {
 
 	return (
 		<div className="container d-flex mt-5 align-items-center justify-content-center">
-			<div className="w-100" style={{ maxWidth: "400px" }}>
+			<div className="w-100" style={{ maxWidth: "600px" }}>
 				<div className="lostBG boxShadow p-2 m-4">
 					<div className="card">
 						<img className="card-img-top" src={props.propPet.post_picture} alt="Card image cap" />
-						<div className="card-body text-center">
+						<div className="card-body">
 							<i
 								className="far fa-times-circle float-right"
 								onClick={() => actions.deletePost(props.propPet.id)}
 							/>
-							<h4 className="text-center mb-4">Name: {props.propPet.name}</h4>
+							<h4 className="mb-4">Name: {props.propPet.name}</h4>
 
-							<div className="text-center mb-4">
+							<div className="mb-4">
 								<div>
 									<h4>Type: {props.propPet.pet_type}</h4>
 								</div>

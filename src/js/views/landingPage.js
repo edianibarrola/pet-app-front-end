@@ -24,7 +24,7 @@ export const LandingPage = () => (
 				</div>
 			</div>
 			<div>
-				<div className="row mx-auto fullHeaderCard" style={{ maxWidth: "70%", maxHeight: "25%" }}>
+				<div className="row mx-auto fullHeaderCard" style={{ maxWidth: "50%", maxHeight: "25%" }}>
 					<div className="col-6 leftBackground">
 						<div className="container smallIndent ">
 							<p>We know you </p>
@@ -44,7 +44,7 @@ export const LandingPage = () => (
 			<div className=" row align-items-center text-center banner whiteText w-100  ">
 				<div className="col h-50 px-3">
 					<div className="landingRoundImg mx-auto">
-						<Image src={taikaImg} roundedCircle fluid />
+						<Image src={taikaImg} roundedCircle style={{ height: "250px", width: "250px" }} />
 					</div>
 					<br />
 					<h4>About Us!</h4>
@@ -63,7 +63,7 @@ export const LandingPage = () => (
 			<div className=" row align-items-center text-center banner whiteText px-5 w-100 ">
 				<div className="h-50 col float-left px-3">
 					<div className="landingRoundImg mx-auto ">
-						<Image src={meeshkaImg} roundedCircle fluid />
+						<Image src={meeshkaImg} roundedCircle style={{ height: "250px", width: "250px" }} />
 					</div>
 				</div>
 
@@ -90,7 +90,7 @@ export const LandingPage = () => (
 
 				<div className="h-50 col float-left px-3">
 					<div className="landingRoundImg mx-auto">
-						<Image src={habitatImg} roundedCircle fluid />
+						<Image src={habitatImg} roundedCircle style={{ height: "250px", width: "250px" }} />
 					</div>
 				</div>
 			</div>
@@ -99,7 +99,7 @@ export const LandingPage = () => (
 			<div className=" row align-items-center text-center banner whiteText px-5 w-100  ">
 				<div className="h-50 col float-left px-3">
 					<div className="landingRoundImg mx-auto">
-						<Image src={calendarImg} roundedCircle fluid />
+						<Image src={calendarImg} roundedCircle style={{ height: "250px", width: "250px" }} />
 					</div>
 				</div>
 
@@ -124,7 +124,7 @@ export const LandingPage = () => (
 
 				<div className="h-50 col float-left px-3">
 					<div className="landingRoundImg mx-auto">
-						<Image src={mapImg} roundedCircle fluid />
+						<Image src={mapImg} roundedCircle style={{ height: "250px", width: "250px" }} />
 					</div>
 				</div>
 			</div>

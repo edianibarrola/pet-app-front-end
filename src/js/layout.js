@@ -140,7 +140,7 @@ const Layout = () => {
 							</Route>
 						</Switch>
 					)}
-					<Footer />
+					{/* <Footer /> */}
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>

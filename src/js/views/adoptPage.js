@@ -29,6 +29,7 @@ export const AdoptPage = () => {
 						// console.log("Adoptable Pet ID", pet, "end");
 						if (
 							pet.species.toLowerCase().includes(search.toLowerCase()) ||
+							pet.breeds.primary.toLowerCase().includes(search.toLowerCase()) ||
 							pet.contact.address.postcode.toLowerCase().includes(search.toLowerCase()) ||
 							pet.contact.address.state.toLowerCase().includes(search.toLowerCase()) ||
 							pet.contact.address.city.toLowerCase().includes(search.toLowerCase())

@@ -23,10 +23,15 @@ export const PetNavbar = () => {
 					</Navbar.Brand>
 					<Nav className="ml-auto navLinkStyle">
 						<Nav.Link>
-							<Link to="/dashboard">Dashboard </Link>
+							<span
+								onClick={() => {
+									history.push("/dashboard");
+								}}>
+								Dashboard
+							</span>
 						</Nav.Link>
 						<span className="whiteText">
-							<button>
+							<button type="button" className="btn btn-success">
 								<Link to="/" onClick={actions.handleLogOut}>
 									Logout
 								</Link>
@@ -46,7 +51,13 @@ export const PetNavbar = () => {
 					<Navbar.Collapse id="responsive-navbar-nav">
 						<Nav className="ml-auto ">
 							<span className="whiteText">
-								Have an account? <button onClick={() => history.push("/login")}>Login</button>
+								Have an account?{" "}
+								<button
+									type="button"
+									className="btn btn-success"
+									onClick={() => history.push("/login")}>
+									Login
+								</button>
 							</span>
 
 							{/* <NavDropdown title="Menu" id="collasible-nav-dropdown">
