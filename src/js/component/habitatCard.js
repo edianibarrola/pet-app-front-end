@@ -26,8 +26,10 @@ export const HabitatCard = props => {
 	console.log(petsInHabitat);
 	return (
 		<div className="m-5 p-4  habitatBG boxShadow">
-			<Card text="dark" style={{ width: "40rem", height: "90%", background: "#005e51" }}>
-				<div className="row">
+			<Card
+				text="dark"
+				style={{ width: "40rem", height: "90%", background: "rgb(140,182,182)", font_size: "35px" }}>
+				<div className="row modalStyle">
 					<div className="col-6 ">
 						<Card.Img src="https://picsum.photos/300" className="my-4 " />
 					</div>
@@ -36,7 +38,7 @@ export const HabitatCard = props => {
 							<Card.Title>
 								<h3>{props.prop_habitat.name}</h3>
 							</Card.Title>
-							<h6>{props.prop_habitat.habitat_location}</h6>
+							<h4>{props.prop_habitat.habitat_location}</h4>
 
 							<div className="col text-nowrap p-4">
 								Pets in Habitat
@@ -47,24 +49,23 @@ export const HabitatCard = props => {
 					{/* <div className="col-12"> */}
 					{/* <Card.Body> */}
 					{/* <Card.Text> */}
-					<div className="row">
-						<div className="col-4 mb-auto mx-auto">
+
+					<div className="col-12 px-5">
+						<div className="d-flex justify-content-between">
 							<label> Info:</label>
 							<li>{props.prop_habitat.info}</li>
-							<br />
 						</div>
-
-						<div className="col-4 mb-auto mx-auto">
+						<div className="d-flex justify-content-between">
 							<label> Supplies:</label>
 							<li>{props.prop_habitat.habitat_supplies}</li>
-							<br />
 						</div>
 
-						<div className="col-4 mb-auto mx-auto">
+						<div className="d-flex justify-content-between">
 							<label> Equipment:</label>
 							<li>{props.prop_habitat.habitat_equipment}</li>
 						</div>
 					</div>
+
 					{/* </Card.Text> */}
 					{/* </Card.Body> */}
 					{/* </div> */}

@@ -17,8 +17,23 @@ export default class HabitatView extends React.Component {
 				{({ store, actions }) => {
 					return (
 						<div className="mt-5 pt-5 py-5 px-2 bgLanding  ">
-							Add new Habitat
-							<HabitatModal show={this.state.isOpen} onClose={this.toggleModal} habitat={""} />
+							<div className="row">
+								<div className="mx-auto">
+									<button className="btn pcButton mt-5 ">
+										<div className="align-items-center">
+											<div>
+												<h4>Add new Habitat</h4>
+											</div>
+											<HabitatModal
+												show={this.state.isOpen}
+												onClose={this.toggleModal}
+												habitat={""}
+											/>
+										</div>
+									</button>
+								</div>
+							</div>
+
 							<div className=" m-4 p-4 scrollWrapper pt-4 ">
 								{store.habitatList
 									? store.habitatList.map((habitat, index) => {

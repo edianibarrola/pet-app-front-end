@@ -45,63 +45,116 @@ export function PetModal(props) {
 				<i className="fas fa-edit mx-auto fa-1x " />
 			</Button>
 			<Modal show={show} onHide={handleClose}>
-				<Modal.Header closeButton>
-					<Modal.Title>{props.petValues.name}</Modal.Title>
+				<Modal.Header className="pcDarkGreen" closeButton>
+					<Modal.Title>{props.petValues.name} </Modal.Title>
 				</Modal.Header>
-				<Modal.Body>
+				<Modal.Body className="pcLightGreen">
 					<form>
-						<label>
-							Name:
-							<input type="text" value={pet.name} onChange={handleChange} name="name" />
-						</label>
-						<label>
-							Pet Type:
-							<input type="text" value={pet.pet_type} onChange={handleChange} name="pet_type" />
-						</label>
-						<label>
-							Sex:
-							<input type="text" value={pet.sex} onChange={handleChange} name="sex" />
-						</label>
-						<label>
-							Color:
-							<input type="text" value={pet.color} onChange={handleChange} name="color" />
-						</label>
-						<label>
-							Date of birth:
-							<input type="text" value={pet.dob} onChange={handleChange} name="dob" />
-						</label>
-						<label>
-							Habitat:
-							<select
-								id="Select a Habitat"
-								name="habitat_id"
-								onChange={handleChange}
-								value={habitatValue}>
-								<option value={habitatName} />
-								{store.habitatList.map((habitat, index) => {
-									console.log(habitatValue);
-									return (
-										<option
-											key={index}
-											value={habitat.id}
-											onClick={e => {
-												setHabitatValue(e.target.value);
-												setHabitatName(e.target);
-											}}>
-											{habitat.name}
-										</option>
-									);
-								})}
-							</select>
-							{/* <input type="text" value={pet.habitat_id}  name="habitat_id" /> */}
-						</label>
-						<label>
-							Note:
-							<input type="text" value={pet.note} onChange={handleChange} name="note" />
-						</label>
+						<div className="row">
+							<div className="col-12 mx-auto modalStyle">
+								<div className="d-flex justify-content-between">
+									<label>Name: </label>
+									<input
+										type="text"
+										size="inherit"
+										value={pet.name}
+										onChange={handleChange}
+										name="name"
+										className="boxShadow"
+									/>
+								</div>
+								<br />
+								<div className="d-flex justify-content-between">
+									<label>Pet Type: </label>
+									<input
+										type="text"
+										size="inherit"
+										value={pet.pet_type}
+										onChange={handleChange}
+										name="pet_type"
+										className="boxShadow"
+									/>
+								</div>
+								<br />
+								<div className="d-flex justify-content-between">
+									<label>Sex:</label>
+									<input
+										type="text"
+										size="inherit"
+										value={pet.sex}
+										onChange={handleChange}
+										name="sex"
+										className="boxShadow"
+									/>
+								</div>
+								<br />
+								<div className="d-flex justify-content-between">
+									<label>Color:</label>
+									<input
+										type="text"
+										size="inherit"
+										value={pet.color}
+										onChange={handleChange}
+										name="color"
+										className="boxShadow"
+									/>
+								</div>
+								<br />
+								<div className="d-flex justify-content-between">
+									<label>D.o.b.:</label>
+									<input
+										type="text"
+										size="inherit"
+										value={pet.dob}
+										onChange={handleChange}
+										name="dob"
+										className="boxShadow"
+									/>
+								</div>
+								<br />
+								<div className="d-flex justify-content-between">
+									<label>Notes:</label>
+									<input
+										type="text"
+										size="inherit"
+										value={pet.note}
+										onChange={handleChange}
+										name="note"
+										className="boxShadow"
+									/>
+								</div>
+								<br />
+								<div className="d-flex justify-content-between">
+									<label>Habitat: </label>
+									<select
+										id="Select a Habitat"
+										className="boxShadow"
+										size="inherit"
+										name="habitat_id"
+										onChange={handleChange}
+										value={habitatValue}>
+										<option value={habitatName} />
+										{store.habitatList.map((habitat, index) => {
+											console.log(habitatValue);
+											return (
+												<option
+													key={index}
+													value={habitat.id}
+													onClick={e => {
+														setHabitatValue(e.target.value);
+														setHabitatName(e.target);
+													}}>
+													{habitat.name}
+												</option>
+											);
+										})}
+									</select>
+								</div>
+							</div>
+						</div>
 					</form>
 				</Modal.Body>
-				<Modal.Footer>
+				<Modal.Footer className="pcDarkGreen">
 					<Button variant="secondary" onClick={handleClose}>
 						Close
 					</Button>
