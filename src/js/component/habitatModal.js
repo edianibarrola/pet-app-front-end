@@ -32,12 +32,91 @@ export function HabitatModal(props) {
 				<i className="fas fa-edit mx-auto fa-1x " />
 			</Button>
 			<Modal show={show} onHide={handleClose}>
-				<Modal.Header closeButton>
+				<Modal.Header className="pcDarkGreen" closeButton>
 					<Modal.Title>{props.habitat.name}</Modal.Title>
 				</Modal.Header>
-				<Modal.Body>
+				<Modal.Body className="pcLightGreen">
 					<form>
-						<label>
+						<div className="row">
+							<div className="col-12 mx-auto modalStyle">
+								<div className="d-flex justify-content-between">
+									<label> </label>
+								</div>
+							</div>
+							<br />
+
+							<div className="col-12 mx-auto modalStyle">
+								<div className="d-flex justify-content-between">
+									<label>Name: </label>
+
+									<input
+										type="text"
+										value={habitat.name}
+										onChange={handleChange}
+										name="name"
+										className="boxShadow"
+									/>
+								</div>
+							</div>
+							<br />
+
+							<div className="col-12 mx-auto modalStyle">
+								<div className="d-flex justify-content-between">
+									<label>Info: </label>
+									<input
+										type="text"
+										value={habitat.info}
+										onChange={handleChange}
+										name="info"
+										className="boxShadow"
+									/>
+								</div>
+							</div>
+							<br />
+
+							<div className="col-12 mx-auto modalStyle">
+								<div className="d-flex justify-content-between">
+									<label>Location: </label>
+									<input
+										type="text"
+										value={habitat.habitat_location}
+										onChange={handleChange}
+										name="habitat_location"
+										className="boxShadow"
+									/>
+								</div>
+							</div>
+							<br />
+
+							<div className="col-12 mx-auto modalStyle">
+								<div className="d-flex justify-content-between">
+									<label>Supplies: </label>
+									<input
+										type="text"
+										value={habitat.habitat_supplies}
+										onChange={handleChange}
+										name="habitat_supplies"
+										className="boxShadow"
+									/>
+								</div>
+							</div>
+							<br />
+
+							<div className="col-12 mx-auto modalStyle">
+								<div className="d-flex justify-content-between">
+									<label>Equipment: </label>
+									<input
+										type="text"
+										value={habitat.habitat_equipment}
+										onChange={handleChange}
+										name="habitat_equipment"
+										className="boxShadow"
+									/>
+								</div>
+							</div>
+							<br />
+						</div>
+						{/* <label>
 							Name:
 							<input type="text" value={habitat.name} onChange={handleChange} name="name" />
 						</label>
@@ -71,10 +150,10 @@ export function HabitatModal(props) {
 								onChange={handleChange}
 								name="habitat_equipment"
 							/>
-						</label>
+						</label> */}
 					</form>
 				</Modal.Body>
-				<Modal.Footer>
+				<Modal.Footer className="pcDarkGreen">
 					<Button variant="secondary" onClick={handleClose}>
 						Close
 					</Button>
