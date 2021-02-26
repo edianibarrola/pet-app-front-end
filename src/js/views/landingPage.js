@@ -15,8 +15,8 @@ export const LandingPage = () => (
 			<div className="row">
 				<div className=" col mx-auto text-center  h-100 p-5">
 					<div className="h-100 inline-block m-5">
-						<h1 className=" whiteText">PETREP</h1>
-						<h3 className="whiteText">We Represent Pets</h3>
+						<h1 className=" whiteText otto">PETREP</h1>
+						<h3 className="whiteText otto">We Represent Pets</h3>
 					</div>
 					{/* <div className="h-100 inline-block mx-auto">
 					
