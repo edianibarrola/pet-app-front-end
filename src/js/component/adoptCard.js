@@ -61,13 +61,15 @@ export class AdoptCard extends React.Component {
 						</Accordion.Toggle>
 						<Accordion.Collapse eventKey="0">
 							<Card.Body>
-								<div className="container text-nowrap">
-									{" "}
-									<h5> Species: {this.state.val0}</h5> <h5> Breed: {this.state.val1} </h5>
-									<h5>
-										{" "}
-										Location: {this.state.val5}, {this.state.val7} {this.state.val6}
-									</h5>
+								<div className="container text-nowrap" style={{ overflow: "hidden" }}>
+									<h5> Species: </h5>
+									<p>{this.state.val0}</p>
+									<h5> Breed: </h5>
+									<p>{this.state.val1} </p>
+									<h5>Location:</h5>
+									<p>
+										{this.state.val5}, {this.state.val7} {this.state.val6}
+									</p>
 								</div>
 								<div className="text-center">
 									<a
@@ -75,7 +77,7 @@ export class AdoptCard extends React.Component {
 										href={this.state.val3}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="btn btn-primary">
+										className="postButton">
 										Learn More!
 									</a>
 								</div>
