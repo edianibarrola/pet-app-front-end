@@ -19,7 +19,7 @@ export const Dashboard = () => {
 			<div style={{ padding: "40px" }} />
 
 			<div className="main-header w-100">
-				<div className="pottaOne ml-5">
+				<div className=" ml-5 otto">
 					Welcome {store.user.username},<div>How are you today?</div>
 				</div>
 			</div>
