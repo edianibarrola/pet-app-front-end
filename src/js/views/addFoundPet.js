@@ -47,7 +47,7 @@ const AddFoundPet = () => {
 	return (
 		<div className="d-flex align-items-center mt-5 justify-content-center bgFound" style={{ minHeight: "100vh" }}>
 			<div className="w-100" style={{ maxWidth: "800px" }}>
-				<div>
+				<div style={{ fontSize: ".6em" }}>
 					<div className="row mx-auto boxShadow">
 						<div className="col-8 postCards">
 							<h1 className="text-center">Post a Found Pet</h1>

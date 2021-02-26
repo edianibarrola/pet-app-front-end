@@ -53,7 +53,7 @@ const Login = () => {
 				<div>
 					<div className="row mx-auto boxShadow">
 						<div className="col-8 cardForm">
-							<h1 className="text-center mb-4">Log In</h1>
+							<h1 className="text-center mb-4">Login</h1>
 							<Form>
 								<Form.Group id="email">
 									<Form.Label>Email</Form.Label>

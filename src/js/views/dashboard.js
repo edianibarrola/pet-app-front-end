@@ -19,7 +19,7 @@ export const Dashboard = () => {
 			<div style={{ padding: "40px" }} />
 
 			<div className="main-header w-100">
-				<div className="pottaOne">
+				<div className="pottaOne ml-5">
 					Welcome {store.user.username},<div>How are you today?</div>
 				</div>
 			</div>
@@ -87,7 +87,7 @@ export const Dashboard = () => {
 										<p className="card-text">
 											Hey, I believe you found my dog! Can you call me at ###-###-####? Thanks!
 										</p>
-										<a href="#" className="btn btn-primary">
+										<a href="#" className="postButton">
 											Go to your conversation with Vivian!
 										</a>
 									</div>
@@ -95,26 +95,26 @@ export const Dashboard = () => {
 								{/* ends here */}
 								{/* starts here */}
 								<div className="card text-center">
-									<div className="card-header">From Vivian</div>
+									<div className="card-header">From Timothy</div>
 									<div className="card-body" style={{ background: "white", color: "black" }}>
 										<p className="card-text">
-											Hey, I believe you found my dog! Can you call me at ###-###-####? Thanks!
+											Hey, I believe you found my cat! Can you call me at ###-###-####? Thanks!
 										</p>
-										<a href="#" className="btn btn-primary">
-											Go to your conversation with Vivian!
+										<a href="#" className="postButton">
+											Go to your conversation with Timothy!
 										</a>
 									</div>
 								</div>
 								{/* ends here */}
 								{/* starts here */}
 								<div className="card text-center">
-									<div className="card-header">From Vivian</div>
+									<div className="card-header">From Carl</div>
 									<div className="card-body" style={{ background: "white", color: "black" }}>
 										<p className="card-text">
-											Hey, I believe you found my dog! Can you call me at ###-###-####? Thanks!
+											Hey, I believe you found my cat! Can you call me at ###-###-####? Thanks!
 										</p>
-										<a href="#" className="btn btn-primary">
-											Go to your conversation with Vivian!
+										<a href="#" className="postButton">
+											Go to your conversation with Carl!
 										</a>
 									</div>
 								</div>

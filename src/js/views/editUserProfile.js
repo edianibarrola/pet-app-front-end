@@ -12,19 +12,25 @@ const EditUserProfile = () => {
 
 	return (
 		<div className="d-flex align-items-center justify-content-center bgEditProfile" style={{ minHeight: "100vh" }}>
-			<div className="w-100" style={{ maxWidth: "400px" }}>
-				<div>
+			<div className="w-100" style={{ maxWidth: "800px" }}>
+				<div style={{ fontSize: "1.5em" }}>
 					<div className="card">
 						<div className="card-body">
-							<h2 className="text-center mb-4">Edit Profile</h2>
+							<h1 className="text-center mb-4">Edit Profile</h1>
 							<Form>
 								<Form.Group id="name">
 									<Form.Label>Name:</Form.Label>
-									<Form.Control type="text" onChange={e => setName(e.target.value)} value={name} />
+									<Form.Control
+										className="postInput"
+										type="text"
+										onChange={e => setName(e.target.value)}
+										value={name}
+									/>
 								</Form.Group>
 								<Form.Group id="email">
 									<Form.Label>Email:</Form.Label>
 									<Form.Control
+										className="postInput"
 										type="text"
 										onChange={e => setEmail(e.target.value)}
 										value={email}
@@ -33,14 +39,14 @@ const EditUserProfile = () => {
 								</Form.Group>
 							</Form>
 							<div>
-								<Button
-									className="w-100 text-center mt-2"
+								<button
+									className="w-100 text-center mt-2 postButton"
 									onClick={() => {
 										actions.updateUserProfile(name, email, id);
 										history.push("/profile");
 									}}>
 									Finish Editing
-								</Button>
+								</button>
 							</div>
 							<div className="w-100 text-center mt-2">
 								<>
