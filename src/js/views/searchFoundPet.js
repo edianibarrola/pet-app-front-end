@@ -19,7 +19,7 @@ export const SearchFoundPet = () => {
 				<div style={{ padding: "50px" }} />
 				<div>
 					<p className="justify-content-center d-flex">
-						<Link className="postButton" to="/postfoundpet">
+						<Link className="postButton w-50 text-center" to="/postfoundpet">
 							Post Found Pet
 						</Link>
 					</p>
