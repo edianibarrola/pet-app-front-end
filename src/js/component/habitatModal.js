@@ -31,82 +31,76 @@ export function HabitatModal(props) {
 			<Button className="btn pcGradientLightGreen mb-3  mx-auto " onClick={handleShow}>
 				<i className="fas fa-edit mx-auto fa-1x " />
 			</Button>
-			<Modal show={show} onHide={handleClose}>
+			<Modal show={show} size="lg" onHide={handleClose}>
 				<Modal.Header className="pcDarkGreen" closeButton>
 					<Modal.Title>{props.habitat.name}</Modal.Title>
 				</Modal.Header>
-				<Modal.Body className="pcLightGreen">
+				<Modal.Body className="pcLightGreen ">
 					<form>
 						<div className="row">
-							<div className="col-12 mx-auto modalStyle">
-								<div className="d-flex justify-content-between">
-									<label> </label>
-								</div>
-							</div>
-							<br />
-
-							<div className="col-12 mx-auto modalStyle">
-								<div className="d-flex justify-content-between">
-									<label>Name: </label>
+							<div className="col-12 mx-auto modalStyle ">
+								<div className="d-flex justify-content-between px-4">
+									<label>Name:</label>
 
 									<input
 										type="text"
+										size="inherit"
 										value={habitat.name}
 										onChange={handleChange}
 										name="name"
 										className="boxShadow"
 									/>
 								</div>
-							</div>
-							<br />
 
-							<div className="col-12 mx-auto modalStyle">
-								<div className="d-flex justify-content-between">
-									<label>Info: </label>
+								<br />
+
+								<div className="d-flex justify-content-between px-4">
+									<label>Info:</label>
 									<input
 										type="text"
+										size="inherit"
 										value={habitat.info}
 										onChange={handleChange}
 										name="info"
 										className="boxShadow"
 									/>
 								</div>
-							</div>
-							<br />
 
-							<div className="col-12 mx-auto modalStyle">
-								<div className="d-flex justify-content-between">
-									<label>Location: </label>
+								<br />
+
+								<div className="d-flex justify-content-between px-4">
+									<label>Location:</label>
 									<input
 										type="text"
+										size="inherit"
 										value={habitat.habitat_location}
 										onChange={handleChange}
 										name="habitat_location"
 										className="boxShadow"
 									/>
 								</div>
-							</div>
-							<br />
 
-							<div className="col-12 mx-auto modalStyle">
-								<div className="d-flex justify-content-between">
-									<label>Supplies: </label>
+								<br />
+
+								<div className="d-flex justify-content-between px-4">
+									<label>Supplies:</label>
 									<input
 										type="text"
+										size="inherit"
 										value={habitat.habitat_supplies}
 										onChange={handleChange}
 										name="habitat_supplies"
 										className="boxShadow"
 									/>
 								</div>
-							</div>
-							<br />
 
-							<div className="col-12 mx-auto modalStyle">
-								<div className="d-flex justify-content-between">
+								<br />
+
+								<div className="d-flex justify-content-between px-4">
 									<label>Equipment: </label>
 									<input
 										type="text"
+										size="inherit"
 										value={habitat.habitat_equipment}
 										onChange={handleChange}
 										name="habitat_equipment"

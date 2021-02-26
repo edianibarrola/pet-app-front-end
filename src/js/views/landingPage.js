@@ -29,7 +29,7 @@ export const LandingPage = () => (
 						<div className="container smallIndent ">
 							<p>We know you </p>
 							<p>love your pets</p>
-							<p>Let us help you give them the care they deserve </p>
+							<p>Give them the care they deserve </p>
 							<p>effortlessly with PETREP </p>
 
 							<Link to="/signup">

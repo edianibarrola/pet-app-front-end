@@ -35,7 +35,7 @@ const UserProfile = () => {
 									/>
 								</div>
 								<h2 className="text-center mb-4">Profile</h2>
-								<div>
+								<div className="text-center mb-4">
 									<div className="float-right">
 										<Link to="/profile/edit">
 											<i className="fas fa-pencil-alt mr-3" />

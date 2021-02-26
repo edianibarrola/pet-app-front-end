@@ -44,7 +44,7 @@ export function PetModal(props) {
 			<Button className="btn pcGradientLightGreen m-3 mx-auto " onClick={handleShow}>
 				<i className="fas fa-edit mx-auto fa-1x " />
 			</Button>
-			<Modal show={show} onHide={handleClose}>
+			<Modal show={show} size="lg" onHide={handleClose}>
 				<Modal.Header className="pcDarkGreen" closeButton>
 					<Modal.Title>{props.petValues.name} </Modal.Title>
 				</Modal.Header>
@@ -52,7 +52,7 @@ export function PetModal(props) {
 					<form>
 						<div className="row">
 							<div className="col-12 mx-auto modalStyle">
-								<div className="d-flex justify-content-between">
+								<div className="d-flex justify-content-between px-4">
 									<label>Name: </label>
 									<input
 										type="text"
@@ -64,7 +64,7 @@ export function PetModal(props) {
 									/>
 								</div>
 								<br />
-								<div className="d-flex justify-content-between">
+								<div className="d-flex justify-content-between px-4">
 									<label>Pet Type: </label>
 									<input
 										type="text"
@@ -76,7 +76,7 @@ export function PetModal(props) {
 									/>
 								</div>
 								<br />
-								<div className="d-flex justify-content-between">
+								<div className="d-flex justify-content-between px-4">
 									<label>Sex:</label>
 									<input
 										type="text"
@@ -88,7 +88,7 @@ export function PetModal(props) {
 									/>
 								</div>
 								<br />
-								<div className="d-flex justify-content-between">
+								<div className="d-flex justify-content-between px-4">
 									<label>Color:</label>
 									<input
 										type="text"
@@ -100,7 +100,7 @@ export function PetModal(props) {
 									/>
 								</div>
 								<br />
-								<div className="d-flex justify-content-between">
+								<div className="d-flex justify-content-between px-4">
 									<label>D.o.b.:</label>
 									<input
 										type="text"
@@ -112,7 +112,7 @@ export function PetModal(props) {
 									/>
 								</div>
 								<br />
-								<div className="d-flex justify-content-between">
+								<div className="d-flex justify-content-between px-4">
 									<label>Notes:</label>
 									<input
 										type="text"
@@ -124,7 +124,7 @@ export function PetModal(props) {
 									/>
 								</div>
 								<br />
-								<div className="d-flex justify-content-between">
+								<div className="d-flex justify-content-between px-4">
 									<label>Habitat: </label>
 									<select
 										id="Select a Habitat"
