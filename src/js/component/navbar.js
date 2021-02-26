@@ -16,15 +16,15 @@ export const PetNavbar = () => {
 						onClick={() => {
 							history.push("/dashboard");
 						}}>
-						<div className="navbarCircle otto">
-							<i className="fas fa-paw " />
+						<div className="navbarCircle otto ottoBox ">
+							<i className="fas fa-paw mx-auto" />
 						</div>
-						<div className=" otto">PETREP</div>
+						<span className="brandLogo otto">PETREP</span>
 					</Navbar.Brand>
 					<Nav className="ml-auto navLinkStyle">
 						<Nav.Link>
 							<span
-								style={{ color: "white" }}
+								className="whiteText otto"
 								onClick={() => {
 									history.push("/dashboard");
 								}}>
@@ -43,14 +43,14 @@ export const PetNavbar = () => {
 			) : (
 				<Navbar collapseOnSelect className="bannerNav px-5 w-100 fixed-top">
 					<Navbar.Brand href="/">
-						<div className="navbarCircle otto">
+						<div className="navbarCircle otto ottoBox">
 							<i className="fas fa-paw" />
 						</div>
 						<span className="brandLogo otto">PETREP</span>
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 					<Navbar.Collapse id="responsive-navbar-nav">
-						<Nav className="ml-auto ">
+						<Nav className="ml-auto navLinkStyle">
 							<span className="whiteText otto">
 								Have an account?{" "}
 								<button type="button" className="postButton" onClick={() => history.push("/login")}>

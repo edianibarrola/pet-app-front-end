@@ -41,8 +41,8 @@ export function PetModal(props) {
 	};
 	return (
 		<>
-			<Button className="btn pcGradientLightGreen m-3 mx-auto " onClick={handleShow}>
-				<i className="fas fa-edit mx-auto fa-1x " />
+			<Button className="btn pcGradientLightGreen m-3 mx-auto ottoBox" onClick={handleShow}>
+				<i className="fas fa-edit mx-auto fa-1x otto" />
 			</Button>
 			<Modal show={show} size="lg" onHide={handleClose}>
 				<Modal.Header className="pcDarkGreen" closeButton>
@@ -155,10 +155,11 @@ export function PetModal(props) {
 					</form>
 				</Modal.Body>
 				<Modal.Footer className="pcDarkGreen">
-					<Button variant="secondary" onClick={handleClose}>
+					<Button variant="secondary" onClick={handleClose} className="ottoBox">
 						Close
 					</Button>
 					<Button
+						className="ottoBox"
 						variant="primary"
 						onClick={() => {
 							if (props.petValues) {

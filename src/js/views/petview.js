@@ -25,11 +25,10 @@ export default class PetView extends React.Component {
 							<div>
 								<div className="row">
 									<div className=" mx-auto">
-										<button className="btn pcButton boxShadow mt-5 ">
-											<div className="align-items-center">
-												<div>
-													<h4>Add new pet</h4>
-												</div>
+										<button className="btn pcButton ottoBox mt-5 ">
+											<div className="align-items-center otto">
+												<h4>New pet</h4>
+
 												<PetModal
 													show={this.state.isOpen}
 													onClose={this.toggleModal}

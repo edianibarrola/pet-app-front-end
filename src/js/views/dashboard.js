@@ -25,64 +25,64 @@ export const Dashboard = () => {
 			</div>
 			{/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 			<div className="row">
-				<div className="col overviewcard boxShadow" onClick={() => history.push("/pets")}>
-					<div className="circle blue">
-						<i className="fas fa-bone align-middle" />
+				<div className="col overviewcard boxShadow " onClick={() => history.push("/pets")}>
+					<div className="circle blue ottoBox">
+						<i className="fas fa-bone align-middle otto" />
 					</div>
-					<div className="cardFont">Your Pets</div>
+					<div className="cardFont otto">Your Pets</div>
 				</div>
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/habitats")}>
-					<div className="circle green">
-						<i className="fas fa-globe-americas align-middle" />
+					<div className="circle green ottoBox">
+						<i className="fas fa-globe-americas align-middle otto" />
 					</div>
-					<div className="cardFont">Habitats</div>
+					<div className="cardFont otto">Habitats</div>
 				</div>
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/calendar")}>
-					<div className="circle red">
-						<i className="far fa-calendar-alt align-middle" />
+					<div className="circle red ottoBox">
+						<i className="far fa-calendar-alt align-middle otto" />
 					</div>
-					<div className="cardFont">Calendar</div>
+					<div className="cardFont otto">Calendar</div>
 				</div>
 			</div>
 			{/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 			<div className="row">
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/lostpets")}>
-					<div className="circle yellow">
-						<i className="fas fa-paw align-middle" />
+					<div className="circle yellow ottoBox">
+						<i className="fas fa-exclamation align-middle otto" />
 					</div>
-					<div className="cardFont">Lost Pets</div>
+					<div className="cardFont otto">Lost Pets</div>
 				</div>
-				<div className="col overviewcard boxShadow" onClick={() => history.push("/foundpets")}>
-					<div className="circle orange">
-						<i className="fas fa-paw align-middle" />
+				<div className="col overviewcard boxShadow " onClick={() => history.push("/foundpets")}>
+					<div className="circle orange ottoBox">
+						<i className="far fa-bell align-middle otto" />
 					</div>
-					<div className="cardFont">Found Pets</div>
+					<div className="cardFont otto">Found Pets</div>
 				</div>
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/profile")}>
-					<div className="circle purple">
-						<i className="fas fa-user-circle align-middle" />
+					<div className="circle purple ottoBox">
+						<i className="fas fa-user-circle align-middle otto" />
 					</div>
-					<div className="cardFont">Profile</div>
+					<div className="cardFont otto">Profile</div>
 				</div>
 			</div>
 			{/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 			<div>
 				<div className="row">
 					<div className="col">
-						<div className="card text-center ">
-							<div className="card-header">Your Events</div>
-							<div className="card-body">
+						<div className="card text-center boxShadow ">
+							<div className="card-header otto">Your Events</div>
+							<div className="card-body ">
 								<Calendar />
 							</div>
 						</div>
 					</div>
 					<div className="col">
-						<div className="card text-center ">
-							<div className="card-header">Your Latest Messages</div>
+						<div className="card text-center boxShadow">
+							<div className="card-header otto">Your Latest Messages</div>
 							<div className="card-body darkerGreen">
 								{/* starts here */}
 								<div className="card text-center">
-									<div className="card-header">From Vivian</div>
+									<div className="card-header otto">From Vivian</div>
 									<div className="card-body" style={{ background: "white", color: "black" }}>
 										<p className="card-text">
 											Hey, I believe you found my dog! Can you call me at ###-###-####? Thanks!
@@ -95,7 +95,7 @@ export const Dashboard = () => {
 								{/* ends here */}
 								{/* starts here */}
 								<div className="card text-center">
-									<div className="card-header">From Timothy</div>
+									<div className="card-header otto">From Timothy</div>
 									<div className="card-body" style={{ background: "white", color: "black" }}>
 										<p className="card-text">
 											Hey, I believe you found my cat! Can you call me at ###-###-####? Thanks!
@@ -108,7 +108,7 @@ export const Dashboard = () => {
 								{/* ends here */}
 								{/* starts here */}
 								<div className="card text-center">
-									<div className="card-header">From Carl</div>
+									<div className="card-header otto">From Carl</div>
 									<div className="card-body" style={{ background: "white", color: "black" }}>
 										<p className="card-text">
 											Hey, I believe you found my cat! Can you call me at ###-###-####? Thanks!
@@ -126,20 +126,20 @@ export const Dashboard = () => {
 			</div>
 			<div className="row ">
 				<div className="col">
-					<div className="card text-center ">
-						<div className="card-header">Services</div>
+					<div className="card text-center boxShadow ">
+						<div className="card-header otto">Services</div>
 						<div className="card-body">
 							<div className="overviewcard boxShadow" onClick={() => history.push("/adoptpage")}>
-								<div className="circle pink">
-									<i className="fas fa-paw align-middle" />
+								<div className="circle pink ottoBox">
+									<i className="fas fa-paw align-middle otto" />
 								</div>
-								<div className="cardFont">Adopt A Pet!</div>
+								<div className="cardFont otto">Adopt A Pet!</div>
 							</div>
 							<div className="overviewcard boxShadow" onClick={() => history.push("/map")}>
-								<div className="circle brown">
-									<i className="fas fa-map align-middle" />
+								<div className="circle brown ottoBox">
+									<i className="fas fa-map align-middle otto" />
 								</div>
-								<div className="cardFont">Map</div>
+								<div className="cardFont otto">Map</div>
 							</div>
 						</div>
 					</div>

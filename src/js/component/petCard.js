@@ -36,12 +36,12 @@ export const PetCard = props => {
 	return (
 		<Accordion defaultActiveKey="1">
 			<div className="p-4 m-4 petBG boxShadow minw-20 ">
-				<Card style={{ width: "25rem" }}>
+				<Card className="boxShadow" style={{ width: "25rem" }}>
 					<Accordion.Toggle as={Card.Header} eventKey="0" className="pcGradientLightGreen">
 						<div className="d-flex justify-content-center ">
-							<Image src="https://picsum.photos/150" roundedCircle fluid />
+							<Image className="ottoBox" src="https://picsum.photos/150" roundedCircle fluid />
 						</div>
-						<div className=" text-center">
+						<div className="otto text-center">
 							<h2>{info.name}</h2>
 						</div>
 					</Accordion.Toggle>
@@ -72,8 +72,11 @@ export const PetCard = props => {
 							<div className="d-flex align-items-center justify-content-end mb-auto">
 								<div className="col ">
 									<label>
-										<Button variant="danger" onClick={() => actions.deletePet(currentPetId)}>
-											<i className="far fa-trash-alt" />
+										<Button
+											className="ottoBox"
+											variant="danger"
+											onClick={() => actions.deletePet(currentPetId)}>
+											<i className="far fa-trash-alt otto" />
 										</Button>
 									</label>
 								</div>

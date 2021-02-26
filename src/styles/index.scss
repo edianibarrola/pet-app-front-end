@@ -70,6 +70,9 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5f8989",endCo
 .bannerNav{
     background-color: #005e51;
     background-image: url("https://www.transparenttextures.com/patterns/xv.png");
+    
+    border-bottom: 2px solid  black;
+    box-shadow: 2px 2px 4px #000000;
 }
 .pcTextYellow {
     color: #dabe96;
@@ -381,11 +384,25 @@ $color-white: #FFF;
 .otto {
   
   color: white;
-  text-shadow: 0 1px 0 #ccc,
-               0 2px 0 #c9c9c9,
-               0 3px 0 #bbb,
-               0 4px 0 #b9b9b9,
-               0 5px 0 #aaa,
+  text-shadow: 0 1px 0 rgb(184, 184, 184),
+               0 2px 0 #b6b6b6,
+               0 3px 0 rgb(153, 153, 153),
+               0 4px 0 #7c7c7c,
+               0 5px 0 rgb(100, 100, 100),
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+.ottoBox {
+    box-shadow: 0 1px 0 rgb(184, 184, 184),
+               0 2px 0 #b6b6b6,
+               0 3px 0 rgb(153, 153, 153),
+               0 4px 0 #7c7c7c,
+               0 5px 0 rgb(100, 100, 100),
                0 6px 1px rgba(0,0,0,.1),
                0 0 5px rgba(0,0,0,.1),
                0 1px 3px rgba(0,0,0,.3),

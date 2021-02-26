@@ -28,8 +28,8 @@ export function HabitatModal(props) {
 	};
 	return (
 		<>
-			<Button className="btn pcGradientLightGreen mb-3  mx-auto " onClick={handleShow}>
-				<i className="fas fa-edit mx-auto fa-1x " />
+			<Button className="btn pcGradientLightGreen mb-3  mx-auto ottoBox" onClick={handleShow}>
+				<i className="fas fa-edit mx-auto fa-1x otto" />
 			</Button>
 			<Modal show={show} size="lg" onHide={handleClose}>
 				<Modal.Header className="pcDarkGreen" closeButton>
@@ -148,10 +148,11 @@ export function HabitatModal(props) {
 					</form>
 				</Modal.Body>
 				<Modal.Footer className="pcDarkGreen">
-					<Button variant="secondary" onClick={handleClose}>
+					<Button className="ottoBox" variant="secondary" onClick={handleClose}>
 						Close
 					</Button>
 					<Button
+						className="ottoBox"
 						variant="primary"
 						onClick={() => {
 							if (props.habitat) {

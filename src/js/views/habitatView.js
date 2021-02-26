@@ -19,11 +19,10 @@ export default class HabitatView extends React.Component {
 						<div className="mt-5 pt-5 py-5 px-2 bgLanding  ">
 							<div className="row">
 								<div className="mx-auto ">
-									<button className="btn pcButton mt-5 boxShadow">
-										<div className="align-items-center">
-											<div>
-												<h4>Add new Habitat</h4>
-											</div>
+									<button className="btn pcButton mt-5 ottoBox">
+										<div className="align-items-center otto">
+											<h4>New Habitat</h4>
+
 											<HabitatModal
 												show={this.state.isOpen}
 												onClose={this.toggleModal}

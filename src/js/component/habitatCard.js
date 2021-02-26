@@ -27,6 +27,7 @@ export const HabitatCard = props => {
 	return (
 		<div className="m-5 p-4  habitatBG boxShadow">
 			<Card
+				className="boxShadow"
 				text="dark"
 				style={{ width: "40rem", height: "90%", background: "rgb(140,182,182)", font_size: "35px" }}>
 				<div className="row modalStyle">
@@ -73,10 +74,10 @@ export const HabitatCard = props => {
 					<div className="col-12 d-flex mt-auto justify-content-between align-items-end">
 						<div className="col-6 d-flex float-left">
 							<Button
-								className="mb-3"
+								className="mb-3 ottoBox"
 								variant="danger"
 								onClick={() => actions.deleteHabitat(currentHabitatId)}>
-								<i className="far fa-trash-alt " />
+								<i className="far fa-trash-alt otto" />
 							</Button>
 						</div>
 						<div className="col-6 d-flex float-right">
