@@ -17,6 +17,8 @@ li {
 // }
 body  {
     color:rgb(75, 74, 74);
+    font-family:"Indie Flower";
+    font-size: 1.3em;
 };
 h1{
     font-size: 300%;
@@ -143,7 +145,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5f8989",endCo
 }
 
 .postCards{
-    background-color: white;
+    background-color: #ffffff;
+    background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
     border-radius: 20px 0px 0px 20px;
     padding: 40px 0px 40px 0px;
 }
@@ -227,83 +230,149 @@ h5{
 }
 .modalStyle {
     font-size: 1.75rem;
-    
     margin-bottom: 2%;
 }
 
 // :root {
-//   --backgroundColor: rgba(246, 241, 209);
-//   --colorShadeA: rgb(106, 163, 137);
-//   --colorShadeB: rgb(121, 186, 156);
-//   --colorShadeC: rgb(150, 232, 195);
-//   --colorShadeD: rgb(187, 232, 211);
-//   --colorShadeE: rgb(205, 255, 232);
+//     --backgroundColor: rgba(246, 241, 209);
+//     --colorShadeA: rgb(106, 163, 137);
+//     --colorShadeB: rgb(121, 186, 156);
+//     --colorShadeC: rgb(150, 232, 195);
+//     --colorShadeD: rgb(187, 232, 211);
+//     --colorShadeE: rgb(205, 255, 232);
 // }
 
 // @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
 // * {
-//   box-sizing: border-box;
+//     box-sizing: border-box;
 // }
 // *::before, *::after {
-//   box-sizing: border-box;
+//     box-sizing: border-box;
 // }
 // button {
-//   position: relative;
-//   display: inline-block;
-//   cursor: pointer;
-//   outline: none;
-//   border: 0;
-//   vertical-align: middle;
-//   text-decoration: none;
-//   font-size: 1.5rem;
+//     position: relative;
+//     display: inline-block;
+//     cursor: pointer;
+//     outline: none;
+//     border: 0;
+//     vertical-align: middle;
+//     text-decoration: none;
+//     font-size: 1.5rem;
 //     color:var(--colorShadeA);
-//   font-weight: 700;
-//   text-transform: uppercase;
-//   font-family: inherit;
-//   color:rgb(106,163,137);
+//     font-weight: 700;
+//     text-transform: uppercase;
+//     font-family: inherit;
+//     color:rgb(106,163,137);
 // }
 
 // button.big-button {
-//    padding: 1em 2em;
-//    border: 2px solid var(--colorShadeA);
-//   border-radius: 1em;
-//   background: var(--colorShadeE);
-// transform-style: preserve-3d;
-//    transition: all 175ms cubic-bezier(0, 0, 1, 1);
+//     padding: 1em 2em;
+//     border: 2px solid var(--colorShadeA);
+//     border-radius: 1em;
+//     background: var(--colorShadeE);
+//     transform-style: preserve-3d;
+//     transition: all 175ms cubic-bezier(0, 0, 1, 1);
 // }
+
 // button.big-button::before {
-//   position: absolute;
-//   content: '';
-//   width: 100%;
-//   height: 100%;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   background: var(--colorShadeC);
-//   border-radius: inherit;
+//     position: absolute;
+//     content: '';
+//     width: 100%;
+//     height: 100%;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background: var(--colorShadeC);
+//     border-radius: inherit;
 //     box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.75em 0 0 var(--colorShadeA);
-//  transform: translate3d(0, 0.75em, -1em);
-//      transition: all 175ms cubic-bezier(0, 0, 1, 1);
+//     transform: translate3d(0, 0.75em, -1em);
+//     transition: all 175ms cubic-bezier(0, 0, 1, 1);
 // }
 
 
 // button.big-button:hover {
-//   background: var(--colorShadeD);
-//   transform: translate(0, 0.375em);
+//     background: var(--colorShadeD);
+//     transform: translate(0, 0.375em);
 // }
 
 // button.big-button:hover::before {
-//   transform: translate3d(0, 0.75em, -1em);
+//     transform: translate3d(0, 0.75em, -1em);
 // }
 
 // button.big-button:active {
-//             transform: translate(0em, 0.75em);
+//     transform: translate(0em, 0.75em);
 // }
 
 // button.big-button:active::before {
-//   transform: translate3d(0, 0, -1em);
-  
-//       box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
-
+//     transform: translate3d(0, 0, -1em);
+//     box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
 // }
+
+.postButton {
+	box-shadow:inset 0px 34px 0px -15px #3dc21b;
+	background-color:#44c767;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2f6627;
+}
+.postButton:hover {
+	background-color:#5cbf2a;
+}
+.postButton:active {
+	position:relative;
+	top:1px;
+}
+
+$ruler: 16px;
+$color-bg: #EBECF0;
+$color-shadow: #BABECC;
+$color-white: #FFF;
+
+.postInput {
+    margin-right: $ruler/2;
+    box-shadow:  inset 2px 2px 5px $color-shadow, inset -5px -5px 10px $color-white;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+  outline: 0;
+  font-size: $ruler;
+  border-radius: $ruler*20;
+  padding: $ruler;
+  background-color:$color-bg;
+  text-shadow: 1px 1px 0 $color-white;
+
+&:focus {
+    box-shadow:  inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+    }
+}
+
+.bottomBorder{
+    border-bottom: 2px solid #18ab29;
+    width: 75%;
+}
+
+.topBorder{
+    border-top: 2px solid #18ab29;
+    width: 75%;
+}
+
+.cardBg{
+    background-color: #ffffff;
+    background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png");
+}
+
+.brandLogo{
+    font-size: 40px;
+    color: white;
+}

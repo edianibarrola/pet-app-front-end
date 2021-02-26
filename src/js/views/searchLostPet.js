@@ -18,7 +18,7 @@ export const SearchLostPet = () => {
 				<div style={{ padding: "50px" }} />
 				<div>
 					<p className="justify-content-center d-flex">
-						<Link className="btn btn-primary" to="/postlostpet">
+						<Link className="postButton" to="/postlostpet">
 							Post Looking For Lost Pet
 						</Link>
 					</p>

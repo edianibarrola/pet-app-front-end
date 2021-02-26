@@ -53,14 +53,16 @@ const Login = () => {
 				<div>
 					<div className="row mx-auto boxShadow">
 						<div className="col-8 cardForm">
-							<h2 className="text-center mb-4">Log In</h2>
+							<h1 className="text-center mb-4">Log In</h1>
 							<Form>
 								<Form.Group id="email">
 									<Form.Label>Email</Form.Label>
 									<Form.Control
 										type="email"
+										className="postInput"
 										onChange={e => setEmail(e.target.value)}
 										value={email}
+										placeholder="Enter Email"
 										required
 									/>
 								</Form.Group>
@@ -69,17 +71,21 @@ const Login = () => {
 									<Form.Label>Password</Form.Label>
 									<Form.Control
 										type="password"
+										className="postInput"
 										onChange={e => setPassword(e.target.value)}
 										value={password}
+										placeholder="Password"
 										required
 									/>
 								</Form.Group>
 								<p>{store.passwordError}</p>
 							</Form>
 							<div>
-								<Button className="w-100 text-center mt-2" onClick={() => handleLogin(email, password)}>
+								<button
+									className="w-100 text-center mt-2 postButton"
+									onClick={() => handleLogin(email, password)}>
 									Sign in
-								</Button>
+								</button>
 							</div>
 							<div className="w-100 text-center mt-2">
 								<>

@@ -17,13 +17,14 @@ export const PetNavbar = () => {
 							history.push("/dashboard");
 						}}>
 						<div className="navbarCircle">
-							<i className="fas fa-paw" />
+							<i className="fas fa-paw " />
 						</div>
-						<span style={{ fontSize: "20px" }}>PETREP</span>
+						<span className="brandLogo">PETREP</span>
 					</Navbar.Brand>
 					<Nav className="ml-auto navLinkStyle">
 						<Nav.Link>
 							<span
+								style={{ color: "white" }}
 								onClick={() => {
 									history.push("/dashboard");
 								}}>
@@ -31,11 +32,11 @@ export const PetNavbar = () => {
 							</span>
 						</Nav.Link>
 						<span className="whiteText">
-							<button type="button" className="btn btn-success">
-								<Link to="/" onClick={actions.handleLogOut}>
+							<Link to="/" onClick={actions.handleLogOut}>
+								<button type="button" className="postButton align-middle">
 									Logout
-								</Link>
-							</button>
+								</button>
+							</Link>
 						</span>
 					</Nav>
 				</Navbar>
@@ -45,17 +46,14 @@ export const PetNavbar = () => {
 						<div className="navbarCircle">
 							<i className="fas fa-paw" />
 						</div>
-						<span style={{ fontSize: "20px" }}>PETREP</span>
+						<span className="brandLogo">PETREP</span>
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 					<Navbar.Collapse id="responsive-navbar-nav">
 						<Nav className="ml-auto ">
 							<span className="whiteText">
 								Have an account?{" "}
-								<button
-									type="button"
-									className="btn btn-success"
-									onClick={() => history.push("/login")}>
+								<button type="button" className="postButton" onClick={() => history.push("/login")}>
 									Login
 								</button>
 							</span>

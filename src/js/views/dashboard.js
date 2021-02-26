@@ -16,7 +16,7 @@ export const Dashboard = () => {
 
 	return (
 		<div className="bgLanding" style={{ height: "auto" }}>
-			<div style={{ padding: "30px" }} />
+			<div style={{ padding: "40px" }} />
 
 			<div className="main-header w-100">
 				<div className="pottaOne">
@@ -27,19 +27,19 @@ export const Dashboard = () => {
 			<div className="row">
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/pets")}>
 					<div className="circle blue">
-						<i className="fas fa-bone" />
+						<i className="fas fa-bone align-middle" />
 					</div>
 					<div className="cardFont">Your Pets</div>
 				</div>
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/habitats")}>
 					<div className="circle green">
-						<i className="fas fa-globe-americas" />
+						<i className="fas fa-globe-americas align-middle" />
 					</div>
 					<div className="cardFont">Habitats</div>
 				</div>
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/calendar")}>
 					<div className="circle red">
-						<i className="far fa-calendar-alt" />
+						<i className="far fa-calendar-alt align-middle" />
 					</div>
 					<div className="cardFont">Calendar</div>
 				</div>
@@ -48,19 +48,19 @@ export const Dashboard = () => {
 			<div className="row">
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/lostpets")}>
 					<div className="circle yellow">
-						<i className="fas fa-paw" />
+						<i className="fas fa-paw align-middle" />
 					</div>
 					<div className="cardFont">Lost Pets</div>
 				</div>
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/foundpets")}>
 					<div className="circle orange">
-						<i className="fas fa-paw" />
+						<i className="fas fa-paw align-middle" />
 					</div>
 					<div className="cardFont">Found Pets</div>
 				</div>
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/profile")}>
 					<div className="circle purple">
-						<i className="fas fa-user-circle" />
+						<i className="fas fa-user-circle align-middle" />
 					</div>
 					<div className="cardFont">Profile</div>
 				</div>
@@ -131,13 +131,13 @@ export const Dashboard = () => {
 						<div className="card-body">
 							<div className="overviewcard boxShadow" onClick={() => history.push("/adoptpage")}>
 								<div className="circle pink">
-									<i className="fas fa-paw" />
+									<i className="fas fa-paw align-middle" />
 								</div>
 								<div className="cardFont">Adopt A Pet!</div>
 							</div>
 							<div className="overviewcard boxShadow" onClick={() => history.push("/map")}>
 								<div className="circle brown">
-									<i className="fas fa-map" />
+									<i className="fas fa-map align-middle" />
 								</div>
 								<div className="cardFont">Map</div>
 							</div>

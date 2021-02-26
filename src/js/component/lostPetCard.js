@@ -11,12 +11,12 @@ export const LostPetCard = props => {
 				<div className="lostBG boxShadow p-2 m-4">
 					<div className="card">
 						<img className="card-img-top" src={props.propPet.post_picture} alt="Card image cap" />
-						<div className="card-body">
+						<div className="card-body cardBg">
 							<i
 								className="far fa-times-circle float-right"
 								onClick={() => actions.deletePost(props.propPet.id)}
 							/>
-							<h4 className="mb-4">Name: {props.propPet.name}</h4>
+							<h4>Name: {props.propPet.name}</h4>
 
 							<div className="mb-4">
 								<div>
@@ -32,7 +32,8 @@ export const LostPetCard = props => {
 									<h4>Last Seen Location: {props.propPet.last_seen}</h4>
 								</div>
 								<div>
-									<h4>Description: {props.propPet.description}</h4>
+									<h4>Description:</h4>
+									{props.propPet.description ? <p>{props.propPet.description}</p> : null}
 								</div>
 							</div>
 						</div>
