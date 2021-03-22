@@ -15,15 +15,15 @@ export const Dashboard = () => {
 	}, []);
 
 	return (
+		//////////////////////////////////////////////////////////// Welcome Message with Banner///////////////////////////////////////////////////////////////////////////////////////////////
 		<div className="bgLanding" style={{ height: "auto" }}>
-			<div style={{ padding: "40px" }} />
-
+			<div style={{ padding: "43px" }} />
 			<div className="main-header w-100">
 				<div className=" ml-5 otto">
 					Welcome {store.user.username},<div>How are you today?</div>
 				</div>
 			</div>
-			{/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+			{/* ==========================================================Your Pets, Habitats, and Calendar Cards ==================================================================================*/}
 			<div className="row">
 				<div className="col overviewcard boxShadow " onClick={() => history.push("/pets")}>
 					<div className="circle blue ottoBox">
@@ -31,10 +31,12 @@ export const Dashboard = () => {
 					</div>
 					<div className="cardFont otto">Your Pets</div>
 				</div>
+
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/habitats")}>
 					<div className="circle green ottoBox">
 						<i className="fas fa-globe-americas align-middle otto" />
 					</div>
+
 					<div className="cardFont otto">Habitats</div>
 				</div>
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/calendar")}>
@@ -44,7 +46,7 @@ export const Dashboard = () => {
 					<div className="cardFont otto">Calendar</div>
 				</div>
 			</div>
-			{/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+			{/* =====================================================Lost Pets, Found Pets, and Profile Cards ======================================================================================*/}
 			<div className="row">
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/lostpets")}>
 					<div className="circle yellow ottoBox">
@@ -52,12 +54,14 @@ export const Dashboard = () => {
 					</div>
 					<div className="cardFont otto">Lost Pets</div>
 				</div>
+
 				<div className="col overviewcard boxShadow " onClick={() => history.push("/foundpets")}>
 					<div className="circle orange ottoBox">
 						<i className="far fa-bell align-middle otto" />
 					</div>
 					<div className="cardFont otto">Found Pets</div>
 				</div>
+
 				<div className="col overviewcard boxShadow" onClick={() => history.push("/profile")}>
 					<div className="circle purple ottoBox">
 						<i className="fas fa-user-circle align-middle otto" />
@@ -65,7 +69,7 @@ export const Dashboard = () => {
 					<div className="cardFont otto">Profile</div>
 				</div>
 			</div>
-			{/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+			{/* ======================================================Events View, Message View, ======================================================================================================*/}
 			<div>
 				<div className="row">
 					<div className="col">
@@ -124,6 +128,7 @@ export const Dashboard = () => {
 					</div>
 				</div>
 			</div>
+			{/* ============================================================================Services Cards =============================================================================================*/}
 			<div className="row ">
 				<div className="col">
 					<div className="card text-center boxShadow ">

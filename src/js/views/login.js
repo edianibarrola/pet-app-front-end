@@ -48,65 +48,127 @@ const Login = () => {
 	};
 
 	return (
-		<div className="d-flex align-items-center justify-content-center bgLanding" style={{ minHeight: "100vh" }}>
-			<div className="w-100" style={{ maxWidth: "800px" }}>
-				<div>
-					<div className="row mx-auto boxShadow">
-						<div className="col-8 cardForm">
-							<h1 className="text-center mb-4">Login</h1>
-							<Form>
-								<Form.Group id="email">
-									<Form.Label>Email</Form.Label>
-									<Form.Control
-										type="email"
-										className="postInput"
-										onChange={e => setEmail(e.target.value)}
-										value={email}
-										placeholder="Enter Email"
-										required
-									/>
-								</Form.Group>
-								<p>{store.emailError}</p>
-								<Form.Group id="password">
-									<Form.Label>Password</Form.Label>
-									<Form.Control
-										type="password"
-										className="postInput"
-										onChange={e => setPassword(e.target.value)}
-										value={password}
-										placeholder="Password"
-										required
-									/>
-								</Form.Group>
-								<p>{store.passwordError}</p>
-							</Form>
-							<div>
-								<button
-									className="w-100 text-center mt-2 postButton"
-									onClick={() => handleLogin(email, password)}>
-									Sign in
-								</button>
+		//////////////////////////////////////////////////////////////////////////////Desktop////////////////////////////////////////////////////////////////////////////////////////////////////
+		<section>
+			<div className="desktop-login bgLanding " style={{ minHeight: "100vh" }}>
+				<div className="w-100 input-forms ml-5 mr-5">
+					<div>
+						<div className="row mx-auto boxShadow">
+							<div className="col-8 cardForm">
+								<h1 className="text-center mb-4">Login</h1>
+								<Form>
+									<Form.Group id="email">
+										<Form.Label>Email</Form.Label>
+										<Form.Control
+											type="email"
+											className="postInput"
+											onChange={e => setEmail(e.target.value)}
+											value={email}
+											placeholder="Enter Email"
+											required
+										/>
+									</Form.Group>
+									<p>{store.emailError}</p>
+									<Form.Group id="password">
+										<Form.Label>Password</Form.Label>
+										<Form.Control
+											type="password"
+											className="postInput"
+											onChange={e => setPassword(e.target.value)}
+											value={password}
+											placeholder="Password"
+											required
+										/>
+									</Form.Group>
+									<p>{store.passwordError}</p>
+								</Form>
+								<div>
+									<button
+										className="w-100 text-center mt-2 postButton"
+										onClick={() => handleLogin(email, password)}>
+										Sign in
+									</button>
+								</div>
+								<div className="w-100 text-center mt-2">
+									<>
+										<p>
+											Don&apos;t have an account?{" "}
+											<Link
+												to="/signup"
+												onClick={() => {
+													actions.clearErrors();
+												}}>
+												Sign up
+											</Link>
+										</p>
+									</>
+								</div>
 							</div>
-							<div className="w-100 text-center mt-2">
-								<>
-									<p>
-										Don&apos;t have an account?{" "}
-										<Link
-											to="/signup"
-											onClick={() => {
-												actions.clearErrors();
-											}}>
-											Sign up
-										</Link>
-									</p>
-								</>
-							</div>
+							<div className="col-4 loginPicture" />
 						</div>
-						<div className="col-4 loginPicture" />
 					</div>
 				</div>
 			</div>
-		</div>
+			{/* =============================================================================Mobile============================================================================================== */}
+			<div className="mobile-login bgLanding" style={{ minHeight: "100vh" }}>
+				<div className="w-100 input-forms ml-5 mr-5">
+					<div>
+						<div className="row mx-auto">
+							<div className="col cardForm">
+								<h1 className="text-center mb-4">Login</h1>
+								<Form>
+									<Form.Group id="email">
+										<Form.Label>Email</Form.Label>
+										<Form.Control
+											type="email"
+											className="postInput"
+											onChange={e => setEmail(e.target.value)}
+											value={email}
+											placeholder="Enter Email"
+											required
+										/>
+									</Form.Group>
+									<p>{store.emailError}</p>
+									<Form.Group id="password">
+										<Form.Label>Password</Form.Label>
+										<Form.Control
+											type="password"
+											className="postInput"
+											onChange={e => setPassword(e.target.value)}
+											value={password}
+											placeholder="Password"
+											required
+										/>
+									</Form.Group>
+									<p>{store.passwordError}</p>
+								</Form>
+								<div>
+									<button
+										className="w-100 text-center mt-2 postButton"
+										onClick={() => handleLogin(email, password)}>
+										Sign in
+									</button>
+								</div>
+								<div className="w-100 text-center mt-2">
+									<>
+										<p>
+											Don&apos;t have an account?{" "}
+											<Link
+												to="/signup"
+												onClick={() => {
+													actions.clearErrors();
+												}}>
+												Sign up
+											</Link>
+										</p>
+									</>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 	);
 };
 

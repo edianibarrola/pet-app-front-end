@@ -30,18 +30,7 @@
     text-align: center;
 }
 
-// .profileImg {
-//     display: flex;
-//     align-items: center;
-//     margin:auto;
-//     width: 200px;
-//     height: 200px;
-//     border-radius: 50%;
-//     background-image: url("https://image.cnbcfm.com/api/v1/image/105992231-1561667465295gettyimages-521697453.jpeg?v=1561667497&w=1600&h=900");
-//     background-size:cover;
-//     background-repeat: no-repeat;
-//     border: 1px solid black;
-// }
+
 
 .navbarCircle {
     position: relative;
@@ -55,19 +44,6 @@
     margin-right: 5px;
     background: rgb(248,197,85);
 }
-// .navbarCircle {
-    
-//     display: inline-block;
-//     align-items:center;
-//     justify-content:center;
-//     width: 55px;
-//     height: 55px;
-//     border-radius: 50%;
-//     color: white;   
-//     background: rgb(248,197,85);
-//     font-size: 40px;
-// }
-
 
 .cardFont{
     font-size: 30px;
@@ -103,7 +79,6 @@
     background:rgb(92,64,51);
 }
 .card {
-    // background-color: rgb(95,137,137);
     margin: 20px;
     border-radius:0px 0px 20px 20px;
 }
@@ -126,7 +101,6 @@
 .bgSearch{
     background-color: rgb(33,194,143);
     background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
-    //background-image: url("https://www.transparenttextures.com/patterns/random-grey-variations.png");
 }
 
 .bgLost{
